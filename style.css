@@ -59,3 +59,7 @@ header{
     font-size: 17px;
     color: var(--bleu-violet);
 }
+
+#idees_verbalisation{
+  line-height: 1.5;
+}

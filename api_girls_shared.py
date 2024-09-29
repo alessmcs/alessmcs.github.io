@@ -1,6 +1,6 @@
 # Master Thesis
 # Author: Alexander Petrov
-from asyncore import write
+#from asyncio import write
 
 import math
 import re
@@ -11,6 +11,9 @@ from collections import Counter
 from matplotlib import pyplot as plt
 import pickle
 import numpy as np
+import csv
+
+LS_FR_PATH = "C:/_Code/courses/IFT3150_projet/lexical-system-fr/7/ls-fr-V2.1/"
 
 
 
@@ -25,19 +28,18 @@ def extract_juice(raw):
 # For example, if i == 2, we build dataframe2, where the 2 comes from the resource
 # We can always just paste the big string in a main function, and go from there
 def get_df(i: int):
-    "/Users/alessandramancas/Desktop/lexical-system-fr/10/ls-fr-V3.1 "
     dfs = r"""
-    df1 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/01-lsnodes.csv", sep='\t')
-    df2 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/02-lsentries.csv", sep='\t')
-    df4 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/04-lscopolysemy-rel.csv", sep='\t')
-    df6 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/06-lsgramcharac-rel.csv", sep='\t')
-    df8 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/08-lswordforms.csv", sep='\t')
-    df10 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/10-lssemlabel-rel.csv", sep='\t')
-    df11 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/11-lspropform-rel.csv", sep='\t')
-    df13 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/13-lsdef.csv", sep='\t')
-    df15 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/15-lslf-rel.csv", sep='\t') # this one & #14
-    df17 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/17-lsex.csv", sep='\t')
-    df18 = pd.read_csv("../lexical-system-fr/10/ls-fr-V3.1/18-lsex-rel.csv", sep='\t')
+    df1 = pd.read_csv(LS_FR_PATH+"01-lsnodes.csv", sep='\t')
+    df2 = pd.read_csv(LS_FR_PATH+"02-lsentries.csv", sep='\t')
+    df4 = pd.read_csv(LS_FR_PATH+"04-lscopolysemy-rel.csv", sep='\t')
+    df6 = pd.read_csv(LS_FR_PATH+"06-lsgramcharac-rel.csv", sep='\t')
+    df8 = pd.read_csv(LS_FR_PATH+"08-lswordforms.csv", sep='\t')
+    df10 = pd.read_csv(LS_FR_PATH+"10-lssemlabel-rel.csv", sep='\t')
+    df11 = pd.read_csv(LS_FR_PATH+"11-lspropform-rel.csv", sep='\t')
+    df13 = pd.read_csv(LS_FR_PATH+"13-lsdef.csv", sep='\t')
+    df15 = pd.read_csv(LS_FR_PATH+"15-lslf-rel.csv", sep='\t')
+    df17 = pd.read_csv(LS_FR_PATH+"17-lsex.csv", sep='\t')
+    df18 = pd.read_csv(LS_FR_PATH+"18-lsex-rel.csv", sep='\t')
     """
 
     pattern = "df([0-9]+) = (.*?)\n"
@@ -111,7 +113,7 @@ def get_merged_values(df15, i: int) -> int:
 def get_relation_dict():
     # Parse the XML file
     # tree = ET.parse("lexical-system-fr/9/ls-fr-V3/14-lslf-model.xml")
-    tree = ET.parse("../lexical-system-fr/10/ls-fr-V3.1/14-lslf-model.xml")
+    tree =  ET.parse(LS_FR_PATH+"14-lslf-model.xml")
 
     root = tree.getroot()
 
@@ -146,7 +148,7 @@ def get_relation_name(df15, i: int, relations) -> (str, str):
     return name, family, separator
 
 
-def write_to_file(name_rather_than_id=True):
+def create_map_to_write(name_rather_than_id=True):
     df15 = get_df(15)
 
     N = len(df15)
@@ -179,7 +181,7 @@ def write_to_file(name_rather_than_id=True):
     #         s = f"{relation} ({source}) =  {target} [{family}, {merged}, {separator}]\n"
     #         f.write(s)
 
-    for i in tqdm(range(N), desc="writing to file", ascii=True):
+    for i in tqdm(range(N), desc="creating map", ascii=True):
         source, target = get_endpoints(df15, i, mapping, name_rather_than_id)
         relation, family, separator = get_relation_name(df15, i, relations)
 
@@ -194,8 +196,8 @@ def write_to_file(name_rather_than_id=True):
             else:
                 everything[relation][source].append([target, family, separator])
 
-    for fl in everything:
-        print(str(fl) + " " + str(everything[fl]))
+    #for fl in everything:
+    #    print(str(fl) + " " + str(everything[fl]))
 
     return everything
 
@@ -445,29 +447,8 @@ def get_para_synta_relations():
     return paradigmatics, syntagmatics
 
 
-
-if __name__ == "__main__":
-
-    # relation_dict = get_relation_dict()
-    # print(relation_dict)
-    # with open('relation_dict.txt', 'w') as f:
-    #     for line in relation_dict:
-    #      f.write(line + ',' + str(relation_dict[line][0]) + '\n')
-    #
-    # word_id_mapping = get_word_from_id_mapping()
-    # print(word_id_mapping)
-    # with open('word_from_id_mapping.txt', 'w') as f:
-    #     for line in word_id_mapping:
-    #      f.write(line + ',' + str(word_id_mapping[line]) + '\n')
-    #      print(line)
-
-    # Get all the relations & examples
-    everything = write_to_file()
-
-    # sort map by the one w the most examples?
-
-    # format & print
-    with open('relations_examples', 'w') as f:
+def write_readable_file(everything:dict):
+     with open('relations_examples.txt', 'w', encoding="utf-8") as f:
         for relation in everything:
             f.write(relation + '\n')
             for exemple_key in everything[relation]:
@@ -477,6 +458,59 @@ if __name__ == "__main__":
                     string += str(target[2]) + str(target[0]) + ' '
                 string += '\n'
                 f.write(string)
+
+# Fichier tab separated values car il y a déjà les séparateurs ; et ,
+# Format des colonnes:
+# mot_input     mot_output_1    mot_output_2    mot_output_3    ...
+def write_tsv(everything:dict):
+    with open('relations_tsv.tsv', 'w', encoding="utf-8") as f:
+        for relation in everything:
+            f.write('>>>\t'+ relation + '\n')
+            for exemple_key in everything[relation]:
+                string = str(exemple_key) + '\t'
+                # Pour chaque elem du tableau de la clé, écrire juste le 1er elem + separateur
+                for target in everything[relation][exemple_key]:
+                    string += str(target[2]) + str(target[0]) + '\t'
+                string += '\n'
+                f.write(string)
+
+def read_tsv(file_to_read):
+    dictionary = {}
+    with open(file_to_read, encoding="utf-8") as tsv:
+        for line in csv.reader(tsv, delimiter="\t"):
+            if line[0]== ">>>":     # nouvelle relation
+                relation = line[1]
+                dictionary[relation] = {}
+            else:
+                source = line[0]
+                dictionary[relation][source] = line[1:-1]
+    print(dictionary)
+
+
+
+            
+
+
+
+if __name__ == "__main__":
+    # Get all the relations & examples
+    everything = create_map_to_write()
+
+    # sort map by the one w the most examples?
+
+    # format & print
+    write_readable_file(everything)
+    write_tsv(everything)
+    read_tsv('relations_tsv.tsv')
+
+
+
+
+
+
+
+
+
 
     # TODO: use ids!!
 

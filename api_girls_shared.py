@@ -3,6 +3,7 @@
 #from asyncio import write
 
 import math
+import random
 import re
 import pandas as pd
 import xml.etree.ElementTree as ET
@@ -196,10 +197,28 @@ def create_map_to_write(name_rather_than_id=True):
             else:
                 everything[relation][source].append([target, family, separator])
 
+
+
     #for fl in everything:
     #    print(str(fl) + " " + str(everything[fl]))
 
     return everything
+
+def create_map_most_examples(everything:dict, min_number:int, nb_examples:int):
+    small_map = {}
+    for relation in everything:
+        count = len(everything[relation])
+
+        if count>= min_number:
+            small_map[relation]={}
+            key_sample = random.sample(sorted(everything[relation]),nb_examples)
+            dict_sample = {k: everything[relation][k] for k in key_sample}
+            small_map[relation] = dict_sample
+
+    print(small_map)
+    return small_map
+
+
 
 def get_names():
     df1 = get_df(1)
@@ -447,10 +466,10 @@ def get_para_synta_relations():
     return paradigmatics, syntagmatics
 
 
-def write_readable_file(everything:dict):
-     with open('relations_examples.txt', 'w', encoding="utf-8") as f:
+def write_readable_file(everything:dict, filename:str):
+     with open(filename, 'w', encoding="utf-8") as f:
         for relation in everything:
-            f.write(relation + '\n')
+            f.write('\n' +relation + '\n')
             for exemple_key in everything[relation]:
                 string = str(exemple_key) + ' => '
                 # Pour chaque elem du tableau de la clé, écrire juste le 1er elem + separateur
@@ -462,8 +481,8 @@ def write_readable_file(everything:dict):
 # Fichier tab separated values car il y a déjà les séparateurs ; et ,
 # Format des colonnes:
 # mot_input     mot_output_1    mot_output_2    mot_output_3    ...
-def write_tsv(everything:dict):
-    with open('relations_tsv.tsv', 'w', encoding="utf-8") as f:
+def write_tsv(everything:dict, filename:str):
+    with open(filename, 'w', encoding="utf-8") as f:
         for relation in everything:
             f.write('>>>\t'+ relation + '\n')
             for exemple_key in everything[relation]:
@@ -484,7 +503,7 @@ def read_tsv(file_to_read):
             else:
                 source = line[0]
                 dictionary[relation][source] = line[1:-1]
-    print(dictionary)
+    return dictionary
 
 
 
@@ -495,12 +514,14 @@ def read_tsv(file_to_read):
 if __name__ == "__main__":
     # Get all the relations & examples
     everything = create_map_to_write()
+    small_map = create_map_most_examples(everything, 1000, 20)
 
     # sort map by the one w the most examples?
 
     # format & print
-    write_readable_file(everything)
-    write_tsv(everything)
+    write_readable_file(small_map, 'some_relations.txt')
+    write_readable_file(everything, 'all_relations_examples.txt')
+    write_tsv(everything, 'relations_tsv.tsv')
     read_tsv('relations_tsv.tsv')
 
 

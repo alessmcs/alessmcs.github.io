@@ -502,7 +502,7 @@ def read_tsv(file_to_read):
                 dictionary[relation] = {}
             else:
                 source = line[0]
-                dictionary[relation][source] = line[1:-1]
+                dictionary[relation][source] = line[1:]
     return dictionary
 
 

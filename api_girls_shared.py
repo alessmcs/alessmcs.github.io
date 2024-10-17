@@ -14,7 +14,11 @@ import pickle
 import numpy as np
 import csv
 
-LS_FR_PATH = "C:/_Code/courses/IFT3150_projet/lexical-system-fr/7/ls-fr-V2.1/"
+# Path vivi
+# LS_FR_PATH = "C:/_Code/courses/IFT3150_projet/lexical-system-fr/7/ls-fr-V2.1/"
+
+# Path aless
+LS_FR_PATH = "../lexical-system-fr/10/ls-fr-V3.1/"
 
 
 
@@ -507,30 +511,21 @@ def read_tsv(file_to_read):
 
 
 
-            
-
-
 
 if __name__ == "__main__":
     # Get all the relations & examples
-    everything = create_map_to_write()
-    small_map = create_map_most_examples(everything, 1000, 20)
+    everything = create_map_to_write(True)
+    reduced_map = create_map_most_examples(everything, 100, 50)
 
     # sort map by the one w the most examples?
 
     # format & print
-    write_readable_file(small_map, 'some_relations.txt')
-    write_readable_file(everything, 'all_relations_examples.txt')
-    write_tsv(everything, 'relations_tsv.tsv')
-    read_tsv('relations_tsv.tsv')
+    # write_readable_file(small_map, 'exemples/some_relations_100_ex.txt')
+    # write_readable_file(everything, 'exemples/all_relations_examples.txt')
+    # write_tsv(everything, 'exemples/relations_tsv.tsv')
+    write_tsv(reduced_map, './llm_testing/relations_50ex_tsv.tsv')
 
-
-
-
-
-
-
-
+    #read_tsv('exemples/relations_100ex_tsv.tsv')
 
 
     # TODO: use ids!!

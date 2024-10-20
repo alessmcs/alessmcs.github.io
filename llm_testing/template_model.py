@@ -44,8 +44,8 @@ def generate(prompt, context, file, source_word, expected):
                       stream=True)
     r.raise_for_status()
 
-    # file structure: source ; expected ; llm result
-    file.write(f"{source_word} ; {expected} ; ")
+    # file structure: source : expected : llm result
+    file.write(f"{source_word} : {expected} : ")
 
     for i in r.iter_lines():
         body = json.loads(i)
@@ -91,7 +91,7 @@ def success_rate(filename):
     lines = []
 
     for line in file:
-        l = line.replace('\n', '').split(';')
+        l = line.replace('\n', '').split(':')
         lines.append(l)
 
     #print(lines)
@@ -150,14 +150,56 @@ def main():
             ["Quel est l'antonyme du mot \"", "\"? Donne un seul mot sans ponctuation."]
                 ],
         "S_0": [
-            ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation"],
+            ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
             ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"?"]
         ],
-        "S_1": [
-            # TODO
-            []
+        "Syn_⊂" : [
+            ["Quel est le synomyme avec un sens plus large du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Donne un seul mot qui englobe le sens du mot \"", "\"."],
+            ["Donne un mot plus général pour signifier \"", "\"."]
+        ], 
+        "Syn" : [
+            ["Quel est le synonyme du mot \"", "\"? Donne un seul mot sans ponctuation."]
+        ],
+        "A_0" : [
+            ["Quel est l'adjectif correspondant au mot \"", "\"? Donne un seul adjectif sans ponctuation."]
+        ],
+        "A_2Perf" : [
+            ["Quel est l'adjectif correspondant à l'aboutissement de \"", "\"? Donne un seul adjectif sans ponctuation."],
+            ["Quel est l'adjectif correspondant à l'aboutissement de \"", 
+             "\"? Donne un seul adjectif sans ponctuation. Voici un exemple: l'adjectif correspondant à l'aboutissement de \"cuire\" est \"cuit\"."]
+        ],
+        "V_0" : [
+            ["Quel est le verbe correspondant au mot \"", "\"? Donne un seul verbe sans ponctuation."],
+        ],
+        "Syn_⊃^sex" : [
+            ["Quel est le mot féminin correspondant au mot \"", "\"? Donne un seul mot sans ponctuation."]
+        ],
+        "Adv_0" : [
+            ["Quel est l'adverbe correspondant au mot \"", "\"? Donne un seul adverbe sans ponctuation."]
+        ],
+        "S_instr" : [
+            ["Quel est l'instrument typiquement utilisé pour faire l'action liée au mot \"", "\"? Donne un seul nom commun sans ponctuation."]
+        ],
+        "Magn" : [
+            ["Quel est le mot utilisé avec le mot \"", "\" qui amplifie son sens? Donne un seul mot sans ponctuation."],
+            ["Quel est le mot utilisé avec le mot \"", "\" qui intesifie son sens? Donne un seul mot sans ponctuation."],
+        ],
+        "Redun" : [
+            ["Donne un mot qui est utilisé comme modificateur redondant du mot \"", "\". Donne un seul mot sans ponctuation."],
+            ["Donne un mot dont le sens est inclu dans celui du mot \"", "\". Donne un seul mot sans ponctuation."]
+        ],
+        "S_loc": [
+            ["Quel est un nom qui décrit la localisation de \"", "\"? Donne un seul nom sans ponctuation."]
         ]
+    
     }
+
+    # certaines fonctions lexicales sont difficiles à comprendre, on pourra demander plus de précisions au prof de linguistique.
+    # S_1, S_3, S_2^prototyp
+    # Conv
+    # Real_i
+
 
     #process_question('S_0', "Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation" )
     #process_question('Anti', "Quel est l'antonyme du mot \"", "\"? Donne un seul mot sans ponctuation.", 0)

@@ -1,0 +1,5 @@
+ FROM llama2 
+ 
+ SYSTEM """ 
+ Donne le synonyme du mot en input. Donne un seul mot sans ponctuation.
+ """ 

@@ -1,7 +1,8 @@
 import json
-import requests
+#import requests
 from tqdm import tqdm
 import sys
+import ollama
 
 # SOURCE: https://github.com/ollama/ollama/blob/main/examples/python-simplegenerate/client.py
 
@@ -139,6 +140,34 @@ def run_model_for(lf: str, lf_questions : list):
         )
 
 
+#################### Créer un modèle et le rouler pour des mots ###########################
+
+# Créer le modèle
+def create_model(question, relation):
+    filename = relation + "_model.txt"
+
+    open(filename, 'w', encoding="utf-8").close()
+    model_file = open(filename, 'a', encoding="utf-8")
+    text_template = " FROM llama2 \n \n SYSTEM \"\"\" \n "+ question +"\n \"\"\" "
+    model_file.write(text_template)
+    model_file.close()
+
+    ollama.create(model=relation, modelfile=text_template)
+
+
+# Rouler le modele
+def run_model(relation):
+    examples = get_relation_examples(relation)
+    for e in tqdm(examples):
+        response = ollama.chat(model='question-llama2', messages=[
+            {
+            'role': 'user',
+            'content': e[0],
+            },
+        ])
+        print(response['message']['content'])
+
+
 def main():
 
     # Automatiser les tests du modèle selon la fonction lexicale!!
@@ -208,9 +237,15 @@ def main():
 
     fl_choisie = "S_0"
 
-    run_model_for(fl_choisie, all_lf_questions[fl_choisie])
+    # run_model_for(fl_choisie, all_lf_questions[fl_choisie])
 
     # todo: arranger l'affichage du progress bar
+
+
+
+    # create_model("Donne le synonyme du mot en input. Donne un seul mot sans ponctuation.", "Syn")
+    run_model("Syn")
+
 
 if __name__ == "__main__":
     main()

@@ -7,6 +7,8 @@ import random
 import re
 import pandas as pd
 import xml.etree.ElementTree as ET
+
+from PIL.TiffImagePlugin import IFDRational
 from tqdm import tqdm
 from collections import Counter
 from matplotlib import pyplot as plt
@@ -62,12 +64,7 @@ def get_df(i: int):
 
 # get word /from/ id
 def get_word_form_id(id: str, mapping) -> str:
-    # Use the mapping
 
-    #df1 = get_df(1)
-
-    #raw = df1.loc[df1['id'] == id].iloc[0]['lexname']
-    #return extract_juice(raw)
 
     return mapping[id]
 
@@ -89,15 +86,38 @@ def get_word_from_id_mapping():
         mapping[id] = word
     return mapping
 
+    # for each word in the word mapping, get its id & add subscript & superscript
 
 
-def get_endpoints(df15, i: int, mapping, name_rather_than_id=True ) -> (str, str):
-    # df15 = get_df(15)
+def get_endpoints(df15, df2, i: int, mapping, sub_sup, name_rather_than_id=True) -> (str, str):
+
+    # pdd_ids = df2['id'].to_numpy()
+    # ids = []
+    # for i in range(len(pdd_ids)):
+    #     num_id = pdd_ids[i].replace('entry', 'node')
+    #     ids.append(num_id)
 
     source_id = df15.iloc[i]['source']
     target_id = df15.iloc[i]['target']
 
+    # source_subscript, source_superscript = "", ""
+    # target_subscript, target_superscript = "", ""
+    #
+    # # Check if source_id exists in df2
+    # if source_id in ids:
+    #     source_subscript = '_' + str(df2.loc[df2['id'] == source_id.replace('node', 'entry'), 'subscript'].values)
+    #     source_superscript = '^' + str(df2.loc[df2['id'] == source_id.replace('node', 'entry'), 'superscript'].values)
+    #
+    # # Check if target_id exists in df2
+    # if target_id in ids:
+    #     target_subscript = '_' + str(df2.loc[df2['id'] == target_id, 'subscript'].values)
+    #     target_superscript = '^' + str(df2.loc[df2['id'] == target_id, 'superscript'].values)
+
     if name_rather_than_id:
+        # if sub_sup :
+        #     source = mapping[source_id] + source_subscript + source_superscript
+        #     target = mapping[target_id] + target_subscript + target_superscript
+        # else:
         source = mapping[source_id]
         target = mapping[target_id]
     else:
@@ -155,6 +175,7 @@ def get_relation_name(df15, i: int, relations) -> (str, str):
 
 def create_map_to_write(name_rather_than_id=True):
     df15 = get_df(15)
+    df2 = get_df(2)
 
     N = len(df15)
 
@@ -163,44 +184,24 @@ def create_map_to_write(name_rather_than_id=True):
 
     everything = {}
 
-    # create a map from all the data of each row for each FL
-
-    # with open("relations_id_merged.txt", "w") as f:
-    #     for i in tqdm(range(N), desc="writing to file", ascii=True):
-    #         source, target = get_endpoints(df15, i, mapping, name_rather_than_id)
-    #         relation, family, separator = get_relation_name(df15, i, relations)
-    #
-    #         if relation not in everything:
-    #             everything[relation] = {}
-    #             everything[relation][source] = []
-    #             everything[relation][source].append([target, family, separator])
-    #         else:
-    #             if source not in everything[relation]:
-    #                 everything[relation][source] = []
-    #                 everything[relation][source].append([target, family, separator])
-    #             else:
-    #                 everything[relation][source].append([target, family, separator])
-    #
-    #         merged = get_merged_values(df15, i)
-    #
-    #         s = f"{relation} ({source}) =  {target} [{family}, {merged}, {separator}]\n"
-    #         f.write(s)
-
     for i in tqdm(range(N), desc="creating map", ascii=True):
-        source, target = get_endpoints(df15, i, mapping, name_rather_than_id)
+        source, target = get_endpoints(df15, df2, i, mapping, True, name_rather_than_id)
         relation, family, separator = get_relation_name(df15, i, relations)
 
         if relation not in everything:
             everything[relation] = {}
             everything[relation][source] = []
+            #everything[relation][source].append([target, family])
             everything[relation][source].append([target, family, separator])
+
         else:
             if source not in everything[relation]:
                 everything[relation][source] = []
+                #everything[relation][source].append([target, family])
                 everything[relation][source].append([target, family, separator])
             else:
+                #everything[relation][source].append([target, family])
                 everything[relation][source].append([target, family, separator])
-
 
 
     #for fl in everything:
@@ -479,12 +480,26 @@ def write_readable_file(everything:dict, filename:str):
                 # Pour chaque elem du tableau de la clé, écrire juste le 1er elem + separateur
                 for target in everything[relation][exemple_key]:
                     string += str(target[2]) + str(target[0]) + ' '
+                    #string += str(target[0])
                 string += '\n'
                 f.write(string)
 
 # Fichier tab separated values car il y a déjà les séparateurs ; et ,
 # Format des colonnes:
 # mot_input     mot_output_1    mot_output_2    mot_output_3    ...
+def write_tsv(everything:dict, filename:str):
+    with open(filename, 'w', encoding="utf-8") as f:
+        for relation in everything:
+            f.write('>>>\t'+ relation + '\n')
+            for exemple_key in everything[relation]:
+                string = str(exemple_key) + '\t'
+                # Pour chaque elem du tableau de la clé, écrire juste le 1er elem + separateur
+                for target in everything[relation][exemple_key]:
+                    string += str(target[2]) + str(target[0]) + '\t'
+                string += '\n'
+                f.write(string)
+
+# write as csv pour chainforge???
 def write_tsv(everything:dict, filename:str):
     with open(filename, 'w', encoding="utf-8") as f:
         for relation in everything:
@@ -509,29 +524,22 @@ def read_tsv(file_to_read):
                 dictionary[relation][source] = line[1:]
     return dictionary
 
-
+def create_sample_sets(min_number, nb_examples, nb_sets, all_results):
+    for i in range(nb_sets):
+        curr_set = create_map_most_examples(all_results, min_number, nb_examples)
+        print(curr_set)
+        write_tsv(curr_set, f"./llm_testing/sample_sets/all_relations_{nb_examples}_ex_{i}.tsv")
 
 
 if __name__ == "__main__":
     # Get all the relations & examples
     everything = create_map_to_write(True)
-    reduced_map = create_map_most_examples(everything, 100, 50)
-
-    # sort map by the one w the most examples?
-
-    # format & print
-    # write_readable_file(small_map, 'exemples/some_relations_100_ex.txt')
-    # write_readable_file(everything, 'exemples/all_relations_examples.txt')
-    # write_tsv(everything, 'exemples/relations_tsv.tsv')
-    write_tsv(reduced_map, './llm_testing/relations_50ex_tsv.tsv')
-
-    #read_tsv('exemples/relations_100ex_tsv.tsv')
-
+    # create n samples
+    create_sample_sets(100, 50, 3, everything)
 
     # TODO: use ids!!
 
     # todo: sort & format the file?
-    # todo: mettre dans un csv?
 
     # faire une fonction pour print examples given a certain FL??
     # inclure parties du discours????

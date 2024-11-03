@@ -6,7 +6,7 @@ import sys
 # SOURCE: https://github.com/ollama/ollama/blob/main/examples/python-simplegenerate/client.py
 
 # NOTE: ollama must be running for this to work, start the ollama app or run `ollama serve`
-model = 'llama3.2' # TODO: update this for whatever model you wish to use
+model = 'llama3' # TODO: update this for whatever model you wish to use
 context = []
 
 # Read example tsv file
@@ -114,7 +114,7 @@ def success_rate(filename):
             else:
                 results.append(False)
 
-    print(results)
+    #print(results)
 
     success_rate = nb_success/total
     return success_rate
@@ -147,11 +147,13 @@ def main():
 
     all_lf_questions = {
         'Anti' : [
-            ["Quel est l'antonyme du mot \"", "\"? Donne un seul mot sans ponctuation."]
+            ["Quel est l'antonyme du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est le contraire du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est l'opposé du mot \"", "\"? Donne un seul mot sans ponctuation."]
                 ],
         "S_0": [
             ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
-            ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"?"]
+            ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."]
         ],
         "Syn_⊂" : [
             ["Quel est le synomyme avec un sens plus large du mot \"", "\"? Donne un seul mot sans ponctuation."],
@@ -173,7 +175,8 @@ def main():
             ["Quel est le verbe correspondant au mot \"", "\"? Donne un seul verbe sans ponctuation."],
         ],
         "Syn_⊃^sex" : [
-            ["Quel est le mot féminin correspondant au mot \"", "\"? Donne un seul mot sans ponctuation."]
+            ["Quel est le mot féminin correspondant au mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est le correspondant féminin du mot \"", "\"? Donne un seul mot sans ponctuation."]
         ],
         "Adv_0" : [
             ["Quel est l'adverbe correspondant au mot \"", "\"? Donne un seul adverbe sans ponctuation."]

@@ -104,7 +104,53 @@
                 </ul>
             <h3>S7 - 14/10 - 20/10</h3>
                 <ul>
-                    Mi-session, alors semaine plus lente. Mais suite des tests sur différentes FLs et questions.
+                    <li>Début de la mi-session, alors semaine plus lente. Mais suite des tests sur différentes FLs et questions avec Ollama.</li>
+                </ul>
+            <h3>S8 - 21/10 - 27/10 </h3>
+                <ul>
+                    <li>
+                        Semaine de relâche + mi-session, donc encore une fois un rythme ralenti.
+                    </li>
+                    <li>
+                        Ollama roule très lentement sur nos deux ordinateurs, soit à cause de problèmes de réseau, soit à cause
+                        des limites du matériel (~5 minutes pour 50 exemples)
+                    </li>
+                    <li>
+                        Rencontre avec le professeur pour discuter d'optimisation et de la collecte des résultats. Il propose de
+                        se renseigner sur le traitement en <i>batch</i> dans Ollama, pour éviter de lui envoyer une requête plusieurs fois.
+                    </li>
+                </ul>
+            <h3>S9 - 28/10 - 3/11</h3>
+                <ul>
+                    <li>
+                        Recherche sur les méthodes d'optimisation. Il semble que malgré l'option de traiter en batch un modèle avec Ollama,
+                        ce dernier nécessite beaucoup de puissance de calcul (CPU, GPU). On essaie de trouver une solution ou une alternative.
+                    </li>
+                    <li>
+                        Alternative possible: ChainForge
+                    </li>
+                        <ul>
+                            <li>
+                                Tout se passe en ligne, alors on ne prend pas en compte la machine (rend le travail plus généralisable aussi)
+                            </li>
+                            <li>
+                                Possibilité de tester plusieurs modèles à la fois et comparer leurs sorties. Possible également de tester
+                                plusieurs entrées.
+                            </li>
+                            <li>
+                                Interface plutôt simple à utiliser et sortie du modèle affichée de manière intuitive
+                            </li>
+                            <li>
+                                MAIS: plus difficile d'automatiser l'expérience, car pour chaque FL il faut créer des "Prompts nodes" qui
+                                comprennent chaque question différente.
+                            </li>
+                            <li>Certes, il serait intéressant d'utiliser cet outil si le traitement en <i>batch</i> dans Ollama s'avère
+                                trop coûteux. Après tout, on ne veut pas endommager nos ordinateurs. </li>
+                        </ul>
+                    <li>
+                        Aussi, ajout d'une fonction qui permet de générer n ensembles aléatoires d'un certain nombre d'exemples
+                        pour chaque FL.
+                    </li>
                 </ul>
         </section>
     

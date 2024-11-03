@@ -530,6 +530,10 @@ def create_sample_sets(min_number, nb_examples, nb_sets, all_results):
         print(curr_set)
         write_tsv(curr_set, f"./llm_testing/sample_sets/all_relations_{nb_examples}_ex_{i}.tsv")
 
+def get_only_sources(examples, fl):
+    # read the file separating by ">>>"
+
+
 
 if __name__ == "__main__":
     # Get all the relations & examples

@@ -1,5 +1,5 @@
 import json
-#import requests
+import requests
 from tqdm import tqdm
 import sys
 import ollama
@@ -12,7 +12,10 @@ context = []
 
 # Read example tsv file
 # Pour le moment, utiliser relations_50 car c'est plus rapide pour les tests
-examples_file = open('./relations_50ex_tsv.tsv', 'r', encoding="utf-8")
+
+#todo: multiple example files
+file_name = './sample_sets/all_relations_50_ex_0.tsv'
+examples_file = open(file_name, 'r', encoding="utf-8")
 example_lines = []
 
 for line in examples_file:
@@ -21,6 +24,11 @@ for line in examples_file:
 
 # Get examples for a given relation from the chosen example file
 def get_relation_examples(rel_name):
+    global example_lines, file_name
+
+    num = int(file_name[28]+file_name[29])
+    print(num)
+
     try:
         starting_index = next(i for i, t in enumerate(example_lines) if t == ['>>>', rel_name])
     except StopIteration:
@@ -28,7 +36,7 @@ def get_relation_examples(rel_name):
         return []
 
     examples = []
-    for i in range(starting_index + 1, min(starting_index + 101, len(example_lines))):
+    for i in range(starting_index + 1, min(starting_index + num + 1, len(example_lines))):
         if example_lines[i]:
             examples.append(example_lines[i])
     return examples
@@ -121,8 +129,6 @@ def success_rate(filename):
     return success_rate
 
 # lf sera en fait une liste de questions pour chaque FL, afin de tester les différents types de verbalisation
-# todo: figure out how to handle the 2 part questions
-
 def run_model_for(lf: str, lf_questions : list):
     # open the SR file (empty)
     sr_filename = f"./results/sr_{lf}"
@@ -166,6 +172,14 @@ def run_model(relation):
             },
         ])
         print(response['message']['content'])
+
+# Mettre juste les sources (pour le moment) des exemples dans un txt ou les valeurs sont separees par des virgules
+# Pour les donner à chainforge
+def examples_in_list(examples):
+    f = open("examples.txt", "a")
+    for w in examples:
+        f.write(w[0] + ',')
+    f.close()
 
 
 def main():
@@ -245,9 +259,12 @@ def main():
     # todo: arranger l'affichage du progress bar
 
 
-
     # create_model("Donne le synonyme du mot en input. Donne un seul mot sans ponctuation.", "Syn")
-    run_model("Syn")
+
+    examples = get_relation_examples('Anti')
+    examples_in_list(examples)
+
+    #run_model("Syn")
 
 
 if __name__ == "__main__":

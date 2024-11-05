@@ -14,7 +14,9 @@ context = []
 # Pour le moment, utiliser relations_50 car c'est plus rapide pour les tests
 
 #todo: multiple example files
-file_name = './sample_sets/all_relations_50_ex_0.tsv'
+#file_name = './sample_sets/all_relations_50_ex_0.tsv'
+file_name = './sample_sets/all_relations_100_ex_0.tsv'
+
 examples_file = open(file_name, 'r', encoding="utf-8")
 example_lines = []
 
@@ -26,7 +28,8 @@ for line in examples_file:
 def get_relation_examples(rel_name):
     global example_lines, file_name
 
-    num = int(file_name[28]+file_name[29])
+    # todo: gérer si 50 ou 100
+    num = int(file_name[28]+file_name[29]+(file_name[30] if file_name[30]=='0' else ''))
     print(num)
 
     try:
@@ -43,11 +46,12 @@ def get_relation_examples(rel_name):
 
 # Génère la réponse du LLM
 def generate(prompt, context, file, source_word, expected):
+    print(prompt)
 
     r = requests.post('http://localhost:11434/api/generate',
                       json={
                           'model': model,
-                          'prompt': prompt,
+                          'prompt': "Tu es un modèle en français, ne me donne que des réponses d'un mot. " + prompt,
                           'context': context,
                       },
                       stream=True)
@@ -154,7 +158,6 @@ def create_model(question, relation):
 
     open(filename, 'w', encoding="utf-8").close()
     model_file = open(filename, 'a', encoding="utf-8")
-    #text_template = " FROM llama3 \n \n SYSTEM \"\"\" \n Tu es un modèle en français, ne me donne que des réponses d'un mot.\n Donne le synonyme du mot en input. Donne un seul mot sans ponctuation. \n \"\"\""
     text_template = " FROM llama3 \n \n SYSTEM \"\"\" \n "+ question +"\n \"\"\" "
     model_file.write(text_template)
     model_file.close()
@@ -163,24 +166,58 @@ def create_model(question, relation):
 
 
 # Rouler le modele
-def run_model(relation):
+def run_model(relation, all_questions):
     examples = get_relation_examples(relation)
-    for e in tqdm(examples):
-        response = ollama.chat(model=relation, messages=[
+    #liste = examples_in_list(examples)
+    liste = combined_prompts(all_questions[relation][0], examples)
+    print(liste)
+
+    for e in tqdm(liste):
+        response = ollama.chat(model='relation_general_model', messages=[
             {
             'role': 'user',
-            'content': e[0],
+            'content': e,
             },
         ])
+        print(e)
         print(response['message']['content'])
 
 # Mettre juste les sources (pour le moment) des exemples dans un txt ou les valeurs sont separees par des virgules
 # Pour les donner à chainforge
 def examples_in_list(examples):
     f = open("examples.txt", "a")
+    liste = []
     for w in examples:
         f.write(w[0] + ',')
+        liste.append(w[0])
     f.close()
+    return liste
+
+# combiner les prompts en un gros prompt pour simuler le traitement en batch et eviter de re-prompt a chaque fois
+def combined_prompts(question, words):
+    global context
+
+    questions = ""
+    questions_list = []
+    print(words)
+    for w in words:
+        questions += (str(question[0]) + w[0] + str(question[1])) + '\n'
+        questions_list.append((str(question[0]) + w[0] + str(question[1])))
+
+    # Open a file to store the outputs
+    fileName = 'test.txt'
+
+    # Generate the prompt list to then give as arg to generate()
+    # Clear file contents
+    open("./" + fileName, 'w', encoding="utf-8").close()
+
+    print(questions)
+
+    #context = generate(questions, context, open(fileName, 'a', encoding="utf-8"), '', '')
+
+    sys.stdout.flush()
+
+    return questions_list
 
 
 def main():
@@ -253,20 +290,18 @@ def main():
 
     #print(success_rate("Anti_outputs.csv"))
 
-    fl_choisie = "S_0"
+    fl_choisie = "Anti"
 
-    # run_model_for(fl_choisie, all_lf_questions[fl_choisie])
+    #run_model_for(fl_choisie, all_lf_questions[fl_choisie])
 
-    # todo: arranger l'affichage du progress bar
+    #create_model("Tu es un modèle en français, ne me donne que des réponses d'un mot.\nQuel est le synonyme du mot en input? Donne un seul mot sans ponctuation.", "Syn")
 
+    #examples = get_relation_examples('Syn')
+    #liste = combined_prompts(all_lf_questions[fl_choisie][0], examples)
 
-    #create_model("Tu es un modèle en français, ne me donne que des réponses d'un mot.\n Donne le synonyme du mot en input. Donne un seul mot sans ponctuation.", "Syn")
+    #examples_in_list(examples)
 
-    examples = get_relation_examples('Anti')
-    examples_in_list(examples)
-
-    run_model("Syn")
-
+    run_model("Syn", all_lf_questions)
 
 if __name__ == "__main__":
     main()

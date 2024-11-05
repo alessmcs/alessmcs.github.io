@@ -1,5 +1,5 @@
 import json
-import requests
+#import requests
 from tqdm import tqdm
 import sys
 import ollama
@@ -154,7 +154,8 @@ def create_model(question, relation):
 
     open(filename, 'w', encoding="utf-8").close()
     model_file = open(filename, 'a', encoding="utf-8")
-    text_template = " FROM llama2 \n \n SYSTEM \"\"\" \n "+ question +"\n \"\"\" "
+    #text_template = " FROM llama3 \n \n SYSTEM \"\"\" \n Tu es un modèle en français, ne me donne que des réponses d'un mot.\n Donne le synonyme du mot en input. Donne un seul mot sans ponctuation. \n \"\"\""
+    text_template = " FROM llama3 \n \n SYSTEM \"\"\" \n "+ question +"\n \"\"\" "
     model_file.write(text_template)
     model_file.close()
 
@@ -165,7 +166,7 @@ def create_model(question, relation):
 def run_model(relation):
     examples = get_relation_examples(relation)
     for e in tqdm(examples):
-        response = ollama.chat(model='question-llama2', messages=[
+        response = ollama.chat(model=relation, messages=[
             {
             'role': 'user',
             'content': e[0],
@@ -259,12 +260,12 @@ def main():
     # todo: arranger l'affichage du progress bar
 
 
-    # create_model("Donne le synonyme du mot en input. Donne un seul mot sans ponctuation.", "Syn")
+    #create_model("Tu es un modèle en français, ne me donne que des réponses d'un mot.\n Donne le synonyme du mot en input. Donne un seul mot sans ponctuation.", "Syn")
 
     examples = get_relation_examples('Anti')
     examples_in_list(examples)
 
-    #run_model("Syn")
+    run_model("Syn")
 
 
 if __name__ == "__main__":

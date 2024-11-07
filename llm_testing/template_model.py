@@ -1,20 +1,81 @@
 import json
-import requests
+#import requests
 from tqdm import tqdm
 import sys
 import ollama
 
+
+all_lf_questions = {
+        'Anti' : [
+            ["Quel est l'antonyme du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est le contraire du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est l'opposé du mot \"", "\"? Donne un seul mot sans ponctuation."]
+                ],
+        "S_0": [
+            ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
+            ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."]
+        ],
+        "Syn_⊂" : [
+            ["Quel est le synomyme avec un sens plus large du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Donne un seul mot qui englobe le sens du mot \"", "\"."],
+            ["Donne un mot plus général pour signifier \"", "\"."]
+        ], 
+        "Syn" : [
+            ["Quel est le synonyme du mot \"", "\"? Donne un seul mot sans ponctuation."]
+        ],
+        "A_0" : [
+            ["Quel est l'adjectif correspondant au mot \"", "\"? Donne un seul adjectif sans ponctuation."]
+        ],
+        "A_2Perf" : [
+            ["Quel est l'adjectif correspondant à l'aboutissement de \"", "\"? Donne un seul adjectif sans ponctuation."],
+            ["Quel est l'adjectif correspondant à l'aboutissement de \"", 
+             "\"? Donne un seul adjectif sans ponctuation. Voici un exemple: l'adjectif correspondant à l'aboutissement de \"cuire\" est \"cuit\"."]
+        ],
+        "V_0" : [
+            ["Quel est le verbe correspondant au mot \"", "\"? Donne un seul verbe sans ponctuation."],
+        ],
+        "Syn_⊃^sex" : [
+            ["Quel est le mot féminin correspondant au mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est le correspondant féminin du mot \"", "\"? Donne un seul mot sans ponctuation."]
+        ],
+        "Adv_0" : [
+            ["Quel est l'adverbe correspondant au mot \"", "\"? Donne un seul adverbe sans ponctuation."]
+        ],
+        "S_instr" : [
+            ["Quel est l'instrument typiquement utilisé pour faire l'action liée au mot \"", "\"? Donne un seul nom commun sans ponctuation."]
+        ],
+        "Magn" : [
+            ["Quel est le mot utilisé avec le mot \"", "\" qui amplifie son sens? Donne un seul mot sans ponctuation."],
+            ["Quel est le mot utilisé avec le mot \"", "\" qui intesifie son sens? Donne un seul mot sans ponctuation."],
+        ],
+        "Redun" : [
+            ["Donne un mot qui est utilisé comme modificateur redondant du mot \"", "\". Donne un seul mot sans ponctuation."],
+            ["Donne un mot dont le sens est inclu dans celui du mot \"", "\". Donne un seul mot sans ponctuation."]
+        ],
+        "S_loc": [
+            ["Quel est un nom qui décrit la localisation de \"", "\"? Donne un seul nom sans ponctuation."]
+        ]
+    
+    }
+
+    # certaines fonctions lexicales sont difficiles à comprendre, on pourra demander plus de précisions au prof de linguistique.
+    # S_1, S_3, S_2^prototyp
+    # Conv
+    # Real_i
+
+
+
+######################### Ask questions individually ################################
+
 # SOURCE: https://github.com/ollama/ollama/blob/main/examples/python-simplegenerate/client.py
 
 # NOTE: ollama must be running for this to work, start the ollama app or run `ollama serve`
-model = 'llama3' # TODO: update this for whatever model you wish to use
+model = 'llama3.2' 
 context = []
 
 # Read example tsv file
 # Pour le moment, utiliser relations_50 car c'est plus rapide pour les tests
 
-#todo: multiple example files
-#file_name = './sample_sets/all_relations_50_ex_0.tsv'
 file_name = './sample_sets/all_relations_100_ex_0.tsv'
 
 examples_file = open(file_name, 'r', encoding="utf-8")
@@ -30,7 +91,7 @@ def get_relation_examples(rel_name):
 
     # todo: gérer si 50 ou 100
     num = int(file_name[28]+file_name[29]+(file_name[30] if file_name[30]=='0' else ''))
-    print(num)
+
 
     try:
         starting_index = next(i for i, t in enumerate(example_lines) if t == ['>>>', rel_name])
@@ -107,7 +168,7 @@ def success_rate(filename):
         l = line.replace('\n', '').split(':')
         lines.append(l)
 
-    #print(lines)
+
     nb_success = 0
     total = 0
 
@@ -127,7 +188,6 @@ def success_rate(filename):
             else:
                 results.append(False)
 
-    #print(results)
 
     success_rate = nb_success/total
     return success_rate
@@ -152,7 +212,7 @@ def run_model_for(lf: str, lf_questions : list):
 
 #################### Créer un modèle et le rouler pour des mots ###########################
 
-# Créer le modèle
+# Créer le modèle. Non utile apres l'avoir cree une premiere fois
 def create_model(question, relation):
     filename = relation + "_model.txt"
 
@@ -166,21 +226,42 @@ def create_model(question, relation):
 
 
 # Rouler le modele
-def run_model(relation, all_questions):
-    examples = get_relation_examples(relation)
-    #liste = examples_in_list(examples)
-    liste = combined_prompts(all_questions[relation][0], examples)
-    print(liste)
+def run_model(relation):
+    questions = all_lf_questions[relation]
 
-    for e in tqdm(liste):
-        response = ollama.chat(model='relation_general_model', messages=[
-            {
-            'role': 'user',
-            'content': e,
-            },
-        ])
-        print(e)
-        print(response['message']['content'])
+    for i in range (len(questions)):
+        question = questions[i]
+
+        # Open a file to store the outputs
+        fileName = f"outputs/{relation}_{i}_out.csv"
+
+        # Clear file contents
+        open("./"+fileName, 'w', encoding="utf-8").close()
+        file = open("./"+fileName, 'a', encoding="utf-8")
+
+        examples = get_relation_examples(relation)
+
+        for w in tqdm(examples, desc="Processing examples"):
+            source = w[0]
+            complete_question =  (str(question[0]) + source + str(question[1]))
+            response = ollama.chat(model='relation_general_model', messages=[
+                {
+                'role': 'user',
+                'content': complete_question,
+                },
+            ])
+
+            expected = (" ").join(w[1:])
+
+            # file structure: source : expected : llm result
+            file.write(f"{source} : {expected} : {response['message']['content']}")
+
+
+            print(complete_question)
+            print((f"{source} : {expected} : {response['message']['content']}"))
+
+
+        file.close()
 
 # Mettre juste les sources (pour le moment) des exemples dans un txt ou les valeurs sont separees par des virgules
 # Pour les donner à chainforge
@@ -222,86 +303,10 @@ def combined_prompts(question, words):
 
 def main():
 
-    # Automatiser les tests du modèle selon la fonction lexicale!!
 
-    # tableaux de questions:
-
-    all_lf_questions = {
-        'Anti' : [
-            ["Quel est l'antonyme du mot \"", "\"? Donne un seul mot sans ponctuation."],
-            ["Quel est le contraire du mot \"", "\"? Donne un seul mot sans ponctuation."],
-            ["Quel est l'opposé du mot \"", "\"? Donne un seul mot sans ponctuation."]
-                ],
-        "S_0": [
-            ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
-            ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."]
-        ],
-        "Syn_⊂" : [
-            ["Quel est le synomyme avec un sens plus large du mot \"", "\"? Donne un seul mot sans ponctuation."],
-            ["Donne un seul mot qui englobe le sens du mot \"", "\"."],
-            ["Donne un mot plus général pour signifier \"", "\"."]
-        ], 
-        "Syn" : [
-            ["Quel est le synonyme du mot \"", "\"? Donne un seul mot sans ponctuation."]
-        ],
-        "A_0" : [
-            ["Quel est l'adjectif correspondant au mot \"", "\"? Donne un seul adjectif sans ponctuation."]
-        ],
-        "A_2Perf" : [
-            ["Quel est l'adjectif correspondant à l'aboutissement de \"", "\"? Donne un seul adjectif sans ponctuation."],
-            ["Quel est l'adjectif correspondant à l'aboutissement de \"", 
-             "\"? Donne un seul adjectif sans ponctuation. Voici un exemple: l'adjectif correspondant à l'aboutissement de \"cuire\" est \"cuit\"."]
-        ],
-        "V_0" : [
-            ["Quel est le verbe correspondant au mot \"", "\"? Donne un seul verbe sans ponctuation."],
-        ],
-        "Syn_⊃^sex" : [
-            ["Quel est le mot féminin correspondant au mot \"", "\"? Donne un seul mot sans ponctuation."],
-            ["Quel est le correspondant féminin du mot \"", "\"? Donne un seul mot sans ponctuation."]
-        ],
-        "Adv_0" : [
-            ["Quel est l'adverbe correspondant au mot \"", "\"? Donne un seul adverbe sans ponctuation."]
-        ],
-        "S_instr" : [
-            ["Quel est l'instrument typiquement utilisé pour faire l'action liée au mot \"", "\"? Donne un seul nom commun sans ponctuation."]
-        ],
-        "Magn" : [
-            ["Quel est le mot utilisé avec le mot \"", "\" qui amplifie son sens? Donne un seul mot sans ponctuation."],
-            ["Quel est le mot utilisé avec le mot \"", "\" qui intesifie son sens? Donne un seul mot sans ponctuation."],
-        ],
-        "Redun" : [
-            ["Donne un mot qui est utilisé comme modificateur redondant du mot \"", "\". Donne un seul mot sans ponctuation."],
-            ["Donne un mot dont le sens est inclu dans celui du mot \"", "\". Donne un seul mot sans ponctuation."]
-        ],
-        "S_loc": [
-            ["Quel est un nom qui décrit la localisation de \"", "\"? Donne un seul nom sans ponctuation."]
-        ]
-    
-    }
-
-    # certaines fonctions lexicales sont difficiles à comprendre, on pourra demander plus de précisions au prof de linguistique.
-    # S_1, S_3, S_2^prototyp
-    # Conv
-    # Real_i
+    run_model("Syn")
 
 
-    #process_question('S_0', "Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation" )
-    #process_question('Anti', "Quel est l'antonyme du mot \"", "\"? Donne un seul mot sans ponctuation.", 0)
-
-    #print(success_rate("Anti_outputs.csv"))
-
-    fl_choisie = "Anti"
-
-    #run_model_for(fl_choisie, all_lf_questions[fl_choisie])
-
-    #create_model("Tu es un modèle en français, ne me donne que des réponses d'un mot.\nQuel est le synonyme du mot en input? Donne un seul mot sans ponctuation.", "Syn")
-
-    #examples = get_relation_examples('Syn')
-    #liste = combined_prompts(all_lf_questions[fl_choisie][0], examples)
-
-    #examples_in_list(examples)
-
-    run_model("Syn", all_lf_questions)
 
 if __name__ == "__main__":
     main()

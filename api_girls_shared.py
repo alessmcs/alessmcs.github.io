@@ -500,17 +500,7 @@ def write_tsv(everything:dict, filename:str):
                 f.write(string)
 
 # write as csv pour chainforge???
-def write_tsv(everything:dict, filename:str):
-    with open(filename, 'w', encoding="utf-8") as f:
-        for relation in everything:
-            f.write('>>>\t'+ relation + '\n')
-            for exemple_key in everything[relation]:
-                string = str(exemple_key) + '\t'
-                # Pour chaque elem du tableau de la clé, écrire juste le 1er elem + separateur
-                for target in everything[relation][exemple_key]:
-                    string += str(target[2]) + str(target[0]) + '\t'
-                string += '\n'
-                f.write(string)
+
 
 def read_tsv(file_to_read):
     dictionary = {}

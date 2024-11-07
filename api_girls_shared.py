@@ -88,7 +88,7 @@ def get_word_from_id_mapping():
 
     # for each word in the word mapping, get its id & add subscript & superscript
 
-
+##3 VERSION TEMPORAIRE JE TESTAIS LES SUBSCRIPT SUPERSCRIPT ###
 def get_endpoints(df15, df2, i: int, mapping, sub_sup, name_rather_than_id=True) -> (str, str):
 
     # pdd_ids = df2['id'].to_numpy()

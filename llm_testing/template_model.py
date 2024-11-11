@@ -3,18 +3,21 @@ import json
 from tqdm import tqdm
 import sys
 import ollama
-from websockets.asyncio.client import process_exception
+#from websockets.asyncio.client import process_exception
 
 all_lf_questions = {
-        # 'Anti' : [
-        #     ["Quel est l'antonyme du mot \"", "\"? Donne un seul mot sans ponctuation."],
-        #     ["Quel est le contraire du mot \"", "\"? Donne un seul mot sans ponctuation."],
-        #     ["Quel est l'opposé du mot \"", "\"? Donne un seul mot sans ponctuation."]
-        #         ],
+        'Anti' : [
+            ["Quel est l'antonyme du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est le contraire du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est l'opposé du mot \"", "\"? Donne un seul mot sans ponctuation."]
+                ],
         # "S_0": [
         #     ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
-        #     ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
         #     ["Quel est le nom commun du verbe ou l'adjectif \"","\"? Donne un seul nom commun sans ponctuation."],
+        #     ["Quel est le nom commun formé à partir du mot \"", "\"? Donne un seul nom commun sans ponctuation."],
+        #     ["Quel est le nom commun formé à partir du verbe ou de l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
+        #     ["Quel est le nom commun dérivé du mot \"", "\"? Donne un seul nom commun sans ponctuation."],
+        #     ["Transforme le mot \"", "\" en nom commun. Donne un seul nom commun sans ponctuation."]
         #
         # ],
         # "Syn_⊂" : [
@@ -26,7 +29,11 @@ all_lf_questions = {
         #     ["Quel est le synonyme du mot \"", "\"? Donne un seul mot sans ponctuation."]
         # ],
         # "A_0" : [
-        #     ["Quel est l'adjectif correspondant au mot \"", "\"? Donne un seul adjectif sans ponctuation."]
+        #     ["Quel est l'adjectif correspondant au mot \"", "\"? Donne un seul adjectif sans ponctuation."],
+        #     ["Transforme le mot \"", "\" en adjectif. Donne un seul adjectif conjugué au masculin, et sans ponctuation."],
+        #     ["Quel est l'adjectif formé à partir du mot \"", "\"? Donne un seul adjectif conjugué au masculin, et sans ponctuation."],
+        #     ["Quel est l'adjectif dérivé du mot \"", "\"? Donne un seul adjectif conjugué au masculin, et sans ponctuation."]
+
         # ],
         "A_2Perf" : [
             ["Quel est l'adjectif correspondant à l'aboutissement de \"", "\"? Donne un seul adjectif sans ponctuation."],
@@ -35,30 +42,137 @@ all_lf_questions = {
         ],
         "V_0" : [
             ["Quel est le verbe correspondant au mot \"", "\"? Donne un seul verbe sans ponctuation."],
+            ["Quel est le verbe formé à partir du mot \"", "\"? Donne un seul verbe sans ponctuation."],
+            ["Quel est le verbe dérivé du mot \"", "\"? Donne un seul verbe sans ponctuation."],
+            ["Transforme le mot \"", "\" en verbe. Donne un seul verbe sans ponctuation."]
+
         ],
         "Syn_⊃^sex" : [
             ["Quel est le mot féminin correspondant au mot \"", "\"? Donne un seul mot sans ponctuation."],
-            ["Quel est le correspondant féminin du mot \"", "\"? Donne un seul mot sans ponctuation."]
+            ["Quel est le correspondant féminin du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Conjugue le mot \"", "\" au féminin. Donne un seul mot sans ponctuation."],
         ],
         "Adv_0" : [
-            ["Quel est l'adverbe correspondant au mot \"", "\"? Donne un seul adverbe sans ponctuation."]
+            ["Quel est l'adverbe correspondant au mot \"", "\"? Donne un seul adverbe sans ponctuation."],
+            ["Quel est l'adverbe formé à partir du mot \"", "\"? Donne un seul adverbe sans ponctuation."],
+            ["Quel est l'adverbe dérivé du mot \"", "\"? Donne un seul adverbe sans ponctuation."],
+            ["Transforme le mot \"", "\" en adverbe. Donne un seul adverbe sans ponctuation."]
         ],
         "S_instr" : [
-            ["Quel est l'instrument typiquement utilisé pour faire l'action liée au mot \"", "\"? Donne un seul nom commun sans ponctuation."]
+            ["Quel est l'instrument typiquement utilisé pour faire l'action liée au mot \"", "\"? Donne un seul nom commun sans ponctuation."],
+            ["Donne le circonstant intrumental typique de \"", "\". Donne un seul nom commun sans ponctuation."]
         ],
         "Magn" : [
             ["Quel est le mot utilisé avec le mot \"", "\" qui amplifie son sens? Donne un seul mot sans ponctuation."],
             ["Quel est le mot utilisé avec le mot \"", "\" qui intesifie son sens? Donne un seul mot sans ponctuation."],
+            ["Donne un mot qui modifie le sens de  \"", "\" en l'amplifiant. Donne un seul mot sans ponctuation."],
+            ["Je veux amplifier le sens de \"", "\". Quel mot puis-je utiliser avec ce mot pour obtenir un sens amplifié?  Donne un seul mot sans ponctuation."]
         ],
         "Redun" : [
             ["Donne un mot qui est utilisé comme modificateur redondant du mot \"", "\". Donne un seul mot sans ponctuation."],
             ["Donne un mot dont le sens est inclus dans celui du mot \"", "\". Donne un seul mot sans ponctuation."]
         ],
         "S_loc": [
-            ["Quel est un nom qui décrit la localisation de \"", "\"? Donne un seul nom sans ponctuation."]
+            ["Quel est un nom qui décrit la localisation de \"", "\"? Donne un seul nom sans ponctuation."],
+            ["Donne le lieu typique de \"", "\"? Donne un seul nom sans ponctuation."],
+            ["À quel endroit se trouve \"", "\"? Donne un seul nom sans ponctuation."]
         ]
     
     }
+
+
+questions_exemples = {
+    'Anti' : [
+        ["L'antonyme du mot \"", "\" est \"", "\"."]
+    ],
+    "S_0" : [
+        []
+    ],
+    "Syn_⊂" : [
+        []
+    ],
+    "Syn": [
+        []
+    ],
+    "A_0": [
+        []
+    ],
+    "A_2Perf": [
+        []
+    ],
+    "V_0": [
+        []
+    ],
+    "Syn_⊃^sex": [
+        []
+    ],
+    "Adv_0": [
+        []
+    ],
+    "S_instr" : [
+        []
+    ],
+    "Magn": [
+        []
+    ],
+    "Redun": [
+        []
+    ],
+    "S_loc": [
+        []
+    ]
+
+
+
+}
+
+k_exemples = {
+    'Anti' : [
+        ["raccourcissement","rallongement"],
+        ["vieillir", "rajeunir"],
+        ["amateur", "professionnel"],
+        ["tristement", "joyeusement"],
+        ["assis", "debout"]
+    ],
+    "S_0" : [
+        []
+    ],
+    "Syn_⊂" : [
+        []
+    ],
+    "Syn": [
+        []
+    ],
+    "A_0": [
+        []
+    ],
+    "A_2Perf": [
+        []
+    ],
+    "V_0": [
+        []
+    ],
+    "Syn_⊃^sex": [
+        []
+    ],
+    "Adv_0": [
+        []
+    ],
+    "S_instr" : [
+        []
+    ],
+    "Magn": [
+        []
+    ],
+    "Redun": [
+        []
+    ],
+    "S_loc": [
+        []
+    ]
+}
+
+
 
     # certaines fonctions lexicales sont difficiles à comprendre, on pourra demander plus de précisions au prof de linguistique.
     # S_1, S_3, S_2^prototyp
@@ -221,9 +335,10 @@ def create_model(question, relation):
     ollama.create(model=relation, modelfile=text_template)
 
 
-# Rouler le modele
-def run_model(relation):
+# Rouler le modele. k_shot = number of examples we want to add to the question 
+def run_model(relation, k_shot):
     questions = all_lf_questions[relation]
+    example_sentence = questions_exemples[relation]
     examples = get_relation_examples(relation)
     scores_sublist = []
 
@@ -235,7 +350,7 @@ def run_model(relation):
         question = questions[i]
 
         # Open a file to store the outputs
-        fileName = f"outputs/{relation}_{i}_out.csv"
+        fileName = f"outputs/{relation}-{i}_{k_shot}ex_out.csv"
 
         # Clear file contents
         open("./"+fileName, 'w', encoding="utf-8").close()
@@ -244,7 +359,14 @@ def run_model(relation):
 
         for w in tqdm(examples, desc="Processing examples"):
             source = w[0]
-            complete_question =  (str(question[0]) + source + str(question[1]))
+            if (k_shot):
+                shots = ("Voici " + str(k_shot) + " exemples: ")
+                for j in range (k_shot):
+                    shots += (example_sentence[0][0]+k_exemples[relation][j][0]+example_sentence[0][1]+k_exemples[relation][j][1]+example_sentence[0][2]+"\n")
+                complete_question =  (str(question[0]) + source + str(question[1]) + "\n" + shots)
+                print(complete_question)
+            else :
+                complete_question =  (str(question[0]) + source + str(question[1]))
             response = ollama.chat(model='relation_general_model', messages=[
                 {
                 'role': 'user',
@@ -308,7 +430,7 @@ def run_model(relation):
 #     return questions_list
 
 # Process all the samples for a given relation
-def process_samples(relation, sample_size, num_of_samples):
+def process_samples(relation, sample_size, num_of_samples, k_shot):
     # Use global values bc filename etc will be used later to get examples
     global file_name, example_file, example_lines, n
 
@@ -332,7 +454,7 @@ def process_samples(relation, sample_size, num_of_samples):
             example_lines.append(l)
 
         # calc the score for the sample for each question & add to the big list
-        scores_for_sample = run_model(chosen_relation)
+        scores_for_sample = run_model(chosen_relation, k_shot)
         scores_list.append(scores_for_sample)
 
     # once all samples are done being evaluated, average all of them & write to file
@@ -381,7 +503,9 @@ def main():
     # todo: fix printing of loading bars
     for rel in all_lf_questions.keys():
         print(rel)
-        process_samples(rel, 50, 2)
+        process_samples(rel, 50, 2, 3)
+
+
 
 
 if __name__ == "__main__":

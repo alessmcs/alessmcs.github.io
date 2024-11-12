@@ -3,7 +3,12 @@ import json
 from tqdm import tqdm
 import sys
 import ollama
+<<<<<<< Updated upstream
 #from websockets.asyncio.client import process_exception
+=======
+import numpy
+from websockets.asyncio.client import process_exception
+>>>>>>> Stashed changes
 
 all_lf_questions = {
         'Anti' : [
@@ -14,11 +19,14 @@ all_lf_questions = {
         # "S_0": [
         #     ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
         #     ["Quel est le nom commun du verbe ou l'adjectif \"","\"? Donne un seul nom commun sans ponctuation."],
+<<<<<<< Updated upstream
         #     ["Quel est le nom commun formé à partir du mot \"", "\"? Donne un seul nom commun sans ponctuation."],
         #     ["Quel est le nom commun formé à partir du verbe ou de l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
         #     ["Quel est le nom commun dérivé du mot \"", "\"? Donne un seul nom commun sans ponctuation."],
         #     ["Transforme le mot \"", "\" en nom commun. Donne un seul nom commun sans ponctuation."]
         #
+=======
+>>>>>>> Stashed changes
         # ],
         # "Syn_⊂" : [
         #     ["Quel est le synomyme avec un sens plus large du mot \"", "\"? Donne un seul mot sans ponctuation."],
@@ -35,11 +43,11 @@ all_lf_questions = {
         #     ["Quel est l'adjectif dérivé du mot \"", "\"? Donne un seul adjectif conjugué au masculin, et sans ponctuation."]
 
         # ],
-        "A_2Perf" : [
-            ["Quel est l'adjectif correspondant à l'aboutissement de \"", "\"? Donne un seul adjectif sans ponctuation."],
-            ["Quel est l'adjectif correspondant à l'aboutissement de \"", 
-             "\"? Donne un seul adjectif sans ponctuation. Voici un exemple: l'adjectif correspondant à l'aboutissement de \"cuire\" est \"cuit\"."]
-        ],
+        # "A_2Perf" : [
+        #     ["Quel est l'adjectif correspondant à l'aboutissement de \"", "\"? Donne un seul adjectif sans ponctuation."],
+        #     ["Quel est l'adjectif correspondant à l'aboutissement de \"",
+        #      "\"? Donne un seul adjectif sans ponctuation."]
+        # ],
         "V_0" : [
             ["Quel est le verbe correspondant au mot \"", "\"? Donne un seul verbe sans ponctuation."],
             ["Quel est le verbe formé à partir du mot \"", "\"? Donne un seul verbe sans ponctuation."],
@@ -80,6 +88,7 @@ all_lf_questions = {
     
     }
 
+<<<<<<< Updated upstream
 
 questions_exemples = {
     'Anti' : [
@@ -173,6 +182,11 @@ k_exemples = {
 }
 
 
+=======
+# Map of FL's ordered selon le score maximal (moyen) pour chaque question, avec la meilleure question qui donne ce score
+# todo!!!
+fl_ranking = {}
+>>>>>>> Stashed changes
 
     # certaines fonctions lexicales sont difficiles à comprendre, on pourra demander plus de précisions au prof de linguistique.
     # S_1, S_3, S_2^prototyp
@@ -432,7 +446,7 @@ def run_model(relation, k_shot):
 # Process all the samples for a given relation
 def process_samples(relation, sample_size, num_of_samples, k_shot):
     # Use global values bc filename etc will be used later to get examples
-    global file_name, example_file, example_lines, n
+    global file_name, example_file, example_lines, n, fl_ranking
 
     scores_list = []
     chosen_relation = relation
@@ -442,6 +456,7 @@ def process_samples(relation, sample_size, num_of_samples, k_shot):
     # Clear score file
     open('./scores/' + chosen_relation, 'w', encoding="utf-8").close()
     score_file = open('./scores/' + chosen_relation, 'a', encoding="utf-8")
+    avg_scores = []
 
     # Iterate through each random sample
     for i in range(num_of_samples):
@@ -463,8 +478,11 @@ def process_samples(relation, sample_size, num_of_samples, k_shot):
         question = all_lf_questions[chosen_relation][i]
         for j in range(num_of_samples):
             somme += scores_list[j][i]
-        score_file.write(question[0] + 'x' + question[1] + ' : ' + str(somme / num_of_samples) + '\n')
-
+        avg_scores.append((round(somme / num_of_samples), 2))
+        score_file.write(question[0] + 'x' + question[1] + ' | ' + str((round(somme / num_of_samples), 2)) + '\n')
+    # Add best score to the FL ranking along w its question
+    maximum = max(avg_scores)
+    fl_ranking[chosen_relation] = [maximum, all_lf_questions[chosen_relation][avg_scores.index(maximum)]]
 
 def main():
     # Utiliser les valeurs globales des fichiers pour les rappeler plus tard
@@ -506,6 +524,13 @@ def main():
         process_samples(rel, 50, 2, 3)
 
 
+
+    # todo: à ameliorer (affichage, lecture du map)
+    open('./scores/fl_ranking', 'w', encoding="utf-8").close()
+    ranking_file = open('./scores/fl_ranking', 'a', encoding="utf-8")
+    fl_ranking_sorted = dict(sorted(fl_ranking.items(), key=lambda item: item[1], reverse=True))
+    for fl in fl_ranking_sorted.keys():
+        ranking_file.write(str(fl) + '\n' + str(fl_ranking_sorted[fl][0]) + '|' + str(fl_ranking_sorted[fl][1][0]) + '\n')
 
 
 if __name__ == "__main__":

@@ -311,6 +311,8 @@ if __name__ == "__main__":
     create_sample_sets(30, 30, 3, everything)
 
     # todo: pertinence des parties du discours ou pas??
+    # todo: separate into test set & example set (enlever 1-3 mots pour chaque FL qui semblent pertinents, ne pas les
+    # compter dans les exemples)
 
 
 

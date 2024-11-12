@@ -3,12 +3,8 @@ import json
 from tqdm import tqdm
 import sys
 import ollama
-<<<<<<< Updated upstream
-#from websockets.asyncio.client import process_exception
-=======
 import numpy
 from websockets.asyncio.client import process_exception
->>>>>>> Stashed changes
 
 all_lf_questions = {
         'Anti' : [
@@ -16,38 +12,34 @@ all_lf_questions = {
             ["Quel est le contraire du mot \"", "\"? Donne un seul mot sans ponctuation."],
             ["Quel est l'opposé du mot \"", "\"? Donne un seul mot sans ponctuation."]
                 ],
-        # "S_0": [
-        #     ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
-        #     ["Quel est le nom commun du verbe ou l'adjectif \"","\"? Donne un seul nom commun sans ponctuation."],
-<<<<<<< Updated upstream
-        #     ["Quel est le nom commun formé à partir du mot \"", "\"? Donne un seul nom commun sans ponctuation."],
-        #     ["Quel est le nom commun formé à partir du verbe ou de l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
-        #     ["Quel est le nom commun dérivé du mot \"", "\"? Donne un seul nom commun sans ponctuation."],
-        #     ["Transforme le mot \"", "\" en nom commun. Donne un seul nom commun sans ponctuation."]
-        #
-=======
->>>>>>> Stashed changes
-        # ],
-        # "Syn_⊂" : [
-        #     ["Quel est le synomyme avec un sens plus large du mot \"", "\"? Donne un seul mot sans ponctuation."],
-        #     ["Donne un seul mot qui englobe le sens du mot \"", "\"."],
-        #     ["Donne un mot plus général pour signifier \"", "\"."]
-        # ],
+        "S_0": [
+            ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
+            ["Quel est le nom commun du verbe ou l'adjectif \"","\"? Donne un seul nom commun sans ponctuation."],
+            ["Quel est le nom commun formé à partir du mot \"", "\"? Donne un seul nom commun sans ponctuation."],
+            ["Quel est le nom commun formé à partir du verbe ou de l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
+            ["Quel est le nom commun dérivé du mot \"", "\"? Donne un seul nom commun sans ponctuation."],
+            ["Transforme le mot \"", "\" en nom commun. Donne un seul nom commun sans ponctuation."]
+
+        ],
+        "Syn_⊂" : [
+            ["Quel est le synomyme avec un sens plus large du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Donne un seul mot qui englobe le sens du mot \"", "\"."],
+            ["Donne un mot plus général pour signifier \"", "\"."]
+        ],
         # "Syn" : [
         #     ["Quel est le synonyme du mot \"", "\"? Donne un seul mot sans ponctuation."]
         # ],
-        # "A_0" : [
-        #     ["Quel est l'adjectif correspondant au mot \"", "\"? Donne un seul adjectif sans ponctuation."],
-        #     ["Transforme le mot \"", "\" en adjectif. Donne un seul adjectif conjugué au masculin, et sans ponctuation."],
-        #     ["Quel est l'adjectif formé à partir du mot \"", "\"? Donne un seul adjectif conjugué au masculin, et sans ponctuation."],
-        #     ["Quel est l'adjectif dérivé du mot \"", "\"? Donne un seul adjectif conjugué au masculin, et sans ponctuation."]
-
-        # ],
-        # "A_2Perf" : [
-        #     ["Quel est l'adjectif correspondant à l'aboutissement de \"", "\"? Donne un seul adjectif sans ponctuation."],
-        #     ["Quel est l'adjectif correspondant à l'aboutissement de \"",
-        #      "\"? Donne un seul adjectif sans ponctuation."]
-        # ],
+        "A_0" : [
+            ["Quel est l'adjectif correspondant au mot \"", "\"? Donne un seul adjectif sans ponctuation."],
+            ["Transforme le mot \"", "\" en adjectif. Donne un seul adjectif conjugué au masculin, et sans ponctuation."],
+            ["Quel est l'adjectif formé à partir du mot \"", "\"? Donne un seul adjectif conjugué au masculin, et sans ponctuation."],
+            ["Quel est l'adjectif dérivé du mot \"", "\"? Donne un seul adjectif conjugué au masculin, et sans ponctuation."]
+        ],
+        "A_2Perf" : [
+            ["Quel est l'adjectif correspondant à l'aboutissement de \"", "\"? Donne un seul adjectif sans ponctuation."],
+            ["Quel est l'adjectif correspondant à l'aboutissement de \"",
+             "\"? Donne un seul adjectif sans ponctuation."]
+        ],
         "V_0" : [
             ["Quel est le verbe correspondant au mot \"", "\"? Donne un seul verbe sans ponctuation."],
             ["Quel est le verbe formé à partir du mot \"", "\"? Donne un seul verbe sans ponctuation."],
@@ -70,25 +62,22 @@ all_lf_questions = {
             ["Quel est l'instrument typiquement utilisé pour faire l'action liée au mot \"", "\"? Donne un seul nom commun sans ponctuation."],
             ["Donne le circonstant intrumental typique de \"", "\". Donne un seul nom commun sans ponctuation."]
         ],
-        "Magn" : [
-            ["Quel est le mot utilisé avec le mot \"", "\" qui amplifie son sens? Donne un seul mot sans ponctuation."],
-            ["Quel est le mot utilisé avec le mot \"", "\" qui intesifie son sens? Donne un seul mot sans ponctuation."],
-            ["Donne un mot qui modifie le sens de  \"", "\" en l'amplifiant. Donne un seul mot sans ponctuation."],
-            ["Je veux amplifier le sens de \"", "\". Quel mot puis-je utiliser avec ce mot pour obtenir un sens amplifié?  Donne un seul mot sans ponctuation."]
-        ],
-        "Redun" : [
-            ["Donne un mot qui est utilisé comme modificateur redondant du mot \"", "\". Donne un seul mot sans ponctuation."],
-            ["Donne un mot dont le sens est inclus dans celui du mot \"", "\". Donne un seul mot sans ponctuation."]
-        ],
+        # "Magn" : [
+        #     ["Quel est le mot utilisé avec le mot \"", "\" qui amplifie son sens? Donne un seul mot sans ponctuation."],
+        #     ["Quel est le mot utilisé avec le mot \"", "\" qui intesifie son sens? Donne un seul mot sans ponctuation."],
+        #     ["Donne un mot qui modifie le sens de  \"", "\" en l'amplifiant. Donne un seul mot sans ponctuation."],
+        #     ["Je veux amplifier le sens de \"", "\". Quel mot puis-je utiliser avec ce mot pour obtenir un sens amplifié?  Donne un seul mot sans ponctuation."]
+        # ],
+        # "Redun" : [
+        #     ["Donne un mot qui est utilisé comme modificateur redondant du mot \"", "\". Donne un seul mot sans ponctuation."],
+        #     ["Donne un mot dont le sens est inclus dans celui du mot \"", "\". Donne un seul mot sans ponctuation."]
+        # ],
         "S_loc": [
             ["Quel est un nom qui décrit la localisation de \"", "\"? Donne un seul nom sans ponctuation."],
             ["Donne le lieu typique de \"", "\"? Donne un seul nom sans ponctuation."],
             ["À quel endroit se trouve \"", "\"? Donne un seul nom sans ponctuation."]
         ]
-    
     }
-
-<<<<<<< Updated upstream
 
 questions_exemples = {
     'Anti' : [
@@ -130,9 +119,6 @@ questions_exemples = {
     "S_loc": [
         []
     ]
-
-
-
 }
 
 k_exemples = {
@@ -182,11 +168,6 @@ k_exemples = {
 }
 
 
-=======
-# Map of FL's ordered selon le score maximal (moyen) pour chaque question, avec la meilleure question qui donne ce score
-# todo!!!
-fl_ranking = {}
->>>>>>> Stashed changes
 
     # certaines fonctions lexicales sont difficiles à comprendre, on pourra demander plus de précisions au prof de linguistique.
     # S_1, S_3, S_2^prototyp
@@ -204,6 +185,7 @@ context = []
 
 # global values for all samples file & n
 file_name, example_file, example_lines, n = '', '', '', 0
+fl_ranking = {}
 
 # file_name = './sample_sets/all_relations_50_ex_0.tsv'
 #
@@ -485,45 +467,10 @@ def process_samples(relation, sample_size, num_of_samples, k_shot):
     fl_ranking[chosen_relation] = [maximum, all_lf_questions[chosen_relation][avg_scores.index(maximum)]]
 
 def main():
-    # Utiliser les valeurs globales des fichiers pour les rappeler plus tard
-    # global file_name, example_file, example_lines, n
-    #
-    # scores_list = []
-    # chosen_relation = "S_0"
-    # n = 30
-    # num_of_samples = 3
-    #
-    # # Clear score file
-    # open('./scores/' + chosen_relation, 'w', encoding="utf-8").close()
-    # score_file = open('./scores/' + chosen_relation, 'a', encoding="utf-8")
-    #
-    # for i in range(num_of_samples):
-    #     file_name = f'./sample_sets/all_relations_{str(n)}_ex_{i}.tsv'
-    #     examples_file = open(file_name, 'r', encoding="utf-8")
-    #     example_lines = []
-    #
-    #     for line in examples_file:
-    #         l = line.replace('\n', '').split('\t')
-    #         example_lines.append(l)
-    #
-    #     # get the file
-    #     scores_for_sample = run_model(chosen_relation)
-    #     scores_list.append(scores_for_sample)
-    #
-    # # once all samples are done being evaluated, average all of them
-    # for i in range(len(scores_list[0])):
-    #     somme = 0
-    #     question = all_lf_questions[chosen_relation][i]
-    #     for j in range(num_of_samples):
-    #         somme += scores_list[i][j]
-    #     score_file.write(question[0] + 'x' + question[1] + ' : ' + str(somme/num_of_samples) + '\n')
 
-    # todo: fix printing of loading bars
     for rel in all_lf_questions.keys():
         print(rel)
-        process_samples(rel, 50, 2, 3)
-
-
+        process_samples(rel, 30, 2, 0)
 
     # todo: à ameliorer (affichage, lecture du map)
     open('./scores/fl_ranking', 'w', encoding="utf-8").close()

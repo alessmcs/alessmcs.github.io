@@ -1,3 +1,6 @@
-Quel est le nom commun correspondant au verbe ou à l'adjectif "x"? Donne un seul nom commun sans ponctuation. : 0.08
-Quel est le nom commun correspondant au verbe ou à l'adjectif "x"? Donne un seul nom commun sans ponctuation. : 0.1
-Quel est le nom commun du verbe ou l'adjectif "x"? Donne un seul nom commun sans ponctuation. : 0.14
+Quel est le nom commun correspondant au verbe ou à l'adjectif "x"? Donne un seul nom commun sans ponctuation. | (0, 2)
+Quel est le nom commun du verbe ou l'adjectif "x"? Donne un seul nom commun sans ponctuation. | (0, 2)
+Quel est le nom commun formé à partir du mot "x"? Donne un seul nom commun sans ponctuation. | (0, 2)
+Quel est le nom commun formé à partir du verbe ou de l'adjectif "x"? Donne un seul nom commun sans ponctuation. | (0, 2)
+Quel est le nom commun dérivé du mot "x"? Donne un seul nom commun sans ponctuation. | (0, 2)
+Transforme le mot "x" en nom commun. Donne un seul nom commun sans ponctuation. | (0, 2)

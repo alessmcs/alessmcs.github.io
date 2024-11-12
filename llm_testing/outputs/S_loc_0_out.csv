@@ -1,50 +1,50 @@
-framboise : ,framboisier  : Fruits
+framboise : ,framboisier  : Bois
 pomme : ,pommier  : Arbre
-presse : ,presses ;imprimerie  : France
+presse : ,presses ;imprimerie  : Officiel
 gymnastique : ,salle ;gymnase ,salle ;gymnase  : Salle
-prune : ,prunier  : Arbre
-ananas : ,ananas  : Tropicale
-à l’eau : ,eau ,eau  : Rivage
+prune : ,prunier  : Bois
+ananas : ,ananas  : Amérique
+à l’eau : ,eau ,eau  : Bord
 pneumonie : ,poumons  : Poumon
-abeille : ,nid ,ruche  : Apiere
-chaussures : ,boîte ;meuble  :  Pied
-cadavre : ,cercueil ,bière  : Cimetière
+abeille : ,nid ,ruche  : Apiare
+chaussures : ,boîte ;meuble  : Pied
+cadavre : ,cercueil ,bière  : Mortuaires
 uriner : ,urinoir ;toilettes  : WC
 aube : ,matin  : Est
-assiette : ,assiette  : Table
+assiette : ,assiette  : Tableau
 se doucher : ,douche ,salle de douche ;salle de bain  : Salle
-main gauche : ,gauche ,gauche  : Gaucherie
-coton : ,cotonnier  : Asie
+main gauche : ,gauche ,gauche  : Gauche
+coton : ,cotonnier  : Amérique
 baignoire : ,salle de bain  : Chambre
-encre : ,encrier  : Porte
+encre : ,encrier  : Fente
 se laver : ,salle de bain ,salle de douche ,salle d’eau  : Salle
-melon : ,melon  : Etable
+melon : ,melon  : Fruit
 diable : ,Enfer  : Enfer
-déchets : ,déchetterie  : Décharge
-soleil : ,ciel  : Orient
-urinoir : ,urinoir ;toilettes  : Toilette
+déchets : ,déchetterie  : Cordonnier
+soleil : ,ciel  : Est
+urinoir : ,urinoir ;toilettes  : Salle
 Londres : ,Angleterre  : Angleterre
 récif corallien : ,mer  : Atoll
 réaction : ,réacteur ,réacteur ,réacteur  : Chimique
 camper : ,camping  : Camping
 valoches : ,yeux ;visage  : Montagne
-sport : ,salle ;terrain ;palais des sports  : Stade
-voter : ,bureau de vote  : urne
+sport : ,salle ;terrain ;palais des sports  : Terrain
+voter : ,bureau de vote  : Urne
 cercueil : ,sépulture ,tombe ,tombeau  : Catafalque
-réagir : ,réacteur ,réacteur ,réacteur  : Auxilier
-grappe : ,vigne  : Vineyard
-orphelin : ,orphelinat  : Enfant
-rideau : ,scène  : Scène
-plein : ,station-service  : Milieu
+réagir : ,réacteur ,réacteur ,réacteur  : RÉPONSE
+grappe : ,vigne  : Vallée
+orphelin : ,orphelinat  : Foyer
+rideau : ,scène  : Salle
+plein : ,station-service  : Centre
 villageois : ,village  : Rural
-garagiste : ,garage ,garage  : Voisinage
-tortue de mer : ,mer ,océan ;eau de mer  : Méditerranée
+garagiste : ,garage ,garage  : Automobile
+tortue de mer : ,mer ,océan ;eau de mer  : Mediterranee
 eau de mer : ,mer ,océan  : Côtes
 curé : ,cure ;paroisse  : Église
-couché : ,lit  : Ouest
-football : ,terrain ;stade  : Terrain
-réunion : ,salle de réunion  : Islande
+couché : ,lit  : Est
+football : ,terrain ;stade  : Champ
+réunion : ,salle de réunion  : France
 dormir : ,dortoir  : Lit
-cinéma : ,studio  : Salles
+cinéma : ,studio  : Salon
 cuisine : ,cuisine  : Salle
-moustique : ,marais ,mare ,marécage  : Éclosion
+moustique : ,marais ,mare ,marécage  : Espace

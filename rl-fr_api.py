@@ -58,6 +58,22 @@ def get_df(i: int):
 
     print("none")
 
+def get_para_synta_relations():
+    relations = get_relation_dict()
+
+    paradigmatics = {}
+    syntagmatics = {}
+
+    for key in relations:
+        name, family, linktype= relations[key]
+        if linktype == "paradigmatic":
+            paradigmatics[key] = (name, family, linktype)
+        elif linktype == "syntagmatic":
+            syntagmatics[key] = (name, family, linktype)
+        else:
+            raise ValueError("Neither paradigmatic nor syntagmatic")
+    return paradigmatics, syntagmatics
+
 # Get a word from its mapped content
 def get_word_from_id(id: str, mapping) -> str:
     return mapping[id]
@@ -125,11 +141,16 @@ def get_relation_dict():
 # Get the name of a relation from its ID
 def get_relation_name(df, i: int, relations) -> (str, str):
 
-    relation_id = df.iloc[i]['lf']
-    separator = df.iloc[i]['separator']
+    index =  df.index[i]
+    relation_id = df.loc[index]['lf']
 
-    name, family, linktype = relations[relation_id]
-    return name, family, separator
+    separator = df.loc[index]['separator']
+
+    if relation_id in relations.keys():
+        name, family, linktype = relations[relation_id]
+        return name, family, separator
+    else:
+        return '', '', ''
 
 # todo: delete???
 def clean_dfs(df15, df2, no_numbers=True, no_locutions=False):
@@ -165,7 +186,9 @@ def create_map_to_write(name_rather_than_id=True):
     df15 = get_df(15)
     df2 = get_df(2)
 
-    relations = get_relation_dict()
+    #relations = get_relation_dict()
+    paradigmatics, syntagmatics = get_para_synta_relations()
+    relations = paradigmatics # use only para relations
     mapping = get_word_from_id_mapping()
 
     # Remove numbers and/or locutions to simplify examples and control variance
@@ -179,6 +202,9 @@ def create_map_to_write(name_rather_than_id=True):
     for i in tqdm(range(N), desc="creating map", ascii=True):
         source, target = get_endpoints(df15_cleaned, i, mapping, name_rather_than_id)
         relation, family, separator = get_relation_name(df15_cleaned, i, relations)
+
+        if relation == '':
+            continue # next iter bc nothing found?
 
         # enlever tous les entries qui contiennent des chiffres
         condition = lambda word : True if any (char.isdigit() for char in word) else False
@@ -279,6 +305,8 @@ if __name__ == "__main__":
 
     # Get all the relations & examples
     everything = create_map_to_write()
+    for k in everything.keys():
+        print(k)
     # Create as many samples of desired size as I want
     create_sample_sets(30, 30, 3, everything)
 

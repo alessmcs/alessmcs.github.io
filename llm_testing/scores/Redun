@@ -1,2 +1,2 @@
-Donne un mot qui est utilisé comme modificateur redondant du mot "x". Donne un seul mot sans ponctuation. : 0.05
-Donne un mot dont le sens est inclus dans celui du mot "x". Donne un seul mot sans ponctuation. : 0.02
+Donne un mot qui est utilisé comme modificateur redondant du mot "x". Donne un seul mot sans ponctuation. | (0, 2)
+Donne un mot dont le sens est inclus dans celui du mot "x". Donne un seul mot sans ponctuation. | (0, 2)

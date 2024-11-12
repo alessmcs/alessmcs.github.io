@@ -1,50 +1,50 @@
-convive : ,convive  : Hôtesse
-docteur : ,docteure ,docteure ,doctoresse  : Médicale
+convive : ,convive  : Invitée
+docteur : ,docteure ,docteure ,doctoresse  : Médicin
 prof : ,prof ,professeure  : Professeure
-abandonné : ,abandonnée  : Négligée
-combattant : ,combattante ,combattante  : Combatante
-froussard : ,froussarde  : Créamine
-empoté : ,empotée  : Femme
-sondé : ,sondée  : Sonnette
-nettoyeur : ,nettoyeuse ,nettoyeuse ,nettoyeuse ,nettoyeuse  : Nettresse
-distrait : ,distraite  : Inattente
-gorille : ,gorille  : Féline
-adoptant : ,adoptante  : adoptante
+abandonné : ,abandonnée  : Laissée
+combattant : ,combattante ,combattante  : Combattante
+froussard : ,froussarde  : Furieuse
+empoté : ,empotée  : Fatale
+sondé : ,sondée  : Sondage
+nettoyeur : ,nettoyeuse ,nettoyeuse ,nettoyeuse ,nettoyeuse  : Étrilleuse
+distrait : ,distraite  : Distraite
+gorille : ,gorille  : Orenga
+adoptant : ,adoptante  : Auteur
 nageur : ,nageuse ,nageuse  : Nageuse
 amoureux : ,amoureuse ,amoureuse  : Amoureuse
 gros : ,grosse  : Grande
-critiqueur : ,critiqueuse  : Cinéaste
-explorateur : ,exploratrice  : Épave
-virtuose : ,virtuose ,virtuose  : Virtuoise
-enculeur : ,enculeuse  : Féminine
-défenseur : ,défenseuse ,défenseuse ,défenseuse  : Défenseuse
-adolescent : ,adolescente ,ado  : Jeune
-promeneur : ,promeneuse  : Flaneuse
-chaisier : ,chaisière  : Femierre
-lion : ,lionne  : Léone
+critiqueur : ,critiqueuse  : Critiquée
+explorateur : ,exploratrice  : Exploratrice
+virtuose : ,virtuose ,virtuose  : Violoniste
+enculeur : ,enculeuse  : Féminisatrice
+défenseur : ,défenseuse ,défenseuse ,défenseuse  : Défendante
+adolescent : ,adolescente ,ado  : Fille
+promeneur : ,promeneuse  : PROMENEUSE
+chaisier : ,chaisière  : Cultivateuse
+lion : ,lionne  : Lynx
 buraliste : ,buraliste  : Vendeuse
 coupeur : ,coupeuse  : Couturière
 déclarant : ,déclarante  : Plaignante
-résidant : ,résidante  : Émigrante
-baroudeur : ,baroudeuse  : Pionnière
-vengeur : ,vengeresse  : Vengloire
+résidant : ,résidante  : Étudiante
+baroudeur : ,baroudeuse  : Tiratrice
+vengeur : ,vengeresse  : Vengeuse
 agresseur : ,agresseuse  : Agresseuse
-dévoreur : ,dévoreuse ,dévoreuse  : Végétarienne
-philosophe : ,philosophe  : Philosophe
-documentariste : ,documentariste  : Femina
+dévoreur : ,dévoreuse ,dévoreuse  : Devourrice
+philosophe : ,philosophe  : Philosophe : Sage
+documentariste : ,documentariste  : Femini
 chef de bord : ,chef de bord  : Pilote
-auditeur : ,auditrice  : Écuyère
-Anglais : ,Anglaise  : Française
+auditeur : ,auditrice  : Écouteuse
+Anglais : ,Anglaise  : Anglophone
 blessé : ,blessée  : Blesse
 enseignante : ,maîtresse  : Professeure
-dignitaire : ,dignitaire  : Éminente
+dignitaire : ,dignitaire  : Présidente
 frileux : ,frileuse  : Froide
 lanceur : ,lanceuse  : Lancière
-miraculé : ,miraculée  : Fille
+miraculé : ,miraculée  : Élue
 portraitiste : ,portraitiste  : Femme
-secrétaire : ,secrétaire  : Administratrice
+secrétaire : ,secrétaire  : Femme
 écrivain : ,écrivaine  : Écrivaine
-sentimental : ,sentimentale  : Rêveuse
+sentimental : ,sentimentale  : Romantique
 macaroni : ,macaroni  : Penne
-bouddhiste : ,bouddhiste  : Buddhiste -> Féminine
-palefrenier : ,palefrenière  : Ecurie
+bouddhiste : ,bouddhiste  : Femme
+palefrenier : ,palefrenière  : Écurie

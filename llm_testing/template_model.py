@@ -4,7 +4,7 @@ from tqdm import tqdm
 import sys
 import ollama
 import numpy
-from websockets.asyncio.client import process_exception
+
 
 all_lf_questions = {
         'Anti' : [
@@ -358,7 +358,9 @@ def run_model(relation, k_shot):
             if (k_shot):
                 shots = ("Voici " + str(k_shot) + " exemples: ")
                 for j in range (k_shot):
-                    shots += (example_sentence[0][0]+k_exemples[relation][j][0]+example_sentence[0][1]+k_exemples[relation][j][1]+example_sentence[0][2]+"\n")
+                    #shots += (example_sentence[0][0]+k_exemples[relation][j][0]+example_sentence[0][1]+k_exemples[relation][j][1]+example_sentence[0][2]+"\n")
+
+                    shots += ("Pour \""+k_exemples[relation][j][0]+"\", la réponse est \""+k_exemples[relation][j][1]+". \n")
                 complete_question =  (str(question[0]) + source + str(question[1]) + "\n" + shots)
                 print(complete_question)
             else :

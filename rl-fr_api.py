@@ -306,9 +306,10 @@ if __name__ == "__main__":
     # Get all the relations & examples
     everything = create_map_to_write()
     for k in everything.keys():
-        print(k)
+        if ('+' not in k) and ('&' not in k):
+            print(k)
     # Create as many samples of desired size as I want
-    create_sample_sets(30, 30, 3, everything)
+    #create_sample_sets(30, 30, 3, everything)
 
     # todo: pertinence des parties du discours ou pas??
     # todo: separate into test set & example set (enlever 1-3 mots pour chaque FL qui semblent pertinents, ne pas les

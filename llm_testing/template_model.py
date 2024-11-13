@@ -26,9 +26,6 @@ all_lf_questions = {
             ["Donne un seul mot qui englobe le sens du mot \"", "\"."],
             ["Donne un mot plus général pour signifier \"", "\"."]
         ],
-        # "Syn" : [
-        #     ["Quel est le synonyme du mot \"", "\"? Donne un seul mot sans ponctuation."]
-        # ],
         "A_0" : [
             ["Quel est l'adjectif correspondant au mot \"", "\"? Donne un seul adjectif sans ponctuation."],
             ["Transforme le mot \"", "\" en adjectif. Donne un seul adjectif conjugué au masculin, et sans ponctuation."],
@@ -37,19 +34,19 @@ all_lf_questions = {
         ],
         "A_2Perf" : [
             ["Quel est l'adjectif correspondant à l'aboutissement de \"", "\"? Donne un seul adjectif sans ponctuation."],
-            ["Quel est l'adjectif correspondant à l'aboutissement de \"",
-             "\"? Donne un seul adjectif sans ponctuation."]
+            ["Quel est l'adjectif correspondant à la fin de \"", "\"? Donne un seul adjectif sans ponctuation."],
+            ["Quand on aboutit la chose suivante, quel est l'adjectif approprié pour le définir: :  \"", "\"? Donne un seul adjectif sans ponctuation."]
         ],
         "V_0" : [
             ["Quel est le verbe correspondant au mot \"", "\"? Donne un seul verbe sans ponctuation."],
             ["Quel est le verbe formé à partir du mot \"", "\"? Donne un seul verbe sans ponctuation."],
             ["Quel est le verbe dérivé du mot \"", "\"? Donne un seul verbe sans ponctuation."],
             ["Transforme le mot \"", "\" en verbe. Donne un seul verbe sans ponctuation."]
-
         ],
         "Syn_⊃^sex" : [
             ["Quel est le mot féminin correspondant au mot \"", "\"? Donne un seul mot sans ponctuation."],
             ["Quel est le correspondant féminin du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est l'équivalent féminin du mot \"", "\"? Donne un seul mot sans ponctuation."],
             ["Conjugue le mot \"", "\" au féminin. Donne un seul mot sans ponctuation."],
         ],
         "Adv_0" : [
@@ -60,7 +57,8 @@ all_lf_questions = {
         ],
         "S_instr" : [
             ["Quel est l'instrument typiquement utilisé pour faire l'action liée au mot \"", "\"? Donne un seul nom commun sans ponctuation."],
-            ["Donne le circonstant intrumental typique de \"", "\". Donne un seul nom commun sans ponctuation."]
+            ["Donne le circonstant intrumental typique de \"", "\". Donne un seul nom commun sans ponctuation."],
+            ["Quel instrument utilise-t-on pour faire l'acte lié au mot \"", "\"? Donne un seul nom sans ponctuation"]
         ],
         # "Magn" : [
         #     ["Quel est le mot utilisé avec le mot \"", "\" qui amplifie son sens? Donne un seul mot sans ponctuation."],
@@ -68,14 +66,50 @@ all_lf_questions = {
         #     ["Donne un mot qui modifie le sens de  \"", "\" en l'amplifiant. Donne un seul mot sans ponctuation."],
         #     ["Je veux amplifier le sens de \"", "\". Quel mot puis-je utiliser avec ce mot pour obtenir un sens amplifié?  Donne un seul mot sans ponctuation."]
         # ],
-        # "Redun" : [
-        #     ["Donne un mot qui est utilisé comme modificateur redondant du mot \"", "\". Donne un seul mot sans ponctuation."],
-        #     ["Donne un mot dont le sens est inclus dans celui du mot \"", "\". Donne un seul mot sans ponctuation."]
-        # ],
+        "Redun" : [
+            ["Donne un mot qui est utilisé comme modificateur redondant du mot \"", "\". Donne un seul mot sans ponctuation."],
+            ["Donne un mot qui est utilisé comme modificateur redondant lorsqu'il est ajouté au mot \"", "\". Donne un seul mot sans ponctuation."],
+            ["Donne un mot dont le sens est inclus dans celui du mot \"", "\". Donne un seul mot sans ponctuation."]
+        ],
         "S_loc": [
             ["Quel est un nom qui décrit la localisation de \"", "\"? Donne un seul nom sans ponctuation."],
             ["Donne le lieu typique de \"", "\"? Donne un seul nom sans ponctuation."],
+            ["Donne le lieu ou le moment typique de \"", "\"? Donne un seul nom sans ponctuation."],
             ["À quel endroit se trouve \"", "\"? Donne un seul nom sans ponctuation."]
+        ],
+        "Cap" : [
+            ["Comment appelle-t-on le chef d'un/une \"", "\"? Donne un seul nom sans ponctuation"],
+            ["Quel est le terme pour designer le chef d'un/une \"" "\"? Donne un seul nom sans ponctuation"]
+        ],
+        # Nuance entre Able et A_0???
+        # "Able" : [
+        #     ["Quel est l'adjectif associé à quelque chose qui peut ou peut être \"", "\"? Donne un seul adjectif sans ponctuation."],
+        #     ["Quel est l'adjectif associé à quelque chose qui est \"", "\"? Donne un seul adjectif sans ponctuation."],
+        #     ["Comment qualifie-t-on quelque chose qui peut ou peut être \"", "\"? Donne un seul adjectif sans ponctuation."]
+        # ]
+        "Gener" : [
+            ["Quel est un terme générique pour désigner \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est un terme générique qui englobe le mot \"","\"? Donne un seul mot sans ponctuation."],
+            ["Quel est le terme qui englobe le mot  \"", "\"? Donne un seul mot sans ponctuation."],
+        ],
+        # Figur a < 50 exemples
+        # "Figur" : [
+        #     ["Quel est un terme figuratif qui complète le syntagme \"", "\" de/du/de l' (tout en préservant son sens)? Donne un seul nom commun sans ponctuation."],
+        #     ["Quel est un nom métaphorique qui complète le syntagme \"", "\" de/du/de l' (tout en préservant son sens)? Donne un seul nom commun sans ponctuation."],
+        #     ["Quel est un nom qui complète la métaphore \"", "\" de/du/de l' ? Donne un seul nom commun sans ponctuation qui permet de garder le sens."]
+        # ]
+        "Contr" : [
+            ["Quel mot crée un contraste, mais n'est pas l'antonyme de, \"", "\" ? Donne un seul mot sans ponctuation."],
+            ["Quel est l'opposé de, mais n'est pas l'antonyme de, \"", "\" ? Donne un seul mot sans ponctuation."],
+        ],
+        "S_res" : [
+            ["Quel est un résultat typique de l'acte associé au mot \"", "\" ? Donne un seul mot sans ponctuation"],
+            ["Quel est un résultat de l'acte associé au mot \"", "\" ? Donne un seul mot sans ponctuation"]
+        ],
+        "Sing" : [
+            ["Quel est un mot désignant une unité de \"", "\" ? Donne un mot sans ponctuation"],
+            ["Comment appelle-t-on une unité de \"", "\" ? Donne un mot sans ponctuation"],
+            ["Comment appelle-t-on une seule partie de \"", "\" ? Donne un mot sans ponctuation"],
         ]
     }
 
@@ -118,53 +152,131 @@ questions_exemples = {
     ],
     "S_loc": [
         []
+    ],
+    "Able": [
+
+    ],
+    "Gener": [
+
+    ],
+    "Figur": [
+
+    ],
+    "Contr": [
+
     ]
+
 }
 
 k_exemples = {
     'Anti' : [
-        ["raccourcissement","rallongement"],
-        ["vieillir", "rajeunir"],
-        ["amateur", "professionnel"],
-        ["tristement", "joyeusement"],
-        ["assis", "debout"]
+        ["habiller","déshabiller"],
+        ["construire", "détruire"],
+        ["petit", "grand"],
+        ["chaud", "froid"],
+        ["respect", "irrespect"]
     ],
     "S_0" : [
-        []
+        ["présenter", "présentation"],
+        ["partir", "départ"],
+        ["proche", "proximité"],
+        ["tomber", "chute"],
+        ["Pan!", "coup de feu"]
     ],
     "Syn_⊂" : [
         []
     ],
-    "Syn": [
-        []
-    ],
     "A_0": [
-        []
+        ["temps", "temporel"],
+        ["se nourrir", "nutritionnel"],
+        ["rotation", "giratoire"],
+        ["rapidement", "rapide"],
+        ["comparer", "comparatif"]
     ],
     "A_2Perf": [
         []
     ],
     "V_0": [
-        []
+        ["présentation", "présenter"],
+        ["serment", "jurer"],
+        ["puant", "puer"],
+        ["erreur", "se tromper"],
+        ["impatient", "s'impatienter"]
     ],
     "Syn_⊃^sex": [
         []
     ],
     "Adv_0": [
-        []
+        ["voir", "visuellement"],
+        ["alphabet", "alphabétiquement"],
+        ["rapide", "rapidement"],
+        ["proche", "près"],
+        ["vue", "visuellement"]
     ],
     "S_instr" : [
-        []
-    ],
-    "Magn": [
-        []
+        ["boire", "verre"],
+        ["se doucher", "douche"],
+        ["sentir", "nez"],
+        ["crime", "arme (du)"],
+        ["frire", "poêle"]
     ],
     "Redun": [
         []
     ],
     "S_loc": [
-        []
-    ]
+        ["boxe", "ring"],
+        ["enfant", "enfance"],
+        ["fumer", "espace fumeur"],
+        ["fumer", "fumoir"],
+        ["sentiment", "coeur"]
+    ],
+    "Cap": [
+        ["royaume", "roi"],
+        ["mafia", "parrain"],
+        ["navire", "capitaine"],
+        ["avion", "commandant (de bord)"],
+        ["tribu", "chef (de)"]
+    ],
+    "Able": [
+        ["bavarder", "bavard"],
+        ["peur", "peureux"]
+    ],
+    "Gener": [
+        ["amour", "sentiment"],
+        ["gaz", "substance"],
+        ["voir", "percevoir"]
+        # todo: 2 autres
+    ],
+    # "Figur": [
+    #     ["pouvoir", "rênes"]
+    # ],
+    "Contr": [
+        ["manger", "boire"],
+        ["terre", "mer"],
+        ["nous", "eux"],
+        ["ici", "là"],
+        ["eau", "feu"]
+    ],
+    # "Equip": [
+    #
+    # ],
+    "S_res": [
+        ["soigner", "santé"],
+        ["nuire", "dommage"],
+        ["assassiner/assassinat", "mort"],
+        ["réflexion", "fruit"]
+        # todo one more
+    ],
+    # "Qual": [
+    #
+    # ],
+    "Sing":[
+        ["riz", "grain (de)"],
+        ["pluie", "goutte (de)"],
+        ["battre", "frapper"],
+        ["pelage", "poil"],
+        ["vocabulaire", "mot"]
+    ],
 }
 
 
@@ -346,7 +458,7 @@ def run_model(relation, k_shot):
         question = questions[i]
 
         # Open a file to store the outputs
-        fileName = f"outputs/{relation}-{i}_{k_shot}ex_out.csv"
+        fileName = f"outputs/{relation}-{i}_k{k_shot}_out.csv"
 
         # Clear file contents
         open("./"+fileName, 'w', encoding="utf-8").close()
@@ -462,7 +574,7 @@ def process_samples(relation, sample_size, num_of_samples, k_shot):
         question = all_lf_questions[chosen_relation][i]
         for j in range(num_of_samples):
             somme += scores_list[j][i]
-        avg_scores.append((round(somme / num_of_samples), 2))
+        avg_scores.append((round(somme / num_of_samples, 2)))
         score_file.write(question[0] + 'x' + question[1] + ' | ' + str((round(somme / num_of_samples), 2)) + '\n')
     # Add best score to the FL ranking along w its question
     maximum = max(avg_scores)
@@ -470,16 +582,21 @@ def process_samples(relation, sample_size, num_of_samples, k_shot):
 
 def main():
 
+    # for k in [0,1,3,5]:
+    #     process_samples('Anti', 30, 2, k)
+
+    #process_samples('Anti', 30, 2, 0)
+
     for rel in all_lf_questions.keys():
         print(rel)
         process_samples(rel, 30, 2, 0)
 
     # todo: à ameliorer (affichage, lecture du map)
-    open('./scores/fl_ranking', 'w', encoding="utf-8").close()
-    ranking_file = open('./scores/fl_ranking', 'a', encoding="utf-8")
-    fl_ranking_sorted = dict(sorted(fl_ranking.items(), key=lambda item: item[1], reverse=True))
-    for fl in fl_ranking_sorted.keys():
-        ranking_file.write(str(fl) + '\n' + str(fl_ranking_sorted[fl][0]) + '|' + str(fl_ranking_sorted[fl][1][0]) + '\n')
+    # open('./scores/fl_ranking', 'w', encoding="utf-8").close()
+    # ranking_file = open('./scores/fl_ranking', 'a', encoding="utf-8")
+    # fl_ranking_sorted = dict(sorted(fl_ranking.items(), key=lambda item: item[1], reverse=True))
+    # for fl in fl_ranking_sorted.keys():
+    #     ranking_file.write(str(fl) + '\n' + str(fl_ranking_sorted[fl][0]) + '|' + str(fl_ranking_sorted[fl][1][0]) + '\n')
 
 
 if __name__ == "__main__":

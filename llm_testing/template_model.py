@@ -4,6 +4,11 @@ from tqdm import tqdm
 import sys
 import ollama
 import numpy
+import pandas as pd
+
+
+
+
 
 
 all_lf_questions = {
@@ -554,6 +559,10 @@ def process_samples(relation, sample_size, num_of_samples, k_shot):
     score_file = open('./scores/' + chosen_relation, 'a', encoding="utf-8")
     avg_scores = []
 
+    # Create list of dictionaries to transform in a Dataframe after
+    list_of_dict = []
+
+
     # Iterate through each random sample
     for i in range(num_of_samples):
         file_name = f'./sample_sets/all_relations_{str(n)}_ex_{i}.tsv'
@@ -575,13 +584,99 @@ def process_samples(relation, sample_size, num_of_samples, k_shot):
         for j in range(num_of_samples):
             somme += scores_list[j][i]
         avg_scores.append((round(somme / num_of_samples, 2)))
+
+        
+
+        dict1 = {"relation": relation, "no_question": i, "no_echantillon":j, "score": scores_list[j][i]}
+        list_of_dict.append(dict1)
+
         score_file.write(question[0] + 'x' + question[1] + ' | ' + str((round(somme / num_of_samples), 2)) + '\n')
     # Add best score to the FL ranking along w its question
     maximum = max(avg_scores)
     fl_ranking[chosen_relation] = [maximum, all_lf_questions[chosen_relation][avg_scores.index(maximum)]]
 
+    df = pd.DataFrame(list_of_dict)
+    df.to_csv("df_"+k_shot+"shot.csv")
+    print(df)
+    return df
+
+# Construire les autres df
+
+# df pour une relation avec les resultats de 0-shot, 1-shot,..., 5-shot
+def create_df_by_relation(relation, df0, df1, df2=None, df3=None, df4=None, df5=None):
+    df = pd.merge(df0.loc[df0["relation"]==relation], df1.loc[df1["relation"]==relation], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["0","1"]).reset_index(drop=True)
+
+    if (df2!=None):
+        df = pd.merge(df, df2.loc[df1["relation"]==relation], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["","2"]).reset_index(drop=True)
+
+    df.drop(["relation", "no_echantillon"], axis=1)
+    df = pd.merge(df.groupby("no_question").var(), df.groupby("no_question").mean(), how="inner", left_on="no_question", right_on="no_question", suffixes=["_var", "_mean"])
+    df.columns=["var_0", "var_1", "mean_0", "mean_1"]
+
+    print(df)
+
+    return df
+
+# df pour toutes les relations, pour k exemples.
+def create_df_by_k_shot(df):
+    summary = df.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1)
+
+    summary = summary.loc[summary.groupby("relation")["score"].idxmax()]
+    print(summary)
+    return summary
+
+
 def main():
 
+    #df_0_shot = pd.DataFrame(columns=["relation", "no_question", "no_echantillon", "score"])
+    
+    dict0 = {"relation": "Anti", "no_question": 0, "no_echantillon":0, "score": 0.51}
+    dict1 = {"relation": "Anti", "no_question": 0, "no_echantillon":1, "score": 0.54}
+    dict2 = {"relation": "Anti", "no_question": 0, "no_echantillon":2, "score": 0.43}
+    dict3 = {"relation": "Anti", "no_question": 1, "no_echantillon":0, "score": 0.10}
+    dict4 = {"relation": "Anti", "no_question": 1, "no_echantillon":1, "score": 0.11}
+    dict5 = {"relation": "Anti", "no_question": 1, "no_echantillon":2, "score": 0.16}
+    dict6 = {"relation": "V_0", "no_question": 0, "no_echantillon":0, "score": 0.26}
+    dict7 = {"relation": "V_0", "no_question": 1, "no_echantillon":0, "score": 0.55}
+    df_0_shot = [dict0, dict1, dict2, dict3, dict4, dict5, dict6, dict7]
+
+    df0 = pd.DataFrame(df_0_shot)
+    print(df0)
+
+    dict1 = {"relation": "Anti", "no_question": 0, "no_echantillon":1, "score": 0.67}
+    dict2 = {"relation": "Anti", "no_question": 0, "no_echantillon":2, "score": 0.50}
+    dict3 = {"relation": "Anti", "no_question": 1, "no_echantillon":0, "score": 0.20}
+    dict4 = {"relation": "Anti", "no_question": 1, "no_echantillon":1, "score": 0.45}
+    dict5 = {"relation": "Anti", "no_question": 1, "no_echantillon":2, "score": 0.34}
+    dict6 = {"relation": "V_0", "no_question": 0, "no_echantillon":0, "score": 0.56}
+    dict7 = {"relation": "V_0", "no_question": 1, "no_echantillon":0, "score": 0.67}
+    df_1_shot = [dict1, dict2, dict3, dict4, dict5, dict6, dict7]
+
+    df1 = pd.DataFrame(df_1_shot)
+    print(df1)
+
+    df_anti = pd.merge(df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["0","1"]).reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
+    #df_anti = pd.concat([df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"]], axis=1, join="inner").drop_duplicates().reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
+    #df_anti.drop(["relation", "no_echantillon"], axis=1)
+
+
+    print(df_anti)
+
+
+    df_anti = pd.merge(df_anti.groupby("no_question").var(), df_anti.groupby("no_question").mean(), how="inner", left_on="no_question", right_on="no_question", suffixes=["_var", "_mean"])
+    df_anti.columns=["var_0", "var_1", "mean_0", "mean_1"]
+
+    print(df_anti)
+
+
+    #k-shot
+    summary0 = df0.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1)
+    print(summary0)
+    summary0 = summary0.loc[summary0.groupby("relation")["score"].idxmax()]
+    print(summary0)
+
+
+    
     # for k in [0,1,3,5]:
     #     process_samples('Anti', 30, 2, k)
 

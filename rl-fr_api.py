@@ -298,7 +298,7 @@ def create_sample_sets(min_number, nb_examples, nb_sets, all_results):
 
     for i in range(nb_sets):
         curr_set = create_map_most_examples(all_results, min_number, nb_examples)
-        #print(curr_set)
+        print(len(curr_set))
         write_tsv(curr_set, f"./llm_testing/sample_sets/all_relations_{nb_examples}_ex_{i}.tsv")
 
 if __name__ == "__main__":
@@ -308,8 +308,13 @@ if __name__ == "__main__":
     for k in everything.keys():
         if ('+' not in k) and ('&' not in k):
             print(k)
+
+    print(len(everything.keys()))
     # Create as many samples of desired size as I want
-    #create_sample_sets(30, 30, 3, everything)
+    create_sample_sets(100, 30, 3, everything)
+
+    # find optimal n selon le nombre de fls différentes
+
 
     # todo: pertinence des parties du discours ou pas??
     # todo: separate into test set & example set (enlever 1-3 mots pour chaque FL qui semblent pertinents, ne pas les

@@ -1,1550 +1,930 @@
 >>>	S_0
-écolier	,écolier	,écolière	
-miraculeux	,miracle	
-s’intégrer	,intégration	
-débrancher	,débranchement	
-polaire	,pôle	
-moucher	,mouchage	
-achever	,achèvement	
-recommencer	,recommencement	
-aimer	,amour	
-régler	,règlement	
+philosophique	,philosophie	
+soutenir	,soutien	
+pratiquement	,pratique	
+mobilier	,mobiler	
+imperméable	,imperméabilité	
+opposer	,opposition	
+populaire	,peuple	
+déboucher	,débouchage	
+accumuler	,accumulation	
+s’entendre	,entente	
+majuscule	,majuscule	
+durcir	,durcissement	
+étranger	,étranger	
+orgueilleux	,orgueil	
+miauler	,miaulement	
+ordonner	,ordre	
+humilier	,humiliation	
+s’entasser	,entassement	
+rouge	,rouge	,rouge	
+arachnéen	,araignée	
+pénétrer	,pénétration	
+magique	,magie	
+travailler	,travail	,travail	
 enlever	,enlèvement	
-prolonger	,prolongation	
-amical	,ami	
-microphonique	,micro	,microphone	
-diviser	,division	
-énergique	,énergie	,énergie	
-créer	,création	
-pêcher	,pêche	
-s’améliorer	,amélioration	
-résonner	,résonance	
-virer	,virage	
-canin	,chien	
-dictatorial	,dictature	
-s’abaisser	,abaissement	
-électrique	,électricité	
-envahir	,envahissement	,envahissement	
-alimenter	,alimentation	
-lutter	,lutte	,lutte	
-groupal	,groupe	
-chevalin	,cheval	
+artistiquement	,art	
+planétaire	,planète	
+griller	,grillage	
+priver	,privation	
+orange	,orange	
+étouffer	,étouffement	
 >>>	A_2Perf
-lacer	,lacé	
-hospitaliser	,hospitalisé	
-extraire	,extrait	
-étirer	,étiré	
-entasser	,entassé	
-disposer	,disposé	
-emprunter	,emprunté	
-explorer	,exploré	
-insulter	,insulté	
-diminution	,diminué	
-dresser	,dressé	
-goudronner	,goudronné	
-punir	,puni	
-aider	,aidé	
-interdire	,interdit	
-enfermer	,enfermé	
-habiller	,habillé	
-promettre	,promis	
-affaiblir	,affaibli	
-approvisionner	,approvisionné	
-réaliser	,réalisé	
-avertir	,averti	
-fonder	,fondé	
-bourrer	,bourré	
-entendre	,entendu	
-soumettre	,soumis	,soumis	
-dégoûter	,dégoûté	
-orienter	,orienté	
-déterminer	,déterminé	
-imposer	,imposé	
->>>	Syn_∩
-orfèvre	,bijoutier	,joaillier	
-jour	,journée	
-accompagnement	,garniture	
-phénomène	,évènement	
-beaucoup	,copieusement	,énormément	,formidablement	,bien	;nombre	,quantité	,énormément	
-conseil municipal	,mairie	
-arrachage	,arrachement	
-pourrir	,se décomposer	,se putréfier	
-porté	,disposé	
-crainte	,peur	;angoisse	
-mécontentement	,grognement	
-coup de gomme	,coup de baguette magique	
-miches	,fesses	
-machine	,appareil	
-textile	,vêtement	
-s’écrouler	,s’effondrer	
-oser	,aller	
-mathématiques	;géométrie	;algèbre	
-élément de langage	,formule	,petite phrase	
-humilité	,modestie	
-apposer	,fixer	
-injure	,affront	,insulte	
-neuf	,nouveau	
-débarquer	,arriver	
-coup de maître	,réussite	;coup de poker	
-propos	,intention	,dires	;discours	
-organiser	,préparer	
-confession	,religion	
-impartial	,objectif	
-milieu	,pègre	,centre	;centre	
->>>	Anti
-original	,copie	
-privé	,public	
-direct	,indirect	
-craspec	,impeccable	
-avancer	,reculer	
-authentique	,inauthentique	
-content	,mécontent	
-complet	,incomplet	
-définitif	,provisoire	
-disgrâce	,grâce	
-débarquer	,embarquer	
-accrocher	,décrocher	
-souvent	,jamais	,rarement	,quelquefois	,parfois	,toujours	
-souple	,raide	,rigide	
-méchanceté	,bonté	
-reculer	,avancer	
-disjoindre	,joindre	
-mal	,bien	,bien	,bien	,bien	
-avoir tort	,avoir raison	
-ordre	,désordre	
-embarrasser	,débarrasser	
-éteindre	,allumer	,allumer	
-à l’extérieur	,à l’intérieur	
-raccourcissement	,rallongement	
-ami	,ennemi	
-incompétence	,compétence	
-maladroit	,adroit	,adroit	
-futur	,passé	,passé	
-clair	,foncé	;sombre	
-éloigner	,rapprocher	
->>>	Syn_⊃
-skis	,ski alpin	;ski de descente	;ski de fond	;ski de piste	;ski de randonnée	;ski de vitesse	
-trahir	,passer à l’ennemi	
-géniteur	,père	
-gouttière	,chéneau	
-lope	,tante	
-visage	,minois	
-cuisinier	,saucier	
-robinet	,bavard	,bavarde	
-politicien	,politicard	
-se disputer	,se brouiller	
-magasin	,librairie	
-biroute	,cigare	,phallus	
-tête	,crâne	
-crime	,meurtre	,assassinat	
-toit	,toiture	
-goût	,saveur	;bouche	
-chose	,objet	
-signal	,alarme	
-liste	,catalogue	;répertoire	
-zigounette	,cigare	,phallus	
-veste	,veston	
-décoration	,cravate	
-en-cas	,goûter	
-enseignant	,maître	
-décéder	,succomber	,passer l’arme à gauche	,s’éteindre	
-casser	,voler en éclats	
-encadrement	,cadre	
-commencer	,recommencer	
-courir	;cavaler	,galoper	;sprinter	;voler	,courir les filles	
-quéquette	,cigare	,phallus	
->>>	S_1
-en robe des champs	,pomme de terre	
-participant	,participant	,participante	
-célibat	,célibataire	,célibataire	
-trahir	,traître	,traîtresse	
-nager	,nageur	,nageuse	,nageur	,nageuse	
-kidnapper	,kidnappeur	,kidnappeuse	
-affiché	,affiche	
-ambitieux	,ambitieux	,ambitieuse	
-gaspiller	,gaspilleur	,gaspilleuse	
-couscous	,couscous	
-goulot	,bouteille	
-pot	,plante	,véhicule	
-course à pied	,coureur	,coureuse	
-habitude	,habitué	,habituée	
-toxicité	,toxique	,poison	
-plage	;album	;disque	
-amont	,cours d’eau	
-lit	,cours d’eau	
-libérer	,libérateur	,libératrice	
-hypocrisie	,hypocrite	,hypocrite	
-marcher	,marcheur	,marcheuse	;randonneur	,randonneuse	
-bête	,propriétaire	,propriétaire	,possesseur	
-éclair de magnésium	,appareil photo	
-tousser	,tousseur	,tousseuse	
-bonheur	,heureux	,heureuse	
-plongée	,plongeur	,plongeuse	
-parler	,locuteur	
-olivier	,olive	
-timbre	,voix	
-nettoyer	,nettoyeur	,nettoyeuse	,nettoyeur	,nettoyeuse	,nettoyant	,nettoyeur	
->>>	Conv_21
-car	,donc	,en conséquence	,par conséquent	
-s’abriter	,abriter	
-conséquence	,cause	
-se composer	,composer	
-désespérer	,désespérer	,désespérer	,se désespérer	
-en conséquence	,car	
-en dessous	,en dessus	
-aîné	,cadet	
-s’intégrer	,intégrer	
-résulter	,causer	
-quand bien même	,bien que	
-divertir	,se divertir	
-en dessus	,en dessous	
-à droite	,à gauche	
-se couvrir	,couvrir	
-s’alarmer	,alarmer	
-résultat	,cause	
-retentir	,retentir	,retentir	
-recevoir	,visiter	
-créancière	,débitrice	
-cadet	,aîné	
-coucher	,se coucher	,se coucher	,se coucher	,se coucher	
-abriter	,s’abriter	
-mourir	,tuer	,emporter	
-effet	,cause	
-désoler	,se désoler	
-s’intéresser	,intéresser	
-désintéresser	,se désintéresser	
-au-dessous	,au-dessus	
-causer	,résulter	
->>>	A_0
-touristiquement	,touristique	
-récemment	,récent	
-hanches	,coxal	
-centre	,central	,central	
-calmement	,calme	
-banlieue	,banlieusard	
-pavillon	,pavillonnaire	
-critiquer	,critique	
-extrêmement	,extrême	
-quantité	,quantitatif	
-cheval	,chevalin	,équin	
-avocate	,avocassier	
-sportivement	,sportif	
-kilomètre	,kilométrique	
-odieusement	,odieux	
-nombril	,ombilical	
-tradition	,traditionnel	
-automatiquement	,automatique	
-superficiellement	,superficiel	
-morale	,moral	
-dent	,dentaire	,dentaire	
-paralytique	,paralysie	
-Arabie	,arabe	
-orthographe	,orthographique	
-logique	,logique	
-dîner	,dînatoire	,dînatoire	
-parents	,parental	
-instrument	,instrumental	
-anarchie	,anarchique	
-timidement	,timide	
->>>	Able_1
-désespérer	,désespérant	
-suspecter	,suspicieux	
-accélérer	,accélérateur	
-dormir	,somnolent	
-tenter	,tentateur	;tentant	
-voler	,volant	
-craindre	,craintif	
-changer	,changeant	
-se suicider	,suicidaire	
-tracasser	,tracassier	
-colère	,coléreux	,colérique	
-sport	,sportif	
-astuce	,astucieux	
-voyager	,voyageur	
-distinguer	,distinctif	
-partager	,partageur	
-résister	,résistant	
-cogner	,cogneur	
-déplacement	,mobile	
-en imposer	,imposant	
-ruse	,rusé	
-entreprendre	,entreprenant	
-étouffer	,étouffant	
-désobéir	,désobéissant	
-absorber	,absorbant	
-compensation	,compensatoire	
-charité	,charitable	
-autorité	,autoritaire	
-oublier	,oublieux	
-détruire	,destructif	
->>>	Able_2
-oublier	,oubliable	
-occuper	,occupable	
-accepter	,acceptable	
-rabattre	,rabattable	
-juger	,jugeable	
-participer	,participatif	
-analyser	,analysable	
-vendre	,vendable	
-laver	,lavable	,lavable	
-atteindre	,atteignable	
-promouvoir	,promouvable	
-écraser	,écrasable	
-somme	,sommable	
-démonter	,démontable	
-éduquer	,éducable	
-exiger	,exigible	
-loger	,logeable	
-déformer	,déformable	
-déplacer	,déplaçable	
-détacher	,détachable	
-organiser	,organisable	
-ajuster	,ajustable	
-accéder	,accessible	
-angoisse	,angoissant	
-enseigner	,enseignable	
-détester	,détestable	
-ordonner	,ordonnable	
-labourer	,labourable	,arable	
-décrire	,descriptible	
-effacer	,effaçable	
->>>	Anti_∩
-nationaliser	,privatiser	
-récepteur	,émetteur	
-savon	,compliment	
-mou	,dur	,ferme	
-célibat	,couple	
-tant bien que mal	,bien	
-ouvrable	,férié	
-analogue	,différent	,distinct	,contraire	,opposé	,homologue	
-épouser	,divorcer	
-rater	,réussir	
-se fermer	,s’ouvrir	
-exigu	,spacieux	
-bénédiction	,ennemi	
-coup d’arrêt	,coup d’accélérateur	
-comme chien et chat	,ami	
-encombré	,dégagé	
-ami	,ennemi	;époux	,mari	,adversaire	,opposant	,comme chien et chat	
-balai dans le cul	,humour	
-allonger	,raccourcir	
-froid	,chaud	
-retrouver	,perdre	
-refroidir	,refroidir	
-pessimisme	,optimisme	
-non	,oui	
-obscurité	,clarté	
-éloge	,blâme	,reproche	,critique	
-gazeux	,liquide	,solide	
-ignorance	,connaissance	
-voyou	,sage	
-partageur	,égoïste	
->>>	V_0
-ralentissement	,ralentir	
-rapprochement	,se rapprocher	
-dialogue	,dialoguer	
-amélioration	,améliorer	,s’améliorer	
-tenue	,se tenir	
-extraction	,extraire	
-effondrement	,s’effondrer	
-ajout	,ajouter	,ajouter	,ajouter	
-locatif	,louer	
-rougissement	,rougir	
-conduite	,se conduire	,conduire	
-punition	,punir	
-désespérance	,désespérer	
-consentement	,consentir	,consentir	
-tremblement	,trembler	
-soulagement	,soulager	
-témoignage	,témoigner	
-signature	,signer	
-grelottement	,grelotter	
-montée	,monter	
-provocation	,provoquer	
-tendage	,tendre	
-sculptural	,sculpter	
-viol	,violer	
-ressemblance	,ressembler	,ressembler	
-souhait	,souhaiter	
-attache	,attacher	
-amour	,aimer	
-inondation	,inonder	
-regard	,regarder	
->>>	S_3
-travailler	,employeur	,employeuse	,patron	,patronne	;employeur	
-vendre	,acheteur	;acheteuse	
-récompense	,récompense	
-armer	,arme	;armement	
-boulangère	,client	,cliente	
-habiller	,habits	,vêtements	
-conclure	,conclusion	
-carré	,jardin	,potager	
-plein	,véhicule	
-boulanger	,client	,cliente	
-nommer	,nom	;prénom	
-boucher	,client	,cliente	
-exposer	,public	
-addition	,client	,cliente	
-décharger	,chargement	
-course	,taxi	;fiacre	
-multiplier	,multiplicateur	
-débiteur	,dette	
-collège	,collégien	,collégienne	
-attaché	,attache	
-numéroter	,numéro	
-charger	,chargement	
-sentiment	,sentiment	
-imposer	,impôt	
-marche	,auditeur	,auditrice	
-parier	,mise	
-améliorer	,amélioration	
-facture	,client	,cliente	
-accusation	,objet	;motif	
-apprendre	,élève	,élève	,étudiante	,étudiant	
->>>	A_1
-désert	,désert	
-supprimer	,suppresseur	
-précocité	,précoce	
-dent dure	,à	
-parole	,parlant	
-débrouillardise	,débrouillard	
-disponibilité	,disponible	
-catholicisme	,catholique	
-origine	,originel	
-voile	,voilé	
-importance	,important	
-costume	,costumé	
-vitre	,vitré	
-envelopper	,enveloppant	
-Espagnol	,espagnol	
-force	,fort	
-tolérance	,tolérant	
-fureur	,furieux	
-stationner	,stationné	
-condamné	,condamné	
-parler	,parlant	
-expérience	,expérimenté	
-imagination	,imaginatif	
-pléthore	,pléthorique	
-fluvialité	,fluvial	
-pénétrer	,pénétrant	
-retard	,retardataire	
-sagesse	,sage	
-sommeil	,endormi	
-dégoûter	,dégoûtant	
->>>	S_2^prototyp
-rôti	,bœuf	,porc	
-vestiaire	,cliente	,client	
-allonger	,café	,gueule	,mine	,tête	,tronche	,visage	
-hisser	,voile	;drapeau	
-débrancher	,wagon	
-automobile	,automobile	
-balayer	,nuage	
-bonbec	,sucre	
-arrêt	,bus	
-miellerie	,miel	
-passement	,bras	;jambes	
-chaussée	,véhicule roulant	,véhicule	
-dresser	,table	,table	
-joue	,bœuf	
-tablette	,chocolat	
-accident	,véhicule	
-mobiler	,pièce	
-marcher	,carburant	,électricité	,vapeur	
-quai	,gare	;métro	
-rideau	,fenêtre	,porte	
-verrou	,porte	
-moudre	,café	,blé	
-avoir	,propriété	
-parc	,se promener	,courir	;promenade	,jogging	
-depuis	,date	;moment	
-farter	,skis	
-conduire	,auto	,moto	,automobile	,train	,voiture	,véhicule	
-s’éponger	,front	
-parapluie	,pluie	
-couché	,lit	,lit	
->>>	Syn_⊃^sex
-industriel	,industrielle	
-entrepreneur	,entrepreneuse	
-coupeur de cheveux en quatre	,coupeuse de cheveux en quatre	
-pleureur	,pleureuse	
-cycliste	,cycliste	
-facteur	,factrice	,factrice	
-jardinier	,jardinière	
-hypnotiseur	,hypnotiseuse	
-Grec	,Grecque	
-costumier	,costumière	
-compagnon de route	,compagne de route	
-laveur	,laveuse	
-enfant	,enfant	
-Français	,Française	
-utilisateur	,utilisatrice	
-curieux	,curieuse	
-constructeur	,constructrice	
-émigré	,émigrée	
-conseiller municipal	,conseillère municipale	
-motocycliste	,motocycliste	
-infirme	,infirme	
-observateur	,observatrice	
-immortel	,immortelle	
-condamné	,condamnée	
-nul	,nulle	
-dictateur	,dictatrice	
-confident	,confidente	
-dépanneur	,dépanneuse	
-héros	,héroïne	,héroïne	
-visiteur	,visiteuse	
->>>	Adv_0
-maladroit	,maladroitement	
-partie	,partiellement	
-géographie	,géographiquement	
-indiscret	,indiscrètement	
-clandestin	,clandestinement	
-fréquent	,fréquemment	
-vaste	,vastement	
-fier	,fièrement	
-continuel	,continuellement	
-vulgaire	,vulgairement	
-initial	,initialement	
-fille	,filialement	
-simple	,simplement	
-réel	,réellement	
-diable	,diaboliquement	
-vif	,vivement	,vivement	,vivement	
-héros	,héroïquement	
-pratique	,pratiquement	
-propre	,proprement	,proprement	,proprement	,proprement	,proprement	,proprement	
-exactitude	,exactement	
-fond	,foncièrement	,en	,foncièrement	,profondément	,en	
-désagréable	,désagréablement	
-rigide	,rigidement	
-vraisemblable	,vraisemblablement	
-continuité	,continûment	
-humain	,humainement	
-instant	,instantanément	
-pauvre	,pauvrement	
-lâche	,lâchement	
-commencer	,depuis	
->>>	S_instr
-tout oreilles	,oreilles	
-téléphoner	,téléphone	
-entendre	,oreilles	
-allaiter	,seins	
-ping-pong	,balle	;raquette	;ping-pong	,table de ping-pong	
-goût	,langue	;palais	
-se moucher	,mouchoir	;doigt	
-tennis	,balle	;raquette	;filet	
-boxe	,gants	
-chanter	,corde vocale	,larynx	,larynx	,corde vocale	
-toilette	,gant de toilette	,linge	,objet	,parure	;gel douche	,produit	,savon	;affaires	,nécessaire	
-voyager	,avion	,autocar	,train	,voiture	
-imprimer	;imprimante	
-hold-up	,arme	
-battre	,fouet	
-imaginer	,imagination	
-cirer	,cire	
-crime	,arme	
-coiffeuse	,ciseaux	;brosse	,peigne	;sèche-cheveux	
-trajet	,bus	,tramway	
-sucer	,bouche	,lèvres	
-ski	;bâton	;chaussures	;skis	
-respirer	,nez	,narines	,narine	
-boucher	;crochet	
-vol	,avion	
-se réveiller	,réveil	
-boulangère	,pétrin	;four	
-dormir	,lit	
-boulanger	;pétrin	;four	
-radio	,radio	
->>>	Syn_⊂
-savon	,réprimande	,punition	
-squelettique	,maigre	
-boisson	,liquide	
-tortillard	,train	
-soldat du feu	,pompier	
-remettre	,mettre	
-assimilable	,similaire	
-brune	,cigarette	
-glu	,colle	
-papa	,père	,père	
-se dessiner	,se former	
-asseoir	,calculer	
-rugissement	,cri	
-rebord	,bord	
-félins	,fauves	
-second	,deuxième	
-set	,manche	
-flottille	,flotte	
-soigné	,appliqué	
-afghan	,large	
-famille	,cellule familiale	,classe	
-volley-ball	,match	,partie	
-emporter	,prendre	
-habiller	,équiper	
-football	,match	,partie	
-centaine	,cent	
-hurler	,crier	,crier	
-élever	,garder	
-sac	,sac	
-déplacer	,placer	
->>>	Syn
-mayo	,mayonnaise	
-fiancée	,promise	,payse	
-sweat	,sweat-shirt	
-photographie	,photo	
-ripatons	,arpion	,panards	,pieds	
-soutien-gorge	,soutif	
-fute	,ben	,bénard	,falzar	,fendard	,froc	,futal	,culotte	,pantalon	
-hâtif	,rapide	
-mère-grand	,aïeule	,grand-maman	,mamie	,mémé	,mémère	,bonne-maman	,grand-mère	
-piano à bretelles	,accordéon	
-cigarette	,cibiche	,garo	,clope	,tige	,schmer	,sèche	,cancéreuse	
-rot	,éructation	
-bourrique	,bourricot	,bourriquet	,âne	,baudet	
-babines	,lèvres	
-capuchon	,capuche	
-éducatrice	,éducs	
-mignon	,mimi	
-pébroque	,pépin	,riflard	,parapluie	
-bague	,bagouse	
-politique	,homme politique	
-jazzy	,jazzique	,jazzistique	
-brigade criminelle	,criminelle	,crim’	
-chuchotement	,chuchotis	
-modif	,modification	
-réconcilier	,rabibocher	,raccommoder	
-vrai	,véritable	
-frites	,pomme frite	
-nationale	,route nationale	
-pépé	,papi	,pépère	,bon-papa	,grand-papa	,aïeul	,grand-père	,grand-père	,papi	,pépère	
-professeure	,prof	
->>>	A_1Perf
-éducable	,éduqué	
-surcharger	,surchargé	
-disparaître	,disparu	
-s’entraîner	,entraîné	
-se fonder	,fondé	
-s’épuiser	,épuisé	
 salissant	,sale	
-s’enrichir	,enrichi	
-s’éteindre	,éteint	
-s’entourer	,entouré	
-s’inspirer	,inspiré	
-vaincre	,vainqueur	
-se défaire	,défait	
-se vêtir	,vêtu	
-finir	,fini	
-s’habiller	,habillé	
-s’appauvrir	,pauvre	
-décontraction	,décontracté	
-fondre	,fondu	
-s’installer	,installé	
-se ruiner	,ruiné	
-se déplacer	,déplacé	
-s’affaiblir	,affaibli	
-s’enflammer	,enflammé	
-se décontracter	,décontracté	
-se cacher	,caché	
-se vider	,vide	
-s’engager	,engagé	
-s’endormir	,endormi	
-s’enrhumer	,enrhumé	
+encercler	,encerclé	
+adopter	,adoptif	
+oublier	,oublié	
+diviser	,divisé	
+enfermer	,enfermé	
+défaire	,défait	,défait	
+animer	,animé	
+développer	,développé	
+déterminer	,déterminé	
+promettre	,promis	
+emprunter	,emprunté	
+indiquer	,indiqué	
+encadrer	,encadré	
+recouvrir	,recouvert	
+enrouler	,enroulé	
+ruiner	,ruiné	
+enregistrer	,enregistré	
+hospitaliser	,hospitalisé	
+autoriser	,autorisé	
+exposer	,exposé	
+aider	,aidé	
+entamer	,entamé	
+domestiquer	,domestique	
+enchanter	,enchanté	
+déchirer	,déchiré	
+affoler	,affolé	
+vider	,vidé	;vide	
+ouvrir	,ouvert	
+écrire	,écrit	
+>>>	Syn_∩
+en compagnie	,avec	,en présence	
+trébucher	,buter	
+branlée	,déculottée	
+Bravo!	,Félicitations	
+plus ou moins	,à peu près	
+ben	,Eh bien	,alors	
+savon	,nettoyant	,engueulade	,remontrance	,reproche	,raclée	,volée	
+tristesse	,chagrin	
+rapport	,relation	,lien	
+aussitôt	,immédiatement	
+régiment	,troupe	
+rocher	,roche	
+plomb	,balle	
+erreur	,faute	
+questionner	,demander	
+muscles	,puissance	,force	
+trésor	,richesse	
+publier	,imprimer	
+inverse	,contraire	
+coudre	,tricoter	
+comme un poisson	,bien	
+joaillier	,bijoutier	
+rugissement	,hurlement	,hurlement	
+recevoir	,aspirer	;capter	
+vide	,inoccupé	
+déboucher	,ouvrir	
+galoper	,courir	
+même	,ou	,identique	
+buffet	,armoire	
+à sa faim	,à satiété	
+>>>	Anti
+enfant	,adulte	,adulte	
+immodéré	,modéré	
+défroncer	,froncer	
+lentement	,rapidement	
+souplesse	,rigidité	
+désabonner	,abonner	
+réconciliable	,irréconciliable	
+sortie	,entrée	
+rallongement	,raccourcissement	
+facultatif	,obligatoire	
+désagréablement	,agréablement	
+matériel	,spirituel	
+mûr	,vert	
+incohérent	,cohérent	
+aval	,amont	
+dissemblable	,semblable	
+improbable	,probable	
+fermé	,ouvert	,ouvert	
+heureusement	,malheureusement	
+semblable	,dissemblable	
+horizontalement	,verticalement	
+conscient	,inconscient	,inconscient	
+souple	,raide	,rigide	
+sûr	,incertain	
+vraisemblable	,invraisemblable	
+coup de vieux	,coup de jeune	
+allumé	,éteint	
+planter	,déplanter	
+long	,court	,court	
+hypertrophié	,atrophié	
+>>>	Syn_⊃
+précipitation	,averse	
+addition	,coup de fusil	
+table	,restaurant	
+situé	,disposé	
+prise	,cravate	
+commencer	,recommencer	
+organe	,émonctoire	
+ancien	,vieillard	;croulant	
+attendre	,patienter	
+merde	,cigare	,colombin	
+vide	,néant	
+nouer	,lacer	
+peuple	,petit peuple	
+biroute	,cigare	,phallus	
+buste	,thorax	
+bouche	,bec	,bec	
+coupé	,haché	
+aller	,fréquenter	;courir	
+s’envoyer	,boire	;manger	
+intempéries	,orage	
+subir	,accuser le coup	,en voir de toutes les couleurs	
+consommer	,finir	
+crasseux	,dégueu	,dégueulasse	
+lopette	,tante	
+vent	,air	
+dans	,à l’intérieur	
+se fourrer	,se blottir	
+coussin	,oreiller	
+peur	;terreur	
+extérieur	,dehors	
+>>>	S_1
+miauler	,chat	,chatte	
+branche	,arbre	
+divertir	,divertissement	
+membre	,animal	
+train	,véhicule	
+demander	,demandeur	,demandeuse	
+automobile	,ouvrier	,ouvrière	
+emprunter	,emprunteur	,emprunteuse	
+Allemagne	,Allemagne	
+étrangler	,étrangleur	,étrangleuse	
+entêtement	,entêté	,entêtée	
+placard	,placardeur	
+marche	,marcheur	,marcheuse	;randonneur	,randonneuse	,militaire	,militaire	,soldat	,soldate	,participant	,participante	,compositeur	,compositrice	,escalier	,margrave	
+écologie	,écologue	,écologue	,écologiste	,écologiste	;écolo	,écolo	
+terrasse	,appartement	,maison	
+participant	,participant	,participante	
+dévorer	,dévoreur	,dévoreuse	,dévoreur	,dévoreuse	
+bananier	,banane	
+achat	,acheteuse	,acheteur	
+rayon	,abeille	
+bosse	,bossue	,bossu	
+alcoolisme	,alcoolique	,alcoolo	,alcoolo	
+tabaculture	,cultivateur	,cultivatrice	
+dette	,débiteur	,débitrice	
+peau	,animal	
+semelles	,chaussures	
+alternatif	,alternative	
+stridence	,bruit	;son	
+Chine	,Chine	
+écouter	,écouteur	
+>>>	A_0
+hygiène	,hygiénique	
+verbe	,verbal	
+stratégie	,stratégique	
+tennis	,tennistique	
+écolière	,écolier	
+gracieusement	,gracieux	
+citoyen	,citoyen	
+adolescente	,adolescent	
+banane	,bananier	
+circonstance	,circonstanciel	
+train	,ferroviaire	
+efficacement	,efficace	
+pendule	,pendulaire	
+banque	,bancaire	
+chèvre	,caprin	
+planète	,planétaire	
+roi	,royal	
+lâchement	,lâche	
+mémoire	,mémoriel	,mnémonique	
+ombilic	,ombilical	
+nerf	,nerveux	
+Europe	,européen	
+médecine	,médical	
+natation	,natatoire	
+lecture	,lectoral	
+minuscule	,minuscule	
+soustraire	,soustractif	
+véritablement	,véritable	
+héroïquement	,héroïque	
+immensité	,immense	
+>>>	Able_2
+compréhension	,compréhensible	
+absorber	,absorbable	
+communiquer	,communicable	
+mesurer	,mesurable	
+consommation	,consommable	
+nettoyer	,nettoyable	,nettoyable	,nettoyable	,nettoyable	
+raconter	,racontable	
+compensation	,compensable	,compensable	
+calcul	,calculable	
+écraser	,écrasable	
+supposer	,supposable	
+deviner	,devinable	
+décrire	,descriptible	
+déplacer	,déplaçable	
+franchir	,franchissable	
+écouter	,écoutable	
+importer	,importable	
+transformer	,transformable	
+décoller	,décollable	
+opposer	,opposable	
+tempête	,exposé	
+paralysie	,paralysant	
+scier	,sciable	
+explorer	,explorable	
+enseigner	,enseignable	
+multiplier	,multipliable	
+constater	,constatable	
+élire	,éligible	
+vélo	,cyclable	
+achetable	,acheter	
+>>>	Anti_∩
+se baisser	,se redresser	
+courage	,lâcheté	
+frêle	,solide	
+froid	,chaud	
+civil	,militaire	,religieux	
+net	,sale	
+étranger	,autochtone	
+pauvre	,riche	
+mauvais	,bon	,bon	,bon	
+différent	,similaire	,analogue	
+idéalité	,réalité	
+se noyer	,avoir pied	
+têtu	,accommodant	,arrangeant	,conciliant	,flexible	,souple	
+ne pas voir la couleur	,obtenir	,trouver	
+permissif	,autoritaire	
+discrètement	,indiscrètement	
+adversaire	,ami	
+savon	,compliment	
+lentement	,vite	
+où que ce soit	,nulle part	
+baisser	,lever	
+compact	,spacieux	
+prêteur	,égoïste	
+un peu	,beaucoup	
+pessimisme	,optimisme	
+célibat	,couple	
+vieux	,jeune	
+distant	,proche	
+rapide	,long	,récent	
+élevé	,bas	,bas	
+>>>	V_0
+résultat	,résulter	
+labour	,labourer	
+désir	,désirer	
+taillage	,tailler	
+surchargé	,surcharger	
+creusement	,creuser	
+occupé	,occuper	
+boutonnage	,se boutonner	,boutonner	
+arrêt	,arrêter	,s’arrêter	,s’arrêter	,arrêter	
+promotion	,promouvoir	
+débranchement	,débrancher	
+froncement	,froncer	
+agitation	,s’agiter	
+coupe	,couper	
+doute	,douter	
+simplifiable	,simplifier	
+grignotage	,grignoter	
+tremblement	,trembler	
+bain	,se baigner	
+espionnage	,espionner	
+balayage	,balayer	
+examen	,examiner	
+couture	,coudre	
+placement	,placer	
+crainte	,craindre	
+vente	,vendre	
+divorce	,divorcer	
+croisement	,croiser	
+vidage	,vider	
+lever	,se lever	,se lever	
+>>>	S_3
+parier	,mise	
+tirage	,tirage	
+emprunté	,emprunteur	,emprunteuse	
+multiplier	,multiplicateur	
+juge	,tribunal	
+unanimité	,élection	;vote	
+plein	,véhicule	
+charcuterie	,client	,cliente	
+habiller	,habits	,vêtements	
+pansement	,pansement	
+différence	,différence	
+expédier	,destinataire	,destinataire	
+leçon	,élève	,élève	,collégien	,collégienne	,lycéen	,lycéenne	,étudiant	,étudiante	
+maire	,administré	,administrée	
+médecine	,maladie	
+bagage	,domaine	,discipline	
+procès	,affaire	
+autopsie	,résultat	
+accentuer	,accent	,accent	
+apprendre	,élève	,élève	,étudiante	,étudiant	
+récompense	,récompense	
+plateau	,tir	;ball-trap	
+tailler	,vêtement	
+ministre	,gouvernement	,état	
+louange	,louange	
+supérette	,client	,cliente	,clientèle	
+trahir	,trahison	
+cirer	,cire	
+différer	,différence	
+administrable	,administrateur	
+>>>	A_1
+émigrer	,émigrant	
+dégoûter	,dégoûtant	
+accident	,accidenté	
+mains sales	,à	
+se situer	,situé	
+boule	,en	
+ovale	,ovale	
+épaisseur	,épais	
+illusoirement	,illusoire	
+pente	,pentu	
+dangerosité	,dangereux	
+angle	,anguleux	
+saigner	,saignant	
+grippe	,malade	
+déchirer	,déchirant	
+démissionner	,démissionnaire	
+hésiter	,hésitant	
+négliger	,négligent	
+gêner	,gênant	
+perturber	,perturbateur	
+dévaster	,dévastateur	
+réfléchir	,réfléchissant	
+rareté	,rare	
+exister	,existant	
+vivre	,vivant	
+loin	,éloigné	
+protection	,protecteur	
+décourager	,décourageant	
+correspondance	,correspondant	
+pénétrer	,pénétrant	
+>>>	S_2^prototyp
+culture	,plante	
+chausson	,pomme	
+chaussée	,véhicule roulant	,véhicule	
+cible	,chantage	
+moudre	,café	,blé	
+peigner	,cheveux	
+terre	,culture	
+marcher	,carburant	,électricité	,vapeur	
+flamber	,banane	
+élément de langage	,politicien	,politicienne	
+robinet	,eau	;gaz	;fluide	
+couché	,lit	,lit	
+peindre	,peinture	
+dresser	,table	,table	
+arrêt	,bus	
+depuis	,date	;moment	
+cadre	,entreprise	,parti	,armée	
+miellerie	,miel	
+casque	,ordinateur	,télévision	,baladeur	
+gratter	,guitare	,gratte	
+bénéficiaire	,chèque	,enveloppe	
+toilette	,porc	,veau	
+titulaire	,passeport	;permis	,passeport	,permis	
+automobile	,automobile	
+conduite	,véhicule	,auto	,train	,moto	,voiture	,automobile	
+métro	,terminus	
+voie	,véhicule roulant	,véhicule	
+cercueil	,cadavre	,corps	,mort	,morte	
+rafraîchir	,cheveu	,cheveux	
+nappe	,table	
+>>>	Syn_⊃^sex
+guide	,guide	
+joggeur	,joggeuse	
+vengeur	,vengeresse	
+demandeur	,demandeuse	
+maniaque	,maniaque	
+tentateur	,tentatrice	
+entrepreneur	,entrepreneuse	
+châtelain	,châtelaine	
+merle	,merlette	
+riche	,riche	
+éplucheur	,éplucheuse	
+maïsiculteur	,maïsicultrice	
+interprète	,interprète	,interprète	
+écrivain	,écrivaine	
+navigateur	,navigatrice	
+malin	,maligne	
+tennisman	,tenniswoman	,tennisman	
+aveugle	,aveugle	
+meurtrier	,meurtrière	
+compatriote	,compatriote	
+frileux	,frileuse	
+catholique	,catholique	
+éduc	,éducs	,éducatrice	
+barman	,barmaid	
+gendarme	,gendarme	,gendarmette	
+protestant	,protestante	
+Russe	,Russe	
+couturier	,couturière	
+hypocrite	,hypocrite	
+chat	,chatte	
+>>>	Adv_0
+effectif	,effectivement	
+innocence	,innocemment	
+récent	,récemment	
+généreux	,généreusement	
+électricité	,électriquement	
+démocratique	,démocratiquement	
+précoce	,précocement	
+humain	,humainement	
+initial	,initialement	
+vraisemblable	,vraisemblablement	
+isolé	,isolément	
+véritable	,véritablement	
+pauvre	,pauvrement	
+énergie	,énergiquement	
+excepter	,exceptionnellement	
+rapide	,rapidement	
+hygiénique	,hygiéniquement	
+fond	,foncièrement	,en	,foncièrement	,profondément	,en	
+stratégie	,stratégiquement	
+juste	,justement	
+moyen	,en moyenne	,moyennement	
+horizontal	,horizontalement	
+immédiat	,immédiatement	
+grave	,gravement	
+malhonnête	,malhonnêtement	
+direct	,directement	
+délicat	,délicatement	
+héros	,héroïquement	
+brosse	,en	,à	
+lâche	,lâchement	
+>>>	Syn_⊂
+train-train	,vie	
+déculottée	,défaite	
+crasseux	,sale	
+lessiver	,laver	
+suicide	,mort	
+rafiot	,bateau	
+tremper	,se trouver	
+carré	,nombre	,morceau	,bout	,portion	,quadrilatère	,parcelle	,foulard	,fichu	,large	,anguleux	
+délinquant	,malfaiteur	,malfrat	
+roche	,matière	
+dansoter	,danser	
+renvoyer	,envoyer	
+député	,parlementaire	
+goulot	,col	
+larguer les amarres	,partir	
+grillage	,clôture	
+rincée	,averse	,pluie	
+rapporter	,dire	
+bon train	,bien	
+forme	,état	,état	,matrice	
+tempête	,abondance	,profusion	,tempête	
+saveur	,goût	
+assassinat	,crime	
+tenir	,être	
+tare	,poids	
+ski de piste	,skis	,ski	
+s’embarquer	,se lancer	
+se déporter	,se déplacer	,se déplacer	
+lit	,couche	,literie	,couche	
+charrette	,voiture	
+>>>	Syn
+pote	,copain	
+binouze	,bière	
+caboche	,boule	,carafe	,cigare	,crâne	,poire	,pomme	,chef	,tête	,cafetière	,ciboulot	,cigare	,cerveau	,cervelle	,crâne	,tête	
+phallus	,cigare	
+modif	,modification	
+flotte	,pluie	
+raconteur	,conteur	
+institutrice	,instit	
+route nationale	,nationale	
+se fourrer	,se glisser	
+docteure	,doc	,femme médecin	,médecin	,doctoresse	,toubib	
+pattes	,jambes	,gambettes	,guibolles	,cannes	
+volley	,volley-ball	,volley-ball	
+au-dessus	,en dessus	
+pudeur	,pudicité	
+mémère	,mamie	,mémé	,bonne-maman	,grand-maman	,aïeule	,mère-grand	,grand-mère	
+radiodiffusion	,radio	
+appareil téléphonique	,téléphone	
+mari	,époux	
+sapeuse-pompière	,pompière	,femme pompier	,pompier	,sapeur-pompier	
+funéraire	,funèbre	
+courriel	,e-mail	,mail	
+chibre	,biroute	,bite	,pine	,queue	,zob	,braquemart	,manche	,membre	,teub	,moineau	,quéquette	,zigounette	,zizi	,pénis	,verge	
+car	,autocar	
+oncle	,tonton	
+ordi	,ordinateur	
+plumard	,paddock	,pageot	,pieu	,pucier	,lit	
+nues	,nuage	
+interrompre	,suspendre	
+à décorner les cocus	,à décorner les bœufs	
 >>>	S_1Pred
-chrétien	,chrétienne	,chrétien	
-bavard	,bavarde	,bavard	
-belge	,Belge	,Belge	
-symptomatique	,symptôme	
-puni	,punie	
-bizarre	,bizarrerie	
-vieux	,vieux	,vieille	
-myope	,myope	,myope	
-héroïque	,héros	,héroïne	
-millionnaire	,millionnaire	,millionnaire	
-suisse	,Suisse	,Suisse	,Suissesse	
-xénophobe	,xénophobe	,xénophobe	
-chinois	,Chinoise	,Chinois	
-célibataire	,célibataire	,célibataire	
-victorieux	,vainqueur	
-mâle	,mâle	
-pair	,nombre	;chiffre	
-arabe	,Arabe	,Arabe	
-espagnol	,Espagnol	,Espagnole	
-mineur	,mineur	,mineure	
-accidenté	,accidenté	,accidentée	
+russe	,Russe	,Russe	
+ingrat	,ingrat	,ingrate	
 fidèle	,fidèle	
-handicapé	,handicapé	,handicapée	
-féminin	,femme	
-infirme	,infirme	,infirme	
-français	,Français	,Française	
-têtu	,têtu	,têtue	<entêté	,entêtée	;cabochard	,cabocharde	,tête de mule	,tête de cochon	
-favori	,favori	,favorite	
-timide	,timide	,timide	
 rival	,rival	;rivale	
+miraculé	,miraculé	,miraculée	
+voyou	,voyou	
+québécois	,Québécois	,Québécoise	
+moche	,moche	,moche	;mocheté	
+merveilleux	,merveille	
+inconscient	,inconscient	,inconsciente	
+asiatique	,Asiatique	,Asiatique	
+mauvais	,mauvais	
+xénophobe	,xénophobe	,xénophobe	
+laid	,laid	,laide	
+immigré	,immigré	,immigrée	
+solide	,solide	
+victorieux	,vainqueur	
+imbécile	,imbécile	,imbécile	
+infirme	,infirme	,infirme	
+criminel	,crime	,crime	,crime	
+futé	,futé	,futée	
+original	,original	,original	
+européen	,Européen	,Européenne	
+franc	,Franc	
+belge	,Belge	,Belge	
+féminin	,femme	
+hospitalisé	,hospitalisé	,hospitalisée	
+français	,Français	,Française	
+pair	,nombre	;chiffre	
+grec	,Grec	,Grecque	
 >>>	S_2
-éprouver	,émotion	,sentiment	;sensation	
-mardi	,semaine	
-bouffer	;nourriture	
-contenant	,contenu	
-avocate	,client	,cliente	,cause	
-se réfugier	,refuge	
-désir	,désir	
-dieu	,croyant	,croyante	
-interdire	,interdit	
-gagner	,gain	,argent	,compétition	
-exploité	,exploitant	
-enterrer	,mort	,morte	;cadavre	
+aidé	,aide	,aide	
 chanter	,chanson	,chant	,chant	
+timonier	,bateau	
+vache	,vache	
+dette	,dette	;argent	
+guichet	,client	,cliente	
+souvenir	,souvenir	
+semer	,semence	;graine	
+dégager	,enveloppe	
 jumeau	,bœuf	
+mardi	,semaine	
+refrain	,chanson	
+enveloppe	,contenu	
+purée	,pomme de terre	
+contribuable	,impôt	,impôt	
+avocate	,client	,cliente	,cause	
+mère	;enfant	,congrégation	;couvent	
+placard	,peau	
 durer	,durée	
-complot	,victime	
-parler	,langue	
-table	,client	,cliente	
-choix	,choix	
-ambulancier	,ambulance	
-pondre	,œuf	
-laver	,lessive	,linge	
-crime	,victime	,victime	
-car	,passager	,passagère	,usager	,usagère	;voyageur	,voyageuse	
-voter	,candidat	,candidate	
-factrice	,courrier	
-partie	,procès	
-odorat	,odeur	
-citer	,citation	
-piloter	,véhicule	
->>>	S_res
-mélanger	;mélange	
-dévastation	,dévastation	
-décaler	,décalage	
-enfler	,enflure	
-épuiser	,épuisement	
-écrire	,écriture	
-expérimentation	,résultat	
-muscler	,muscles	
-chanter	,chant	
-éplucher	,épluchure	
-s’enrhumer	,rhume	
-s’éprendre	,amour	
-course	,résultat	
-négociation	,résultat	
-enfermer	,enfermement	
-s’affaiblir	,faiblesse	
-juger	,jugement	
-vote	,résultat	
-s’endormir	,sommeil	
-condamner	,condamnation	
-envelopper	,enveloppement	
-étude	,résultat	
-se déplacer	,déplacement	
-sondage	,résultat	
-décalage	,décalage	
-compétition	,résultat	
-klaxonner	,klaxon	
-vieillir	,vieillesse	
-constater	,constat	
-examen	,résultat	
+nager	,vêtements	,vêtement	;chaussures	
+débiteur	,créancière	,créancier	
+rajouter	,rajout	
+thermomètre	,température	
+goût	,goût	
+habillé	,vêtements	;vêtement	
+animer	,antenne	
+savonnerie	,savon	
+tir	,cible	,fusée	,fusée	
+valise	,contenu	;valise	
+ministère	,ministre	,ministre	
 >>>	S_1^usual
-alto	,altiste	,altiste	
-guider	,guide	,guide	
-cultiver	,cultivateur	,cultivatrice	
-skier	,skieur	,skieuse	
-production	,producteur	,productrice	
-élever	,éleveur	,éleveuse	
-installer	,installateur	,installatrice	
-contrôler	,contrôleur	,contrôleuse	
-séducteur	,séducteur	,séductrice	
-saucisse sèche	,charcutier	,charcutière	
-étoilé	,ciel	
-porte	,meuble	
-déménager	,déménageur	,déménageuse	
-cheval	,éleveur	,éleveuse	
-gueuler	,gueulard	,gueularde	
-blague	,blagueur	,blagueuse	
-pâtisserie	,pâtissier	,pâtissière	
+culture	,cultivateur	,cultivatrice	
+poulet	,éleveur	,éleveuse	
+enthousiasme	,enthousiaste	,enthousiaste	
+apiculture	,apiculteur	,apicultrice	
+sculpter	,sculpteur	,sculptrice	,sculpteure	
+servir	,serveur	,serveuse	
+caricature	,caricaturiste	,caricaturiste	
 guitare	,guitariste	,guitariste	
-chèvre	,éleveur	,éleveuse	;chevrier	,chevrière	
-commenter	,commentateur	,commentatrice	
-basket	;joueur	,joueuse	,basketteur	,basketteuse	
+sauciflard	,charcutier	,charcutière	
+couper les cheveux en quatre	,coupeur de cheveux en quatre	,coupeuse de cheveux en quatre	
+toilettage	,toiletteur	,toiletteuse	
+tableau	,peintre	,peintre	
+photo	,photographe	
 défendre	,avocat	,avocate	,avocate	,avocat	
-tarte	,pâtissier	,pâtissière	
-ping-pong	,pongiste	,pongiste	
-museau	,arme à feu	
-lessive	,laveuse	,lavandière	
-électronique	,électronicien	,électronicienne	
-brosser	,peintre	,peintre	
-judo	,judoka	,judoka	,judokate	
+chou	,cultivateur	,cultivatrice	
+violon	,violoniste	,violoniste	
+former	,formateur	,formatrice	
+tennis	;joueur	,joueuse	,tennisman	,tennisman	,tenniswoman	
+lavoir	,lavandière	
+mensonge	,menteur	,menteuse	
+raconter	,raconteur	,raconteuse	,conteur	,conteuse	
+autoroute	,usager	,usagère	
+camping	,campeur	,campeuse	
+plateau	,serveur	,serveuse	
+guider	,guide	,guide	
+découper	,découpeur	,découpeuse	
+commenter	,commentateur	,commentatrice	
+consommer	,consommateur	,consommatrice	
 enseigner	,enseignant	,enseignante	
+électronique	,électronicien	,électronicienne	
 >>>	A_2
-vents	,à	
+conservation	,conservé	
+débat	,en	
+concerner	,concerné	
+consentir	,consenti	
+livrer	,livrable	
 s’appauvrir	,appauvrissant	
-sport	,sportif	
-attrait	,attrayant	
-exposer	,exposé	,exposé	
-profit	,profitable	
-pension	,pensionné	
-rassurer	,rassuré	
 obliger	,obligé	
 épreuve	,éprouvé	
-couleurs	,à	
-occupation	,occupé	
-gonfler	,gonflé	
-électricité	,électrique	
-étouffer	,étouffé	
-aéroporter	,aéroporté	
-éclairer	,éclairé	
+disputer	,disputé	
 antenne	,à	,sur	,en ondes	
-plaisir	,plaisant	
-dominer	,dominé	
-déchirer	,déchiré	
-décalage	,décalé	
-brûlure	,brûlé	
-éprouvé	,éprouvant	
-victoire	,vaincu	
-barrer	,barré	
-considération	,considéré	
-conservation	,conservé	
-agresser	,agressé	
-concerner	,concerné	
+électricité	,électrique	
+se distraire	,distrayant	
+sinistre	,sinistré	
+désirer	,désirable	
+lac	,noyé	
+serrer	,serré	
+gonfler	,gonflé	
+occuper	,occupé	,occupé	
+Enfer	,damné	
+exercer	,exercé	
+accusation	,visé	,en butte	
+connaître	,connu	
+savoir	,su	,su	
+fracture	,fracturé	
+essouflant	,essouflé	
+tissu	,musculaire	
+observer	,observé	
+cercueil	,mort	
+bague	,bagué	
+tache	,taché	
 >>>	S_0Pred
-possessif	,possessivité	
-immédiat	,immédiateté	
-étourdi	,étourderie	
-féroce	,férocité	
-clair	,clarté	
-ridicule	,ridicule	
-fantastique	,fantastique	
-adroit	,adresse	
-lent	,lenteur	
-réel	,réalité	
-léger	,légèreté	
+important	,importance	
+sauvage	,sauvagerie	
+dangereux	,dangerosité	
+majeur	,majorité	
+gratuit	,gratuité	
+chagrin	,chagrin	
+injuste	,injustice	
+intense	,intensité	
+souple	,souplesse	,souplesse	,souplesse	
+transpirant	,transpiration	
+originel	,origine	
+automatique	,automatisme	
+parfait	,perfection	
 sage	,sagesse	
-compliqué	,complication	
-protecteur	,protection	
-enceinte	,grossesse	
+disponible	,disponibilité	
+clair	,clarté	
+conscient	,conscience	,conscience	
+puissant	,puissance	
+tiède	,tiédeur	
+obscur	,obscurité	
+décontracté	,décontraction	
 tendu	,tension	
-susceptible	,susceptibilité	
-traître	,trahison	
-honnête	,honnêteté	
-libre	,liberté	
-étrange	,étrangeté	
-vaste	,vastitude	
-clandestin	,clandestinité	
-soulagé	,soulagement	
-racé	,race	
-absent	,absence	
-sûr	,certitude	
-beau	,beauté	
-pair	,parité	
-anormal	,anormalité	
+étourdi	,étourderie	
+immédiat	,immédiateté	
+patient	,patience	
+nul	,nullité	
+impatient	,impatience	
+chaud	,chaleur	
+pessimiste	,pessimisme	
+intime	,intimité	
 >>>	S_1^prototyp
-engagé	,colonne	
-reproductible	,expérience	
-amputé	,membre	
-hublot	,bateau	
-dru	,neige	,pluie	
-traduisible	,livre	;texte	
-d’acier	;muscles	;muscles	
+tour	,château	
+dossier	,banc	,canapé	,chaise	,fauteuil	,siège	
+discothèque	,client	,cliente	
+volée	,oiseau	
+cabine	,bateau	
+roulement	,tambour	
+messe	,prêtre	,curé	
+vacant	,emploi	;poste	
 mie	,pain	
-passage	,texte	
-dents	,scie	,fourchette	;fourche	;râteau	;peigne	
-pompes	,cérémonie	
-menu	,entrée	,plat	,dessert	
-émetteur	,antenne	
-infirmerie	,infirmier	,infirmière	
-souffler	,vent	
-chapitre	,livre	
-hélice	,avion	;bateau	
-aube	,religieux	
-rideau	,boutique	,magasin	
 tonnerre	,applaudissements	
-griffu	,patte	
-double	,fenêtre	
-fusillade	,tireur	,tireuse	
-se signer	,catholique	,catholique	
-répertoire	,musicien	,musicienne	
-marcher	,appareil	;véhicule	
-trombe	,eau	
-dîner	,dîneur	,dîneuse	
-miette	,pain	
-objectif	,appareil photo	
+galoper	,cheval	
+bonnet	,soutien-gorge	
+feuilleter	,livre	
+épluché	;légume	
+brochette	,légume	,viande	
+amputé	,membre	
+chaussée	;route	,rue	
+pinceau	,poil	,poil	
+battre	,cœur	,pouls	
+glace	,cuisinier	
+baril	,pétrole	
+couvent	,moine	,religieux	,religieuse	
+couvercle	;boîte	,caisse	;casserole	,marmite	
+air	,opéra	
+officier	,prêtre	
+s’allonger	,gueule	,mine	,tête	,tronche	,visage	
+fesse	,navire	
+récoltable	;légume	
+goûter	,enfant	,enfant	
+vengeur	,acte	,action	
 >>>	Contr
-numérique	,analogique	
-vinaigre	,huile	
-grenier	,cave	
-hier	,aujourd’hui	,demain	,aujourd’hui	,demain	
 mon	,ton	
-sortie	,entrée	
-volé	,voleur	
-chaussures	,chaussons	
-faim	,soif	
-s’allonger	,se lever	
-croûte	,mie	
-nombre	,genre	
-tête	,pieds	;corps	;jambes	,queue	,queue	
-ramper	,marcher	
-sud	,nord	
-tactique	,stratégique	
-pipi	,caca	
-abdomen	,thorax	,thorax	
-corps	,âme	,esprit	,bras	;jambes	;tête	,visage	,tête	
-temps	,espace	
-chien	,chat	
-là	;ailleurs	
-glace	,eau	
-ciel	,terre	
-algèbre	,géométrie	
-nord	,sud	
 après-demain	,avant-hier	
-pièce	,meuble	
-grammaire	,lexique	
+plafond	,sol	
+algèbre	,géométrie	
+demoiselle	,dame	
+porte	,fenêtre	
+masculin	,féminin	
+silence	,bruit	
+blonde	,brune	
+Corée du Nord	,Corée du Sud	
+vouvoiement	,tutoiement	
+temps	,espace	
+dame	,demoiselle	
+notre	,votre	
+couteau	,cuillère	;fourchette	
+douche	,bain	
+mie	,croûte	
 horizontal	,vertical	
->>>	Anti_⊂
-près	,nulle part	
-grimper	,ramper	
-dehors	,intérieur	
-se lever	,cesser	,se terminer	,se lever	,apparaître	
-vent	,calme	
-s’envoler	,baisser	
-cracra	,propre	
-couler	,flotter	
-dégueulasse	,propre	
-nager	,comprendre	
-têtu	,raisonnable	
-ici	,nulle part	
-tonnerre	,silence	,silence	
-bonace	,tempête	
-cradoque	,propre	
-refaire	,défaire	
-coiffer	,décoiffer	
-allié	,ennemi	
-craspec	,propre	
-crasseux	,propre	
-opposé	,analogue	
-cradingue	,propre	
-divergence	,similarité	,analogie	
-enrouler	,dérouler	
-calme plat	,vent	
-tornade	,accalmie	
-occupé	,libre	,vacant	
-laver	,salir	,salir	,salir	,salir	
-ailleurs	,nulle part	
-orage	,calme	,calme	,sérénité	;paix	
->>>	Mero
-cours d’eau	,eau	
-main	,dos	
-métro	,rame	,métro	;métro	,station	,quai	;voie	
-toilette	,miroir	,table	
-cheval	,crinière	
-arbre	,branche	,tronc	;feuille	,feuillage	
-navire	,coque	,pont	,cale	,hublot	,soute	;proue	,étrave	;poupe	,étambot	
-muscle	,fibre	;tissu	
-colline	,bas	,pied	;flanc	,versant	;haut	<sommet	
-W.-C.	,siège	,trône	,cuvette	,lunette	,abattant	,couvercle	
-banc	,dossier	,siège	
-soutien-gorge	,bonnet	
-air	,oxygène	
-museau	,museau	
-fleuve	,méandres	;amont	,aval	;embouchure	;estuaire	;bouche	;berge	,bord	,rive	
-semaine	,week-end	
-boulevard	,voie	,chaussée	;trottoir	
-abattant	,couvercle	,lunette	
-fleur	,pétales	
-route	,chaussée	,voie	;bord	;revêtement	
-gueule	,museau	
-désert	,sable	,pierre	
-théâtre	,scène	
-table	,plateau	,pied	;bord	,bout	,centre	,milieu	,coin	
-fauteuil	,bras	,dossier	,oreilles	,patte	,pied	,siège	
-lac	,bord	,rive	
-moto	,guidon	;moteur	;réservoir	;roue	
-verglas	,glace	;eau	
-rivière	,méandres	;amont	,aval	;berge	,bord	,rive	;gué	,fermoir	
-chaise	,dossier	,patte	,siège	
+vaches grasses	,vaches maigres	
+ceinture	,bretelles	
+cuillère	,couteau	,fourchette	
+nombre	,genre	
+chercher	,trouver	
+pièce	,meuble	
+nuque	,gorge	
+grammaire	,lexique	
+long	,large	
+dent	,griffes	
+goût	,odorat	
+musique	,texte	,paroles	;livret	;chorégraphie	
 >>>	Gener
-caramel	,couleur	
-galère	,bateau	
-automobile	,secteur	
+ressentiment	,sentiment	
+vélo d’appartement	,appareil	
+facteur	,métier	,profession	,artisan	
+soudeuse	,machine	
+Corée du Sud	,pays	
+aiguisoir	,outil	
+canap	,meuble	
+avocate	,métier	,profession	;femme de loi	
+aversion	,sentiment	
+ferry	,bateau	
+fureur	,sentiment	
+vilebrequin	,outil	
+France	,pays	
+lit	,meuble	
+allumette	,biscuit	,gâteau	
+ré	,note	
+escargots	,aliment	;plat	
+mille	,nombre	
+yaourt	,laitage	
+table basse	,meuble	
+oiseau coureur	,animal	
+papillon	,insecte	,insectes	
 rage	,maladie	
-chercheur	,professionnel	;profession	
-siège	,meuble	
-franc	,monnaie	
-grands-parents	,parent	
-prunier	,arbre	
-cycliste	,vêtement	
-Hollande	,pays	
-dimanche	,jour	
-pommier	,arbre	;plante	
-faux	,outil	
-canine	,dent	;dent	
-nant	,cours d’eau	
-souris	,animal	;rongeur	
-meurtre	,crime	
-majeur	,doigt	
-fauteuil	,siège	
-seau	,récipient	,quantité	
-jambes	,membre	,membre	
-TER	,train	
-tigresse	,fauves	
-hélicoptère	,véhicule volant	,aéronef	
-tabouret	,siège	
-proférer	,dire	
-industrie	,secteur	
-ping-pong	,activité	
-e-mail	,message	
+mobiler	,industrie	;secteur	
+lampe-tempête	,lampe	
+savon d’Alep	,savon	,savon	
+mai	,mois	
+pipi de chat	,boisson	
+assiette du terroir	,plat	
+sardine	,poisson	
 >>>	S_loc
-exemple	,exemplier	
+lointain	,lointain	
 coton	,cotonnier	
-gymnastique	,salle	;gymnase	,salle	;gymnase	
-poire	,poirier	
-cercueil	,tombe	,tombeau	
-plein	,station-service	
-pompier	,caserne	,caserne	
+douche	;douche	,salle de douche	,salle de bain	
+cigarette	,bureau de tabac	,tabac	,débit de tabac	
+football	,terrain	;stade	
+Occidental	,ouest	
+déchets	,déchetterie	
+course	,champ de course	
 rivière	<lit	<piste	;champ de course	,stade	
-cigare	,bureau de tabac	,tabac	,débit de tabac	
-vote	,urne	
-bandit	,repaire	
-diable	,Enfer	
-baignoire	,salle de bain	
-tombe	,cimetière	
-ananas	,ananas	
-se laver	,salle de bain	,salle de douche	,salle d’eau	
-papetier	,papeterie	,papeterie	
-pomme	,pommier	
-environnement	,Terre	
-abeille	,nid	,ruche	
-rideau	,scène	
-chien	,niche	
-crime	,lieu	,scène	
-entrer	,entrée	,entrée	
-noisette	,noisetier	
+enterrer	,cimetière	
+couché	,lit	
 amande	,amandier	
-clémentine	,clémentinier	
-karaté	,tapis	,tatami	;dojo	,salle	
+rideau	,scène	
+sortir	,sortie	
+doucher	,douche	;salle de bain	,salle de douche	
+bandit	,repaire	
+entrer	,entrée	,entrée	
+assiette	,assiette	
+noisette	,noisetier	
+corbeau	,nid	,nid	
+villageois	,village	
+valises	,yeux	;visage	
+Allemagne	,en	
+corps	,caserne	
 bœuf	,étable	
+boxe	,ring	
+se doucher	,douche	,salle de douche	;salle de bain	
+poire	,poirier	
+gymnastique	,salle	;gymnase	,salle	;gymnase	
 éléphant de mer	,mer	
->>>	V_0⊂
-enterrement	,enterrer	
-résistance	,résister	
-commentaire	,commenter	
-sommeil	,dormir	
-découpure	,découper	
-course poursuite	,courir	
-aller	,aller	
-fuite	,s’enfuir	
-entraînement	,s’entraîner	
-gardiennage	,garder	
-épellation	,épeler	
-rétention	,retenir	
-renoncement	,renoncer	
-embrassades	,embrasser	
-reptation	,ramper	,ramper	
-lessive	,laver	
-implication	,impliquer	
-assiette	,asseoir	
-prise	,prendre	
-hécatombe	,mourir	
-garde	,garder	
-nage	,nager	,nager	,nager	
-réunion	,réunir	
-tolérance	,tolérer	
-nettoiement	,nettoyer	
-voilà	,y avoir	
-toilette	,se laver	,laver	
-déplacement	,se déplacer	
-gâterie	,gâter	
-orientation	,s’orienter	
->>>	S_0⊃
-supplier	,supplication	
-épeler	,épellation	
-découper	,découpure	
-toxique	,poison	
-nettoyer	,nettoiement	
-renoncer	,renoncement	
-garder	,garde	,gardiennage	
-tolérer	,tolérance	
-laver	,lessive	
-s’orienter	,orientation	
-enlever	,kidnapping	
-prendre	,prise	
-aller	,aller	
-dormir	,sommeil	
-s’entendre	,accord	
-exister	,existence	
-entrepreneurial	,entreprise	
-voler	,volée	,pilotage	,volée	
-gâter	,gâterie	
-savonnier	,savon	
-enseigner	,enseignement	
-déboucher	,débouchement	
-lycéen	,lycée	,lycéen	,lycéenne	
-ressembler	,ressemblance	;ressemblance	
-avunculaire	,tante	,oncle	
-équatorial	,équateur	
-téléphoner	,téléphonage	,coup de fil	,coup de téléphone	,appel	
-filial	,fille	,fils	
-mourir	,mort	
-nager	,nage	
 >>>	Cf
-bar	,pression	
-ordinaire	,habitude	
-politique	,économique	,social	
-horloge	,montre	
-viennoiserie	,pâtisserie	
-escabeau	,échelle	
-foudre	,orage	;tonnerre	
-avocat	,juriste	
-lapin	,lièvre	
-nez	,bouche	;gorge	
-iceberg	,glaçon	
-houle	,vague	
-arbre	,buisson	
-guidon	,volant	
-poursuite	,procès	
-placard	,cagibi	
-testicule	,partie	
-rire	,sourire	,sourire	
-anniversaire	,fête	
-grenouille	,crapaud	
-briquet	,allumette	
-allonger	,asseoir	
-nœud papillon	,cravate	
-fa	,do	,ré	,mi	,sol	,la	,si	
+store	,rideau	
+s’allonger	,s’asseoir	
+gras	,graisse	
+pâtisserie	,viennoiserie	
+minute	,seconde	
 gorge	,ventre	
-tisane	,thé	
-social	,économique	
-géranium	,pélargonium	
-cloche	,timbre	
-poignet	,main	
+fromage blanc	,yaourt	
+éclair	,orage	
+doigts	,aube	
+moutarde	,ketchup	;mayonnaise	
+fête	,anniversaire	
+ici	,maintenant	
+serpillière	,éponge	
+échelle	,escabeau	
+avocate	,juriste	
+victime	,coupable	,coupable	
+plateau	,plaine	,montagne	,vallée	
+tiédeur	,fraîcheur	;chaleur	
+chacun	,chaque	
+plage	,ville	
+imam	,prêtre	
+politique	,économique	,social	
+seins	,fesses	
+frelon	,guêpe	
+assis	,couché	,couché	
+mollets	,chevilles	
+volant	,guidon	,aérien	
+s’échauffer	,muscle	
+être	,avoir	
+sien	,mien	
 >>>	Mult
-pompier	,caserne	,caserne	
-arme	,armement	
-ministre	,gouvernement	,ministère	,cabinet	
-criminel	,bande	,gang	,mafia	,milieu	,pègre	
-cheveu	,chevelure	,cheveux	,cheveu	
-bataille	,guerre	,conflit	
-famille	,mafia	
-bateau	,flottille	,flotte	
-pin	,pinède	,pineraie	,pinière	
-fibre	,tissu	
-corbeau	,bande	,colonie	;nuée	,bande	,colonie	;nuée	
-vache	,troupeau	;cheptel	
-lion	,bande	
+poisson	,banc	
 terme	,terminologie	
-paysan	,paysannat	,paysannerie	
-parent	,famille	
-dent	,dentition	,denture	,dentelure	
-fauteuil	,rangée	
-enfant	,enfance	
-racaille	,racaille	
-faux ami	,lexique	,vocabulaire	
-outil	,outillage	
-éléphant	,troupeau	
-fleur	,grappe	
-courrier	,courrier	
+chaussons	,paire	,paire	
+pin	,pinède	,pineraie	,pinière	
+médicament	,pharmacopée	
+muscle	,musculature	
+banc	,rangée	
+branche	,branchage	
+vache	,troupeau	;cheptel	
+journaliste	,équipe	,groupe	;horde	,meute	;équipe	,groupe	;horde	,meute	
+marche	,escalier	,marches	
+banane	,régime	
+fruit	,grappe	
 meuble	,mobiler	
-lettre	,correspondance	
-guêpe	,colonie	,essaim	,horde	;nuage	,nuée	
-rabbin	,rabbinat	
-os	,ossature	,squelette	
->>>	Hypo
-wagon	,wagon-lits	,wagon-restaurant	
-appendice	,antennes	
-sport	,sport aérien	;sport d’hiver	;sport de glisse	;sport mécanique	;sport nautique	
-moyen de transport	,véhicule flottant	;véhicule roulant	;véhicule volant	
-instrument à percussion	,tambour	
-nœud	,nœud de vache	
-film	,documentaire	
-siège	;banc	;canapé	;chaise	;fauteuil	;tabouret	
-nombre	,entier	,singulier	,pluriel	,duel	
-cycle	,vélo	,bicyclette	,tricycle	,tandem	
-piano	,piano droit	,piano à queue	,piano crapaud	
-savon	,savon de Marseille	,savon d’Alep	,savon blanc	,savon noir	
-mois	,janvier	,février	,mars	,avril	,mai	,juin	,juillet	,août	,septembre	,octobre	,novembre	,décembre	
-jour	,lundi	,mardi	,mercredi	,jeudi	,vendredi	,samedi	,dimanche	
-voilier	,jonque	
-femme de loi	,avocate	
-voiture	,voiture-bar	,voiture-restaurant	,wagon-restaurant	;voiture-couchettes	,wagon-couchettes	;voiture-lits	,wagon-lits	
-son	,coup	
-pâtisserie	,éclair	,fondant	
-dispositif	,additionneur	
-sandwich	,cheeseburger	,croque-monsieur	;hamburger	,hot-dog	,kebab	,pan bagnat	,panini	
-désert	,erg	
-handicap	,patte folle	
-cimetière	,tombe	
-discipline	,sport	
-crotte	,fiente	,crottin	
-signe	,taureau	
-pantalon	,jean	;patte d’éléphant	
-pierre précieuse	,diamant	,rubis	
-message	,courriel	
->>>	A_1∩
-montrer les dents	,menaçant	,menaçant	
-manger la soupe sur la tête	,grand	
-s’excuser	,absent	
-solitude	,seul	
-loin	,lointain	
-servir	,utile	
-enlaidi	,laid	
-bien	,nombreux	,plusieurs	
-misère	,misérable	
-veste	,perdant	;vaincu	
-marcher	,alimenté	,favorable	
-ne pas voler haut	,nul	
-appartenir	,de	
-tenir debout	,crédible	
-avoir les jambes	,capable	
-ne pas manger	,innocent	
-éléphant dans un magasin de porcelaine	,maladroit	
-manger les pissenlits par la racine	,mort	
-chien battu	,craintif	;malheureux	
-ne pas manger de ce pain-là	,honnête	
-en avoir dans le pantalon	,courageux	
-ami	,favorable	
-planche à savon	,glissant	
-ressembler	,similaire	,semblable	
-soleil	,ensoleillé	
-bouillie pour les chats	,incompréhensible	
-tête dure	,entêté	
-riche	,abondant	
-ennemi	,hostile	,hostile	,mauvais	
-dents longues	,ambitieux	
->>>	S_3^prototyp
-correspondre	,courrier	,lettre	
-assaisonner	,épice	
-nommer	,fonction	;poste	
-enfermement	,prison	
-ambulancier	,blessé	,blessée	;accidenté	,accidentée	
-train	,terminus	
-couvrir	,couverture	
-ambulancière	,blessé	,blessée	;accidenté	,accidentée	
-placarder	,mur	,vitrine	
-combat	,boxe	
-vestiaire	,chapeau	,manteau	,parapluie	,sac	
-correspondance	,courrier	,lettre	
-appeler	,téléphone	
-ami	,administration	
-plage	,plage	
-élire	,mandat	,fonction	,poste	
-logiciel	,ordinateur	
-condamner	,amende	;peine	;punition	
-construire	,matériau	
-bus	,terminus	
-dentiste	,carie	,carie	
-illustrer	,exemple	
-otage	,rançon	
-symptôme	,malade	,malade	
-chantage	,suicide	,sentiment	,emploi	
-cravate	,lutte	;rugby	
-boucher	,bouchon	
-moucher	,mouchoir	
-se serrer	,peur	
-appel	,téléphone	
+oignon	,botte	
+pompier	,caserne	,caserne	
+jambes	,paire	
+membre	,membrure	,groupe	
+racaille	,racaille	
+symptôme	,syndrome	
+rayon	,rayonnage	
+enfant	,enfance	
+verre	,bouteille	
+carte	,jeu	
+bateau	,flottille	,flotte	
+chaussures	,paire	
+comprimé	,boîte	
+corbeau	,bande	,colonie	;nuée	,bande	,colonie	;nuée	
+sous-vêtement	,sous-vêtement	
+mouton	,troupeau	,cheptel	
 >>>	Sing
-jambon	,tranche	
-cheveu	,cheveu	
-papier	,feuille	
-chemin de fer	,ligne	
-ski	,championnat	,compétition	
-mâture	,mât	
-aviation	,avion	
-neige	,flocons	;boule	
-sable	,grain	
-dentition	,dent	
-vent	,brin	
-métro	,ligne	
-pain	,miette	<bout	,morceau	,tranche	
-ail	<gousse	<tête	<botte	
-moutarde	,pot	,verre	
-pharmacopée	,médicament	
-cheveux	,cheveu	
-miel	,pot	
-conflit	,bataille	
-billard	,jeu	,partie	
-mayonnaise	,pot	
 correspondance	,lettre	
-saucisson	,rondelle	
-sueur	,goutte	
+pelage	,poil	
+jogging	,jogging	
+toison	,cheveu	
+riz	,grain	
+sucre	;grain	<cuillerée	,pincée	;morceau	,sucre	<pain	
+escalier	,marche	
+ping-pong	,match	,partie	,ping-pong	<compétition	,tournoi	
+volley-ball	,match	,partie	,volley-ball	<compétition	,tournoi	<championnat	
+lentilles	,boîte	
+marche	,marche	
+musculature	,muscle	
+mâture	,mât	
 raisin	,grain	
-football	,match	,partie	,football	<compétition	,tournoi	<championnat	
-appareillage	,appareil	
-denture	,dent	
-randonnée	,randonnée	
-judo	,combat	<compétition	,tournoi	<championnat	
->>>	Fem
-aïeul	,aïeule	
-coq	,poule	
-pépère	,mémère	,mémère	
-mâle	,femelle	
-papi	,mamie	,mamie	
-bœuf	,vache	
-premier	,première	
-fiston	,fifille	,fille	
-parrain	,marraine	
-dragueur	,dragueuse	
-père poule	,mère poule	
-homme marié	,femme mariée	
-grand frère	,grande sœur	
-frangin	,frangine	,sœurette	,sœur	
-étalon	,jument	
-coureur	,coureuse	
-arrière-grand-père	,arrière-grand-mère	
-stratège	,stratège	
-grand-père	,grand-mère	,grand-mère	
-monsieur	,dame	
-père au foyer	,mère au foyer	
-tonton	,tata	
-homme seul	,femme seule	
-frérot	,sœurette	,frangine	,sœur	
-bouc	,chèvre	
-pépé	,mémé	,mémé	
-sauveteur	,sauveteuse	
-dernier	,dernière	
-petit frère	,petite sœur	
-petit-fils	,petite-fille	
->>>	S_2∩
-bouffer	,plat	,repas	
-thermomètre	,thermomètre	
-orphelin	,mère	,père	,mère	,père	
-mère	,conséquence	,résultat	
-hôtel	,hôte	,hôte	
-manger	,plat	;repas	
-neveu	,tante	,oncle	
-victime	;crime	
-tante	,neveu	,nièce	
-petit-fils	,grand-mère	,grand-père	
-veste	,gagnant	,gagnante	;vainqueur	
-petite-fille	,grand-mère	,grand-père	
-supérieur	,employé	,employée	
-oncle	,neveu	,nièce	
-boulangère	,pain	;viennoiserie	
-employé	,utilisateur	
-crédit	,créancier	,créancière	
-mécanicienne	,locomotive	;train	
-mécanicien	,véhicule	
-ennemi	,bête noire	,hantise	
-boucher	,viande	
-nièce	,tante	,oncle	
-visite	,hôte	,hôte	
-grand-mère	,petit-fils	,petite-fille	
-diplôme	,diplôme	
-père	;invention	
-boulanger	,pain	;viennoiserie	
-kidnapper	,otage	,otage	
-bouchère	,viande	
-petits-enfants	,grand-mère	,grand-père	
->>>	A_0⊃
-campagne	,rural	
-dialogue	,dialogique	
-occasion	,occasionnel	
-vent	,venteux	
-figure	,facial	
-politique	,politicien	,politicard	
-trimestre	,trimestriel	
-nager	,natatoire	
-savon	,savonneux	
-poitrine	,pectoral	,pectoral	
-toile	,toilier	
-joues	,jugal	;génal	
-jambes	,jambier	
-cou	,cervical	
-grandeur	,grand	
-état	,étatique	
-larme	,lacrymal	
-thé	,théier	
-nuque	,nucal	;cervical	
-roman	,romanesque	
-usine	,usinier	
-pluie	,pluvieux	
-ton	,tonal	
-instant	,instantané	
-soustraction	,soustractif	
-éponge	,spongieux	
-ordinateur	,informatique	
-enfant	,infantile	
-colline	,collinaire	
-ville	,citadin	
->>>	S_med
-s’endormir	,somnifère	
-voter	,bulletin de vote	,vote	
-lavis	,lavis	
-toucher	,toucher	
-marié	,mariage	
-goudronné	,goudron	
-chanter	,voix	
-collage	,colle	
-chantage	,moyen	
-chant	,voix	
-chiffrer	,chiffre	
-enchaîner	,chaîne	
-ensoleillé	,soleil	
-hypnotiser	,hypnotisme	;hypnose	
-encadrer	,cadre	
-fiancé	,fiançailles	
-cracher	,salive	
-discours	,discours	
-ski	,neige	
-goudronner	,goudron	
-marier	,mariage	
-remercier	,remerciement	
-téter	,lait	
-exploser	,explosif	
-exercer	,exercice	
-voler	,vol	
-informer	,information	
-dormir	,somnifère	
-air	,voix	
-divorce	,action	;procédure	
->>>	Masc
-nièce	,neveu	
-grand-mère	,grand-père	,grand-père	
-maman	,papa	
-chèvre	,bouc	
-dragueuse	,dragueur	
-mère au foyer	,père au foyer	
-poule	,coq	
-petite-fille	,petit-fils	
-arrière-petite-nièce	,arrière-petit-neveu	
-femme seule	,homme seul	
-fifille	,fiston	,fils	
-arrière-petite-fille	,arrière-petit-fils	
-tata	,tonton	
-mère de famille	,père de famille	
-mathématicienne	,mathématicien	
-petite sœur	,petit frère	
-mère	,père	,père	,père	,père	,père	
-dernière	,dernier	
-belle-mère	,beau-père	
-mère poule	,père poule	
-marraine	,parrain	
-fille	,fils	,fiston	,garçon	
-femme mariée	,homme marié	
-arrière-nièce	,arrière-neveu	
-femme	,homme	,mari	
-sauveteuse	,sauveteur	
-coureuse	,coureur	
-stratège	,stratège	
-vieille fille	,vieux garçon	
-vache	,taureau	;bœuf	
->>>	SingS_1
-pinière	,pin	
-table	,convive	,convive	,serveur	,serveuse	;cuisinier	,cuisinière	
-insectes	,insecte	
-Chine	,Chinois	,Chinoise	
-occupant	,occupant	
-théâtre	,comédien	,comédienne	,acteur	,actrice	
-Portugal	,Portugais	,Portugaise	
-équipage	,membre	
-synagogue	,rabbin	
-pays	,habitant	,habitante	;citoyen	,citoyenne	
-direction	,directeur	,directrice	
-Italie	,Italien	,Italienne	
-restaurant	,serveur	,serveuse	
-Belgique	,Belge	,Belge	
-exemplier	,exemple	
-fratrie	,frère	,sœur	
-clavier	,touche	
-forêt	,arbre	
-portée	,petit	
-patronat	,patron	,patronne	
-marine	,marin	
-pinède	,pin	
-émigration	,émigré	,émigrée	
-pineraie	,pin	
-enfance	,enfant	,enfant	
-cru	,vin	
-carré	,fantassin	,soldat	,femme soldat	,militaire	,militaire	
-électorat	,électeur	,électrice	
-Allemagne	,Allemand	,Allemande	
-fichier	,fiche	
->>>	S_0∩
-se durcir	,durcissement	
-réchauffer	,réchauffage	
-produire	,production	
-tomber	,chute	
-vague	,vague	
-ferroviaire	,chemin de fer	,train	
-durcir	,durcissement	
-se déplacer	,mouvement	
-courir	,cours	
-se lever	,lever	
-discourir	,discours	
-marcher	,marche	
-textile	,vêtement	
-presser	,pression	
-vite	,vitesse	
-achever	,coup de grâce	
-discuter	,conversation	
-vaincre	,victoire	
-aller	,état	
-royalement	,roi	
-boréal	,nord	
-ressembler	,similarité	
-hôtelier	,hôtel	
-voler	,course	
-laver	,lavage	
-s’enregistrer	,enregistrement	
-arracher	,arrachement	
-pluriel	,pluriel	
-kidnapper	,rapt	
-national	,pays	
->>>	S_0⊂
-se doucher	,douche	
-tonal	,ton	
-citadin	,ville	
-occasionnel	,occasion	
-venteux	,vent	
-infantile	,enfant	
-doucher	,douche	
-étatique	,état	
-songerie	,songer	
-toilier	,toile	
-ressembler	,similitude	,similitude	
-analogique	,analogie	
-se préparer	,préparation	
-continentalement	,continent	
-questionner	,question	
-prononcer	,prononciation	
-voler	,voyage	
-oser	,courage	
-soustractif	,soustraction	
-jambier	,jambes	
-théier	,thé	
-séparer	,séparation	
-converser	,conversation	
-étrangler	,strangulation	
-se laver	,toilette	
-trimestriel	,trimestre	
-nucal	,nuque	
-usinier	,usine	
-kidnapper	,enlèvement	
-instantané	,instant	
+treize	,joueur	
+chevelure	,cheveu	
+mayonnaise	,pot	
+tabac	,pied	,pot	
+ail	<gousse	<tête	<botte	
+marches	,marche	
+conflit	,bataille	
+poivre	,grain	
+laser	,rayon	
+saucisse sèche	,rondelle	
+gâteau	,part	,tranche	
+sel	,grain	
+armement	,arme	
+alcool	,verre	<bouteille	
+aviation	,avion	
+averse	,goutte	
 >>>	Syn_⊂^sex
-accompagnatrice	,accompagnateur	
-divorcée	,divorcé	
-assoiffée	,assoiffé	
-coupable	,coupable	
-épicière	,épicier	
-inspiratrice	,inspirateur	
-gagnante	,gagnant	
-guérisseuse	,guérisseur	
-confiseuse	,confiseur	
-criminelle	,criminel	
-batelière	,batelier	
-banlieusarde	,banlieusard	
-vendeuse	,vendeur	
-abonnée	,abonné	
-meilleure	,meilleur	
-esclave	,esclave	
-coupeuse de cheveux en quatre	,coupeur de cheveux en quatre	
-développeuse	,développeur	
-hospitalisée	,hospitalisé	
-motarde	,motard	
-filleule	,filleul	
-auteure	,auteur	
-moche	,moche	
-trompettiste	,trompettiste	
-organisatrice	,organisateur	
-guenon	,singe	
-jazzwoman	,jazzman	
-louve	,loup	
-éléphante	,éléphant	
-cadette	,cadet	
+commandante de bord	,commandant de bord	
+électronicienne	,électronicien	
+autochtone	,autochtone	
+démonteuse	,démonteur	
+sapeur-pompier	,sapeur-pompier	
+Bédouine	,Bédouin	
+bodybuildeuse	,bodybuilder	
+pouilleuse	,pouilleux	
+tricheuse	,tricheur	
+dormeuse	,dormeur	
+rhumatisante	,rhumatisant	
+professeure	,professeur	,prof	
+commerçante	,commerçant	
+participante	,participant	
+handicapée	,handicapé	
+villageoise	,villageois	
+inspectrice	,inspecteur	
+éducatrice	,éducateur	,éduc	
+banquière	,banquier	
+malfaitrice	,malfaiteur	
+percussionniste	,percussionniste	
+usagère	,usager	
+Chinoise	,Chinois	
+déesse	,dieu	
+pigeonne	,pigeon	
+abbesse	,abbé	
+dentiste	,dentiste	
+pessimiste	,pessimiste	
+adversaire	,adversaire	
+étudiante	,étudiant	

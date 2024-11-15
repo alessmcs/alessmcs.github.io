@@ -1,0 +1,50 @@
+initial : ,final ,terminal  : terminal
+corps composé : ,corps simple  : Simple
+majeur : ,mineur ,mineur ,mineur  : Mineur
+réveillé : ,endormi  : endormi
+chaud : ,froid  : Froid
+utile : ,inutile  : Inutile
+indirectement : ,directement  : Directement
+politesse : ,impolitesse  : Impolitesse
+mains propres : ,mains sales  : Sale
+approximatif : ,exact ,précis ;détaillé  :  précis
+vieillir : ,rajeunir ,rajeunir  : Renforcer
+inflammable : ,ininflammable  : Inébranlable
+quelque chose : ,rien  : rien
+incapacité : ,capacité  : capacité
+levant : ,couchant  : Tomber
+charger : ,décharger  : Décharge
+accord : ,désaccord  : Dissension
+égal : ,inégal ,inégal  : Dissimile
+incorporel : ,corporel ,corporel  :  corporel
+oublier : ,se souvenir ,se rappeler  : Se souvenir
+irrespirable : ,respirable  : Respirable
+matériel : ,spirituel  : inconscient
+final : ,initial  : Initial
+attentif : ,inattentif  : Indifférent
+en : ,y  : vers
+interne : ,externe ,externe  : extérieur
+impossible : ,possible  : Possible
+antonyme : ,synonyme ,synonyme  : Synonyme
+anion : ,cation  : Cation
+bienveillant : ,malveillant  : Cruel
+étroit : ,large  : Large
+intra- : ,extra-  : Extrême
+embellir : ,enlaidir ,s’enlaidir ,enlaidir  : Dénaturer
+clair : ,foncé ;sombre  : Obscur
+favorablement : ,défavorablement  : Adversairement
+lier : ,délier  : Délier
+détendre : ,tendre  : Contraire
+intelligence : ,inintelligence  : Sottileté
+indestructible : ,destructible  : Fragile
+anti- : ,pro-  : C'est le mot "pro"
+équilibre : ,déséquilibre ,déséquilibre  : Déséquilibre
+populaire : ,impopulaire  : Républicain
+sujet : ,objet ,objet  : Objet
+moins : ,plus  : Plus
+avancer : ,reculer ,reculer  : Reculer
+désinstaller : ,installer  : Installer
+désagréable : ,agréable  : Agréable
+pousser : ,tirer  : Reculer
+contrôlable : ,incontrôlable  : Imprévisible
+déshabiller : ,habiller  : habiller

@@ -1,50 +1,52 @@
-initial : ,final ,terminal  : Final
-corps composé : ,corps simple  : Molécule
-majeur : ,mineur ,mineur ,mineur  : minime
-réveillé : ,endormi  : Dormant
-chaud : ,froid  : Froid
-utile : ,inutile  : Inutile
-indirectement : ,directement  : Directement
-politesse : ,impolitesse  : Discrétion
-mains propres : ,mains sales  : Sales
-approximatif : ,exact ,précis ;détaillé  : Exact
-vieillir : ,rajeunir ,rajeunir  : Rajeunir
-inflammable : ,ininflammable  : Iné inflammable
-quelque chose : ,rien  : rien
-incapacité : ,capacité  : Abilité
-levant : ,couchant  : Tomber
-charger : ,décharger  : Déchargement
-accord : ,désaccord  : Discord
-égal : ,inégal ,inégal  : Asymétrique
-incorporel : ,corporel ,corporel  : Corporel
-oublier : ,se souvenir ,se rappeler  : Se souvenir
-irrespirable : ,respirable  : Respirable
-matériel : ,spirituel  : Immateriel
-final : ,initial  : Initial
-attentif : ,inattentif  : Indifférent
-en : ,y  : Avec
-interne : ,externe ,externe  : Externe
-impossible : ,possible  : Possible
-antonyme : ,synonyme ,synonyme  : Synonyme
-anion : ,cation  : Cation
-bienveillant : ,malveillant  : Mauvais
-étroit : ,large  : Largissant
-intra- : ,extra-  : Extrême
-embellir : ,enlaidir ,s’enlaidir ,enlaidir  : Dénaturer
-clair : ,foncé ;sombre  : Sombre
-favorablement : ,défavorablement  : Adversément
+patience : ,impatience  : Impatience
+déboucher : ,boucher  : Serrer
+arrêter : ,démarrer ,commencer ,continuer  : Commencer
+haut : ,bas ,bas ,bas  : Bas
+matutinal : ,vespéral  : Crépusculaire
+discipline : ,indiscipline  : Indiscrplin
+inefficacité : ,efficacité  : Efficacité
+inintelligence : ,intelligence  : Intelligence
+malsain : ,sain  : Sain
+attention : ,inattention  : Oubli
+exportable : ,importable  : Importable
+collectif : ,individuel  : Individuel
+normal : ,anormal  : Anormal
+discret : ,indiscret  : Excellente question !
+
+Clair
+lacer : ,délacer  : Fouiller
+xénophobie : ,xénophilie  : Xenophile
+trépasser : ,naître  : Survivre
+disgrâce : ,grâce  : Bonté
+accrocher : ,décrocher  : Lâcher
+maximum : ,minimum  : Minime
+proprement : ,salement ,salement ,salement ,salement  : erronement
+dépourvu : ,pourvu  : Disposé
+inattention : ,attention  : Attention
+indiscipline : ,discipline  : Discrétion
+nettoyer : ,salir  : Saleur
+dénouer : ,nouer  : Ratissage
+desserrer : ,serrer  : Serrer
+complet : ,incomplet  : incomplete
+accélérer : ,ralentir ,décélérer ,freiner ;ralentir ,ralentir ,retarder  : ralentir
 lier : ,délier  : Délier
-détendre : ,tendre  : Aggraver
-intelligence : ,inintelligence  : Ignorance
-indestructible : ,destructible  : Destructible
-anti- : ,pro-  : pro
-équilibre : ,déséquilibre ,déséquilibre  : Décalage
-populaire : ,impopulaire  : Contre
-sujet : ,objet ,objet  : Objet
-moins : ,plus  : Plus
-avancer : ,reculer ,reculer  : Retrécir
-désinstaller : ,installer  : Installer
-désagréable : ,agréable  : Agreable
-pousser : ,tirer  : Ralentir
-contrôlable : ,incontrôlable  : Imprévisible
-déshabiller : ,habiller  : Vêtir
+ingratitude : ,gratitude  : Gratitude
+mauvais : ,bon ,bon ,bon  : bon
+stable : ,instable  : Instable
+inactif : ,actif  : Actif
+vespéral : ,matinal ,matutinal  : diurne
+insuccès : ,succès  : Success
+intéresser : ,désintéresser  : Désintéresser
+lever : ,coucher  : Tomber
+chuter : ,s’envoler  : Léger
+éloigner : ,rapprocher  : approcher
+agité : ,calme  : Tranquille
+dessouder : ,souder  : Raffermir
+orienter : ,désorienter  : Désorenter
+avec : ,sans ,sans ,sans ,sans  : Sans
+serrer : ,desserrer  : Lâcher
+délacer : ,lacer  : Raffacer
+dissemblable : ,semblable  : Identique
+désunir : ,unir  : réunir
+irresponsabilité : ,responsabilité  : Responsabilité
+minimiser : ,exagérer  : Maximiser

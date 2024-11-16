@@ -503,15 +503,39 @@ def process_samples(relation, sample_size, num_of_samples, k_shot):
 # Construire les autres df
 
 # df pour une relation avec les resultats de 0-shot, 1-shot,..., 5-shot
-def create_df_by_relation(relation, df0, df1, df2=None, df3=None, df4=None, df5=None):
-    df = pd.merge(df0.loc[df0["relation"]==relation], df1.loc[df1["relation"]==relation], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["0","1"]).reset_index(drop=True)
+def create_df_by_relation(relation, df0=None, df1=None, df2=None, df3=None, df4=None, df5=None):
+    
+    dfs = []
 
-    if (df2!=None):
-        df = pd.merge(df, df2.loc[df1["relation"]==relation], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["","2"]).reset_index(drop=True)
+    if df0 is not  None:
+        dfs.append(df0)
+    if df1 is not None:
+        dfs.append(df1)
+    if df2 is not None:
+        dfs.append(df2)
+    if df3 is not None:
+        dfs.append(df3)
+    if df4 is not None:
+        dfs.append(df4)
+    if df5 is not None:
+        dfs.append(df5)
 
-    df.drop(["relation", "no_echantillon"], axis=1)
-    df = pd.merge(df.groupby("no_question").var(), df.groupby("no_question").mean(), how="inner", left_on="no_question", right_on="no_question", suffixes=["_var", "_mean"])
-    df.columns=["var_0", "var_1", "mean_0", "mean_1"]
+    base = dfs[0]
+    df = base.loc[base["relation"]==relation]
+    df = df.reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
+    print(df)
+    dfs.pop(0)
+    print(dfs)
+
+    for next_df in dfs:
+        df = pd.merge(df, next_df.loc[next_df["relation"]==relation], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"]).reset_index(drop=True)
+
+    #df = pd.merge(df0.loc[df0["relation"]==relation], df1.loc[df1["relation"]==relation], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["0","1"])
+        df = df.drop(["relation", "no_echantillon"], axis=1).reset_index(drop=True)
+
+    df = pd.merge(df.groupby("no_question").var(), df.groupby("no_question").mean(), how="inner", left_on="no_question", right_on="no_question", suffixes=["_var", "_mean"]).reset_index(drop=True)
+    #df.columns=["var_0", "var_1", "mean_0", "mean_1"]
+    
 
     print(df)
 
@@ -519,9 +543,13 @@ def create_df_by_relation(relation, df0, df1, df2=None, df3=None, df4=None, df5=
 
 # df pour toutes les relations, pour k exemples.
 def create_df_by_k_shot(df):
-    summary = df.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1)
+    summary = df.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1).reset_index()
+    #summary["question"] = summary[["no_question"]]
+    summary["question"] = summary.apply(lambda row:  all_lf_questions[row["relation"]][row["no_question"]], axis=1)
 
     summary = summary.loc[summary.groupby("relation")["score"].idxmax()]
+    summary.columns = ["relation", "meilleure_question", "score", "question"]
+    print("summary")
     print(summary)
     return summary
 
@@ -554,22 +582,30 @@ def main():
     df1 = pd.DataFrame(df_1_shot)
     print(df1)
 
+    df_anti0 = df0.loc[df0["relation"]=="Anti"].drop(["relation", "no_echantillon"], axis=1).reset_index(drop=True)
+    print("df")
+    print(df_anti0)
+
     df_anti = pd.merge(df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["0","1"]).reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
     #df_anti = pd.concat([df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"]], axis=1, join="inner").drop_duplicates().reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
     #df_anti.drop(["relation", "no_echantillon"], axis=1)
 
     print(df_anti)
 
-    df_anti = pd.merge(df_anti.groupby("no_question").var(), df_anti.groupby("no_question").mean(), how="inner", left_on="no_question", right_on="no_question", suffixes=["_var", "_mean"])
-    df_anti.columns=["var_0", "var_1", "mean_0", "mean_1"]
+    df_anti0 = pd.merge(df_anti0.groupby("no_question").var(numeric_only=True), df_anti0.groupby("no_question").mean(numeric_only=True), how="inner", left_on="no_question", right_on="no_question", suffixes=["_var", "_mean"])
+    #df_anti.columns=["var_0", "var_1", "mean_0", "mean_1"]
 
-    print(df_anti)
+    print(df_anti0)
 
     # k-shot
     summary0 = df0.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1)
     print(summary0)
     summary0 = summary0.loc[summary0.groupby("relation")["score"].idxmax()]
     print(summary0)
+
+    testdf = pd.read_csv("df_0shot.csv", index_col=0)
+    create_df_by_relation("A_0", df0=testdf)
+    create_df_by_k_shot(testdf)
     
     # for k in [0,1,3,5]:
     #     process_samples('Anti', 30, 2, k)

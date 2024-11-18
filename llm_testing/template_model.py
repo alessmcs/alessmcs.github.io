@@ -445,7 +445,7 @@ def run_model(relation, k_shot):
 #     return questions_list
 
 # Process all the samples for a given relation
-def process_samples(relation, sample_size, num_of_samples, k_shot):
+def process_samples(relation, sample_size, num_of_samples):
     # Use global values bc filename etc will be used later to get examples
     global file_name, example_file, example_lines, n, fl_ranking, all_fls_df
 
@@ -473,22 +473,23 @@ def process_samples(relation, sample_size, num_of_samples, k_shot):
             l = line.replace('\n', '').split('\t')
             example_lines.append(l)
 
+    for k_shot in [0,1,3,5]:
         # calc the score for the sample for each question & add to the big list
         scores_for_sample = run_model(chosen_relation, k_shot)
         scores_list.append(scores_for_sample)
 
     # once all samples are done being evaluated, average all of them & write to file
-    for i in range(len(scores_list[0])):
-        somme = 0
-        question = all_lf_questions[chosen_relation][i]
-        for j in range(num_of_samples):
-            somme += scores_list[j][i]
-            avg_scores.append((round(somme / num_of_samples, 2)))
+        for i in range(len(scores_list[0])):
+            somme = 0
+            question = all_lf_questions[chosen_relation][i]
+            for j in range(num_of_samples):
+                somme += scores_list[j][i]
+                avg_scores.append((round(somme / num_of_samples, 2)))
 
-            dict1 = {"relation": relation, "no_question": i, "no_echantillon":j, "score": round(scores_list[j][i], 2)}
-            list_of_dict.append(dict1)
+                dict1 = {"relation": relation, "no_question": i, "no_echantillon":j, f"score{k_shot}" : round(scores_list[j][i], 2)}
+                list_of_dict.append(dict1)
 
-        #score_file.write(question[0] + 'x' + question[1] + ' | ' + str((round(somme / num_of_samples), 2)) + '\n')
+            #score_file.write(question[0] + 'x' + question[1] + ' | ' + str((round(somme / num_of_samples), 2)) + '\n')
     # Add best score to the FL ranking along w its question
     maximum = max(avg_scores)
     # fl_ranking[chosen_relation] = [maximum, all_lf_questions[chosen_relation][avg_scores.index(maximum)]]
@@ -496,14 +497,14 @@ def process_samples(relation, sample_size, num_of_samples, k_shot):
     df = pd.DataFrame(list_of_dict)
     concatenated_df = pd.concat([all_fls_df, df])
     all_fls_df = concatenated_df
-    all_fls_df.to_csv("df_"+str(k_shot)+"shot.csv")
+    all_fls_df.to_csv("df_complete.csv")
     print(df)
     return all_fls_df
 
 # Construire les autres df
 
 # df pour une relation avec les resultats de 0-shot, 1-shot,..., 5-shot
-def create_df_by_relation(relation, df0=None, df1=None, df2=None, df3=None, df4=None, df5=None):
+def create_df_by_relation1(relation, df0=None, df1=None, df2=None, df3=None, df4=None, df5=None):
     
     dfs = []
 
@@ -541,11 +542,16 @@ def create_df_by_relation(relation, df0=None, df1=None, df2=None, df3=None, df4=
 
     return df
 
-def create_df_by_relation1(relation, df):
-
+def create_df_by_relation(relation, df):
+    df_relation = df.loc[df["relation"]==relation]
+    
+    df_relation = df_relation.reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
+    df_relation = pd.merge(df_relation.groupby("no_question").mean(numeric_only=True), df_relation.groupby("no_question").var(numeric_only=True), how="inner", left_on="no_question", right_on="no_question", suffixes=["_mean", "_var"])
+    print(df_relation)
+    return df_relation
 
 # df pour toutes les relations, pour k exemples.
-def create_df_by_k_shot(df):
+def create_df_by_k_shot1(df):
     summary = df.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1).reset_index()
     #summary["question"] = summary[["no_question"]]
     summary["question"] = summary.apply(lambda row:  all_lf_questions[row["relation"]][row["no_question"]], axis=1)
@@ -556,6 +562,12 @@ def create_df_by_k_shot(df):
     print(summary)
     return summary
 
+def create_df_by_k_shot(df, k_shot):
+    summary = df.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1).reset_index()
+    summary = summary[["relation", "no_question", f"score{k_shot}"]]
+    summary = summary.loc[summary.groupby("relation")[f"score{k_shot}"].idxmax()]
+    print(summary)
+    return summary
 
 def main():
     #df_0_shot = pd.DataFrame(columns=["relation", "no_question", "no_echantillon", "score"])
@@ -571,27 +583,31 @@ def main():
     df_0_shot = [dict0, dict1, dict2, dict3, dict4, dict5, dict6, dict7]
 
     df0 = pd.DataFrame(df_0_shot)
-    print(df0)
+    var_test = 0
+    #print(df0)
 
-    dict1 = {"relation": "Anti", "no_question": 0, "no_echantillon":1, "score0": 0.51, "score1": 0.67}
+    dict1 = {"relation": "Anti", "no_question": 0, "no_echantillon":1, f"score{var_test}": 0.51}
+    dict11 = {"relation": "Anti", "no_question": 0, "no_echantillon":1, "score1": 0.67}
+
     dict2 = {"relation": "Anti", "no_question": 0, "no_echantillon":2, "score0": 0.54, "score1": 0.50}
     dict3 = {"relation": "Anti", "no_question": 1, "no_echantillon":0, "score0": 0.43, "score1": 0.20}
     dict4 = {"relation": "Anti", "no_question": 1, "no_echantillon":1, "score0":0.10,  "score1": 0.45}
     dict5 = {"relation": "Anti", "no_question": 1, "no_echantillon":2, "score0": 0.11,  "score1": 0.34}
     dict6 = {"relation": "V_0", "no_question": 0, "no_echantillon":0, "score0":0.16, "score1": 0.56}
     dict7 = {"relation": "V_0", "no_question": 1, "no_echantillon":0, "score0":0.26, "score1": 0.67}
-    df_1_shot = [dict1, dict2, dict3, dict4, dict5, dict6, dict7]
+    df_1_shot = [dict1, dict11,  dict2, dict3, dict4, dict5, dict6, dict7]
 
 
     dfall = pd.DataFrame(df_1_shot)
-    print(dfall)
+    #print(dfall)
 
     df_anti0 = df0.loc[df0["relation"]=="Anti"].drop(["relation", "no_echantillon"], axis=1).reset_index(drop=True)
-    print("df")
-    print(df_anti0)
+    #print("df")
+    #print(df_anti0)
 
-    df_anti_all = dfall.loc[df0["relation"]=="Anti"]
-    print(df_anti_all)
+    df_anti_all = dfall.loc[dfall["relation"]=="Anti"]
+    #print(df_anti_all)
+    df_anti_all = df_anti_all.reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
     #df_anti = pd.merge(df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["0","1"]).reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
     
     #df_anti = pd.concat([df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"]], axis=1, join="inner").drop_duplicates().reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
@@ -599,31 +615,34 @@ def main():
 
     #print(df_anti)
 
-    df_anti0 = pd.merge(df_anti0.groupby("no_question").var(numeric_only=True), df_anti0.groupby("no_question").mean(numeric_only=True), how="inner", left_on="no_question", right_on="no_question", suffixes=["_var", "_mean"])
-    #df_anti.columns=["var_0", "var_1", "mean_0", "mean_1"]
+    df_anti_all = pd.merge(df_anti_all.groupby("no_question").mean(numeric_only=True), df_anti_all.groupby("no_question").var(numeric_only=True), how="inner", left_on="no_question", right_on="no_question", suffixes=["_mean", "_var"])
 
-    print(df_anti0)
+
+    #print(df_anti_all)
 
     # k-shot
-    summary0 = df0.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1)
-    print(summary0)
-    summary0 = summary0.loc[summary0.groupby("relation")["score"].idxmax()]
-    print(summary0)
+    summary0 = dfall.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1).reset_index()
+    summary0 = summary0[["relation", "no_question", "score0"]]
+    #print(summary0)
+    summary0 = summary0.loc[summary0.groupby("relation")["score0"].idxmax()]
+    print("summary0")
+    #print(summary0)
 
-    testdf = pd.read_csv("df_0shot.csv", index_col=0)
-    create_df_by_relation("A_0", df0=testdf)
-    create_df_by_k_shot(testdf)
+    # changer pour df_complete.csv quand il sera généré
+    testdf = pd.read_csv("df_0shot_copy.csv", index_col=0)
+    create_df_by_relation("A_0", df=testdf)
+    create_df_by_k_shot(testdf, 0)
     
     # for k in [0,1,3,5]:
     #     process_samples('Anti', 30, 2, k)
 
-    #process_samples('Anti', 30, 2, 0)
+    process_samples('Anti', 30, 2)
 
     # for rel in all_lf_questions.keys():
     #     print(rel)
     #     process_samples(rel, 50, 3, 0)
 
-    process_samples("A_2Perf", 50, 3, 0)
+    # process_samples("A_2Perf", 50, 3, 0)
 
     # todo: à ameliorer (affichage, lecture du map)
     # open('./scores/fl_ranking', 'w', encoding="utf-8").close()

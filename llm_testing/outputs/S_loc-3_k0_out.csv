@@ -1,50 +1,50 @@
-volley-ball : ,terrain  : salon
-ananas : ,ananas  : Haïti
-Belgique : ,en  : Europe
-café : ,caféier  : Boulangerie
-oiseau : ,nid  : Nature
-dormir : ,dortoir  : Lit
-ski : ,piste ;station  : Montagne
-ver de terre : ,terre  : Terre
-grappe : ,vigne  : Vigne
-coiffeur : ,salon  : Salon
-boxeur : ,ring  : Ring
-chair de poule : ,peau  : Poulet
-chaussures : ,boîte ;meuble  : Pied
-herbe : ,pelouse  : Terre
-orpheline : ,orphelinat  : Enfant
-voter : ,bureau de vote  : Élection
-faire de l’essence : ,station-service  : Station
-repas : ,coin-repas ,salle à manger ;cantine ;restaurant  : table
-valises : ,yeux ;visage  : Bagages
-couché : ,lit  : Place
-lait : ,seins  : Bouche
-cadavre : ,cercueil ,bière  : Corpse
-villageois : ,village  : Ferragne
-pompier : ,caserne ,caserne  : équipe
-framboise : ,framboisier  : Bordeaux
-bandit : ,repaire  : Fils
-récif corallien : ,mer  : Méditerranée
-pneumonie : ,poumons  : Poumon
-père : ,couvent  : Famille
-sport : ,salle ;terrain ;palais des sports  : Stade
-prune : ,prunier  : Fruit
-boxe : ,ring  : Muscle
-rivière : <lit <piste ;champ de course ,stade  : Terre
-courriel : ,adresse électronique ;boîte aux lettres  : ordinateur
-lièvre : ,terrier  : Territoire
-avocat : ,avocatier  : le parlement
-terrier : ,sol ;terre  : Le chien
-foire : ,champ de foire  : marché
-uriner : ,urinoir ;toilettes  : les reins
-lotus : ,yoga  : Asie
-étalage : ,étal  : Magasin
-imprimer : ,imprimerie  : Machine
-soleil : ,ciel  : Ciel
+poire : ,poirier  : Fruit
+environnement : ,Terre  : nature
 citron : ,citronnier  : France
-aube : ,matin  : Dawn
-tombe : ,cimetière  : Le jardin
+bandit : ,repaire  : France
+gazon : ,pelouse  : Jardin
+moustique : ,marais ,mare ,marécage  : Insecte
+oiseau : ,nid  : Nature
+orange : ,oranger  : L'érable
+chien : ,niche  : Animaux
+clémentine : ,clémentinier  : Citron
+tombe : ,cimetière  : Cimetière
+abeille : ,nid ,ruche  : Insecte
+thé : ,théier  : Cafetière
+tennis : ,court ,terrain ,tennis  : Court
+plein : ,station-service  : Globe
+père : ,couvent  : Famille
+entrer : ,entrée ,entrée  : Porte
+couché : ,lit  : Coffre
+guêpe : ,nid ,guêpier  : Insecte
+sans domicile fixe : ,rue ;rue  : Campement
+se laver : ,salle de bain ,salle de douche ,salle d’eau  : le bain
+citadin : ,ville  : France
+coiffeuse : ,salon  : Salon
+boulanger : ,fournil  : Foyer
+eau : ,cours d’eau  : océan
+football : ,terrain ;stade  : stade
 emprisonné : ,prison  : Cellule
-réunion : ,salle de réunion  : Île
-cuisine : ,cuisine  : Maison
-orphelin : ,orphelinat  : Famille
+raisin : ,vigne  : Fruit
+amande : ,amandier  : Nourriture
+mère : ,couvent  : Famille
+exemple : ,exemplier  : Bibliothèque
+ananas : ,ananas  : France
+lait : ,seins  : laitier
+karaté : ,tapis ,tatami ;dojo ,salle  : Japon
+imprimer : ,imprimerie  : Typequette
+cercueil : ,tombe ,tombeau  : Tombes
+lointain : ,lointain  : Ailleurs
+déchets : ,déchetterie  : équipement
+noisette : ,noisetier  : Noix
+gymnastique : ,salle ;gymnase ,salle ;gymnase  : école
+noix : ,noyer  : Noisette
+sandwich : ,sandwicherie  : France
+Belgique : ,en  : Europe
+coton : ,cotonnier  : Égypte
+enterrer : ,cimetière  : terre
+gendarme : ,gendarmerie  : France
+chaussures : ,boîte ;meuble  : Pied
+corbeau : ,nid ,nid  : Chauve souris
+pompier : ,caserne ,caserne  : Salle
+vache : ,étable ,vacherie  : fer

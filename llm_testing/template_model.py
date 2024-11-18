@@ -6,6 +6,7 @@ import ollama
 import numpy
 import pandas as pd
 
+
 # Ce sont toutes des fl paradigmatiques
 all_lf_questions = {
         ### FLS SIMPLES ###
@@ -47,26 +48,11 @@ all_lf_questions = {
             ["Quel est l'adverbe dérivé du mot \"", "\"? Donne un seul adverbe sans ponctuation."],
             ["Transforme le mot \"", "\" en adverbe. Donne un seul adverbe sans ponctuation."]
         ],
-        "S_instr" : [
-            ["Quel est l'instrument typiquement utilisé pour faire l'action liée au mot \"", "\"? Donne un seul nom commun sans ponctuation."],
-            ["Donne le circonstant intrumental typique de \"", "\". Donne un seul nom commun sans ponctuation."],
-            ["Quel instrument utilise-t-on pour faire l'acte lié au mot \"", "\"? Donne un seul nom sans ponctuation"]
-        ],
         "S_loc": [
             ["Quel est un nom qui décrit la localisation de \"", "\"? Donne un seul nom sans ponctuation."],
             ["Donne le lieu typique de \"", "\"? Donne un seul nom sans ponctuation."],
             ["Donne le lieu ou le moment typique de \"", "\"? Donne un seul nom sans ponctuation."],
             ["À quel endroit se trouve \"", "\"? Donne un seul nom sans ponctuation."]
-        ],
-        "Cap" : [
-            ["Comment appelle-t-on le chef d'un/une \"", "\"? Donne un seul nom sans ponctuation"],
-            ["Quel est le terme pour designer le chef d'un/une \"" "\"? Donne un seul nom sans ponctuation"],
-            ["Quel est le nom du chef d'un/une \"" "\"? Donne un seul nom sans ponctuation"]
-        ],
-        "Able" : [
-            ["Quel est l'adjectif associé à quelque chose qui peut ou peut être \"", "\"? Donne un seul adjectif sans ponctuation."],
-            ["Quel est l'adjectif associé à quelque chose qui est \"", "\"? Donne un seul adjectif sans ponctuation."],
-            ["Comment qualifie-t-on quelque chose qui peut ou peut être \"", "\"? Donne un seul adjectif sans ponctuation."]
         ],
         "Gener" : [
             ["Quel est un terme générique pour désigner \"", "\"? Donne un seul mot sans ponctuation."],
@@ -95,6 +81,7 @@ all_lf_questions = {
             ["Quel est l'adjectif correspondant à la fin de \"", "\"? Donne un seul adjectif sans ponctuation."],
             ["Quand on aboutit la chose suivante, quel est l'adjectif approprié pour le définir: :  \"", "\"? Donne un seul adjectif sans ponctuation."],
             ["Comment peut-on qualifier la chose suivante lorsqu'elle est aboutie :  \"","\"? Donne un seul adjectif sans ponctuation."],
+            ["Comment qualifie-t-on l'actant du mot \"", "\" lorsqu'il finit l'acte associé au mot donné?"]
         ],
         "Syn_⊃^sex" : [
             ["Quel est le mot féminin correspondant au mot \"", "\"? Donne un seul mot sans ponctuation."],
@@ -103,61 +90,6 @@ all_lf_questions = {
             ["Conjugue le mot \"", "\" au féminin. Donne un seul mot sans ponctuation."],
         ],
     }
-
-# questions_exemples = {
-#     'Anti' : [
-#         ["L'antonyme du mot \"", "\" est \"", "\"."]
-#     ],
-#     "S_0" : [
-#         []
-#     ],
-#     "Syn_⊂" : [
-#         []
-#     ],
-#     "Syn": [
-#         []
-#     ],
-#     "A_0": [
-#         []
-#     ],
-#     "A_2Perf": [
-#         []
-#     ],
-#     "V_0": [
-#         []
-#     ],
-#     "Syn_⊃^sex": [
-#         []
-#     ],
-#     "Adv_0": [
-#         []
-#     ],
-#     "S_instr" : [
-#         []
-#     ],
-#     "Magn": [
-#         []
-#     ],
-#     "Redun": [
-#         []
-#     ],
-#     "S_loc": [
-#         []
-#     ],
-#     "Able": [
-#
-#     ],
-#     "Gener": [
-#
-#     ],
-#     "Figur": [
-#
-#     ],
-#     "Contr": [
-#
-#     ]
-#
-# }
 
 k_exemples = {
     'Anti' : [
@@ -175,7 +107,11 @@ k_exemples = {
         ["Pan!", "coup de feu"]
     ],
     "Syn_⊂" : [
-        []
+        ['triplex', 'appartement'],
+        ['tambouriner', 'frapper'],
+        ['à la vitesse de [Y]', 'rapidement'],
+        ['lune de miel', 'voyage'],
+        ['cyclone', 'vent']
     ],
     "A_0": [
         ["temps", "temporel"],
@@ -185,7 +121,11 @@ k_exemples = {
         ["comparer", "comparatif"]
     ],
     "A_2Perf": [
-        []
+        ['barrer', 'barré'],
+        ['allonger', 'couché'],
+        ['adopter', 'adoptif'], #????
+        ['voir', 'vu'],
+        ['vider', 'vide']
     ],
     "V_0": [
         ["présentation", "présenter"],
@@ -195,7 +135,11 @@ k_exemples = {
         ["impatient", "s'impatienter"]
     ],
     "Syn_⊃^sex": [
-        []
+        ['boulanger', 'boulangère'],
+        ['cheval', 'jument'],
+        ['curieux', 'curieuse'],
+        ['prêtre', 'prêtresse'],
+        ['égoïste', 'égoïste']
     ],
     "Adv_0": [
         ["voir", "visuellement"],
@@ -204,13 +148,6 @@ k_exemples = {
         ["proche", "près"],
         ["vue", "visuellement"]
     ],
-    "S_instr" : [
-        ["boire", "verre"],
-        ["se doucher", "douche"],
-        ["sentir", "nez"],
-        ["crime", "arme (du)"],
-        ["frire", "poêle"]
-    ],
     "S_loc": [
         ["boxe", "ring"],
         ["enfant", "enfance"],
@@ -218,22 +155,12 @@ k_exemples = {
         ["fumer", "fumoir"],
         ["sentiment", "coeur"]
     ],
-    "Cap": [
-        ["royaume", "roi"],
-        ["mafia", "parrain"],
-        ["navire", "capitaine"],
-        ["avion", "commandant (de bord)"],
-        ["tribu", "chef (de)"]
-    ],
-    "Able": [
-        ["bavarder", "bavard"],
-        ["peur", "peureux"]
-    ],
     "Gener": [
         ["amour", "sentiment"],
         ["gaz", "substance"],
-        ["voir", "percevoir"]
-        # todo: 2 autres
+        ['table', 'meuble'],
+        ["voir", "percevoir"],
+        ['chien', 'animal']
     ],
     "Contr": [
         ["manger", "boire"],
@@ -243,11 +170,11 @@ k_exemples = {
         ["eau", "feu"]
     ],
     "S_res": [
+        ['se décler', 'décalage'],
         ["soigner", "santé"],
         ["nuire", "dommage"],
+        ['examen', 'résultat'],
         ["assassiner/assassinat", "mort"],
-        ["réflexion", "fruit"]
-        # todo one more
     ],
     "Sing":[
         ["riz", "grain (de)"],
@@ -270,7 +197,6 @@ k_exemples = {
 
 # NOTE: ollama must be running for this to work, start the ollama app or run `ollama serve`
 model = 'llama3.2' 
-context = []
 
 # global values for all samples file & n
 file_name, example_file, example_lines, n = '', '', '', 0
@@ -434,6 +360,7 @@ def run_model(relation, k_shot):
 
     for i in range (len(questions)):
         question = questions[i]
+        #print('Question ' + str(i))
 
         # Open a file to store the outputs
         fileName = f"outputs/{relation}-{i}_k{k_shot}_out.csv"
@@ -631,7 +558,6 @@ def create_df_by_k_shot(df):
 
 
 def main():
-
     #df_0_shot = pd.DataFrame(columns=["relation", "no_question", "no_echantillon", "score"])
     
     dict0 = {"relation": "Anti", "no_question": 0, "no_echantillon":0, "score": 0.51}
@@ -678,7 +604,7 @@ def main():
 
     print(df_anti0)
 
-    #k-shot
+    # k-shot
     summary0 = df0.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1)
     print(summary0)
     summary0 = summary0.loc[summary0.groupby("relation")["score"].idxmax()]
@@ -693,9 +619,11 @@ def main():
 
     #process_samples('Anti', 30, 2, 0)
 
-    #for rel in all_lf_questions.keys():
-    #    print(rel)
-    #    process_samples(rel, 50, 3, 0)
+    # for rel in all_lf_questions.keys():
+    #     print(rel)
+    #     process_samples(rel, 50, 3, 0)
+
+    process_samples("A_2Perf", 50, 3, 0)
 
     # todo: à ameliorer (affichage, lecture du map)
     # open('./scores/fl_ranking', 'w', encoding="utf-8").close()

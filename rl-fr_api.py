@@ -6,16 +6,12 @@ import random
 import re
 import pandas as pd
 import xml.etree.ElementTree as ET
-
-from PIL.TiffImagePlugin import IFDRational
 from tqdm import tqdm
-from collections import Counter
 from matplotlib import pyplot as plt
-import pickle
 import numpy as np
 import csv
+from llm_testing.template_model import k_exemples
 
-# Path aless
 LS_FR_PATH = "../lexical-system-fr/10/ls-fr-V3.1/"
 # Path vivi
 # LS_FR_PATH = "C:/_Code/courses/IFT3150_projet/lexical-system-fr/7/ls-fr-V2.1/"
@@ -72,6 +68,7 @@ def get_para_synta_relations():
             syntagmatics[key] = (name, family, linktype)
         else:
             raise ValueError("Neither paradigmatic nor syntagmatic")
+
     return paradigmatics, syntagmatics
 
 # Get a word from its mapped content
@@ -152,7 +149,7 @@ def get_relation_name(df, i: int, relations) -> (str, str):
     else:
         return '', '', ''
 
-# todo: delete???
+# Remove values that contain numbers or multiple words (locutions) from the dataset, bc they make it harder to test
 def clean_dfs(df15, df2, no_numbers=True, no_locutions=False):
     df2_copy = df2.copy()
     modified_ids = df2.copy()['id'].apply(lambda word: word.replace('entry', 'node'))
@@ -186,29 +183,27 @@ def create_map_to_write(name_rather_than_id=True):
     df15 = get_df(15)
     df2 = get_df(2)
 
-    #relations = get_relation_dict()
+    # todo: why is Mult in paradigmatics? (ask linguistes)
     paradigmatics, syntagmatics = get_para_synta_relations()
-    relations = paradigmatics # use only para relations
+
     mapping = get_word_from_id_mapping()
 
     # Remove numbers and/or locutions to simplify examples and control variance
     df2_cleaned, df15_cleaned = clean_dfs(df15, df2)
 
-    N = len(df15_cleaned)
+    N = len(df15_cleaned) # df15 not containg numbers and/or locutions
 
     everything = {}
 
     # Pour chaque mot dans les listes
     for i in tqdm(range(N), desc="creating map", ascii=True):
         source, target = get_endpoints(df15_cleaned, i, mapping, name_rather_than_id)
-        relation, family, separator = get_relation_name(df15_cleaned, i, relations)
+        relation, family, separator = get_relation_name(df15_cleaned, i, paradigmatics)
 
         if relation == '':
-            continue # next iter bc nothing found?
+            continue # next iter bc nothing found in paradigmatics
 
         # enlever tous les entries qui contiennent des chiffres
-        condition = lambda word : True if any (char.isdigit() for char in word) else False
-
         if (any (char.isdigit() for char in source)) or (any (char.isdigit() for char in target)):
             continue
 
@@ -228,8 +223,6 @@ def create_map_to_write(name_rather_than_id=True):
                 #everything[relation][source].append([target, family])
                 everything[relation][source].append([target, family, separator])
 
-    # print(everything['Hypo']['appartement'])
-
     return everything
 
 # Get a sample from everything depending on the min number of examples of each relation
@@ -247,7 +240,6 @@ def create_map_most_examples(everything:dict, min_number:int, nb_examples:int):
 
     #print(small_map)
     return small_map
-
 
 ### FILE WRITING METHODS ###
 
@@ -301,24 +293,55 @@ def create_sample_sets(min_number, nb_examples, nb_sets, all_results):
         print(len(curr_set))
         write_tsv(curr_set, f"./llm_testing/sample_sets/all_relations_{nb_examples}_ex_{i}.tsv")
 
+# todo: enlever seulement l'exemple ou la source au complet??? (ask vivi)
+def filter_examples(examples, all_entries):
+    all_entries_updated = all_entries.copy()
+    for rel in examples.keys():
+        for i in range(len(examples[rel])):  # for each example
+            fl_result = all_entries[rel]
+            source = examples[rel][i][0]
+
+            if source in fl_result:
+                del all_entries_updated[rel][source]
+            else:
+                continue
+
+            # if source not in fl_result:
+            #     continue
+            # target = examples[rel][i][1]
+            # targets = fl_result[source]
+            #
+            # for w in range(len(targets) - 1, -1, -1):
+            #     w1 = targets[w][0]
+            #
+            #     if w1 == target:
+            #         all_entries_updated[rel][source].remove(all_entries_updated[rel][source][w])
+            #
+            # if all_entries_updated[rel][source] == []:
+            #     del all_entries_updated[rel][source]
+
+    return all_entries_updated
+
+
 if __name__ == "__main__":
 
     # Get all the relations & examples
     everything = create_map_to_write()
-    for k in everything.keys():
-        if ('+' not in k) and ('&' not in k):
-            print(k)
 
-    print(len(everything.keys()))
+    # for k in everything.keys():
+    #     if ('+' not in k) and ('&' not in k):
+    #         print(k)
+
+    # Remove examples from map
+    everything_updated = filter_examples(k_exemples, everything)
+
+    for w in everything_updated["Syn_⊂"]:
+        print(w, everything_updated["Syn_⊂"][w] )
+
     # Create as many samples of desired size as I want
-    create_sample_sets(100, 30, 3, everything)
-
-    # find optimal n selon le nombre de fls différentes
-
+    #create_sample_sets(70, 50, 3, everything_updated)
 
     # todo: pertinence des parties du discours ou pas??
-    # todo: separate into test set & example set (enlever 1-3 mots pour chaque FL qui semblent pertinents, ne pas les
-    # compter dans les exemples)
 
 
 

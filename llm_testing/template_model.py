@@ -614,6 +614,9 @@ def create_df_by_relation(relation, df0=None, df1=None, df2=None, df3=None, df4=
 
     return df
 
+def create_df_by_relation1(relation, df):
+
+
 # df pour toutes les relations, pour k exemples.
 def create_df_by_k_shot(df):
     summary = df.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1).reset_index()
@@ -644,27 +647,31 @@ def main():
     df0 = pd.DataFrame(df_0_shot)
     print(df0)
 
-    dict1 = {"relation": "Anti", "no_question": 0, "no_echantillon":1, "score": 0.67}
-    dict2 = {"relation": "Anti", "no_question": 0, "no_echantillon":2, "score": 0.50}
-    dict3 = {"relation": "Anti", "no_question": 1, "no_echantillon":0, "score": 0.20}
-    dict4 = {"relation": "Anti", "no_question": 1, "no_echantillon":1, "score": 0.45}
-    dict5 = {"relation": "Anti", "no_question": 1, "no_echantillon":2, "score": 0.34}
-    dict6 = {"relation": "V_0", "no_question": 0, "no_echantillon":0, "score": 0.56}
-    dict7 = {"relation": "V_0", "no_question": 1, "no_echantillon":0, "score": 0.67}
+    dict1 = {"relation": "Anti", "no_question": 0, "no_echantillon":1, "score0": 0.51, "score1": 0.67}
+    dict2 = {"relation": "Anti", "no_question": 0, "no_echantillon":2, "score0": 0.54, "score1": 0.50}
+    dict3 = {"relation": "Anti", "no_question": 1, "no_echantillon":0, "score0": 0.43, "score1": 0.20}
+    dict4 = {"relation": "Anti", "no_question": 1, "no_echantillon":1, "score0":0.10,  "score1": 0.45}
+    dict5 = {"relation": "Anti", "no_question": 1, "no_echantillon":2, "score0": 0.11,  "score1": 0.34}
+    dict6 = {"relation": "V_0", "no_question": 0, "no_echantillon":0, "score0":0.16, "score1": 0.56}
+    dict7 = {"relation": "V_0", "no_question": 1, "no_echantillon":0, "score0":0.26, "score1": 0.67}
     df_1_shot = [dict1, dict2, dict3, dict4, dict5, dict6, dict7]
 
-    df1 = pd.DataFrame(df_1_shot)
-    print(df1)
+
+    dfall = pd.DataFrame(df_1_shot)
+    print(dfall)
 
     df_anti0 = df0.loc[df0["relation"]=="Anti"].drop(["relation", "no_echantillon"], axis=1).reset_index(drop=True)
     print("df")
     print(df_anti0)
 
-    df_anti = pd.merge(df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["0","1"]).reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
+    df_anti_all = dfall.loc[df0["relation"]=="Anti"]
+    print(df_anti_all)
+    #df_anti = pd.merge(df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["0","1"]).reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
+    
     #df_anti = pd.concat([df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"]], axis=1, join="inner").drop_duplicates().reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
     #df_anti.drop(["relation", "no_echantillon"], axis=1)
 
-    print(df_anti)
+    #print(df_anti)
 
     df_anti0 = pd.merge(df_anti0.groupby("no_question").var(numeric_only=True), df_anti0.groupby("no_question").mean(numeric_only=True), how="inner", left_on="no_question", right_on="no_question", suffixes=["_var", "_mean"])
     #df_anti.columns=["var_0", "var_1", "mean_0", "mean_1"]

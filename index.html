@@ -152,6 +152,37 @@
                         pour chaque FL.
                     </li>
                 </ul>
+                <h3> S10 - 4/11 - 10/11</h3>
+                <ul>
+                    <li>
+                        Nous avons réussi à faire fonctionner de façon efficace le traitement en batch de Ollama. Nous pouvons donc tester
+                         nos questions et obtenir des scores pour toutes les fonctions lexicales que nous traitons.
+                    </li>
+                    <li>
+                        Les scores sont pour le moment gardés en mémoire dans des fichiers différents pour chaque fonction lexicale, mais
+                        on peut quand même voir facilement quelles questions fonctionnent mieux.
+                    </li>
+                    <li>
+                        Retrait des mots qui contiennent des chiffres ou d'autres caractères non alphabétiques des mots posés au 
+                        modèle. 
+                    </li>
+
+                </ul>
+
+                <h3> S11 - 11/11 - 17/11</h3>
+                <ul>
+                    <li>
+                        Ajout d'exemples provenant de la ressource aux questions pour voir si on obtient des meilleurs scores. On veut 
+                        retirer les mots en exemple des mots demandés au modèle pour ne pas gonfler artificiellement les scores. 
+                    </li>
+                    <li>
+                        Méthode pour mettre toute l'information générée par les tests (les scores) dans un Dataframe, et ensuite pouvoir 
+                        extraire ces informations pour présenter des statistiques pour voir quelles questions sont les meilleures, et si 
+                        le score augmente avec le nombre d'exemples donnés.
+                    </li>
+                </ul>
+
+
         </section>
     
     </div>

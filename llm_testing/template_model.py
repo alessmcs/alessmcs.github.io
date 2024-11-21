@@ -13,7 +13,8 @@ all_lf_questions = {
         'Anti' : [
             ["Quel est l'antonyme du mot \"", "\"? Donne un seul mot sans ponctuation."],
             ["Quel est le contraire du mot \"", "\"? Donne un seul mot sans ponctuation."],
-            ["Quel est l'opposé du mot \"", "\"? Donne un seul mot sans ponctuation."]
+            ["Quel est l'opposé du mot \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel mot a un sens correspondant au sens de \"", "\" dans lequel est insérée une négation? Donne un seul mot sans ponctuation."] # Ressource
                 ],
         "S_0": [
             ["Quel est le nom commun correspondant au verbe ou à l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
@@ -22,7 +23,8 @@ all_lf_questions = {
             ["Quel est le nom commun formé à partir du verbe ou de l'adjectif \"", "\"? Donne un seul nom commun sans ponctuation."],
             ["Quel est le nom commun dérivé du mot \"", "\"? Donne un seul nom commun sans ponctuation."],
             ["Quel est le nom commun dont \"", "\" est la racine? Donne un seul nom commun sans ponctuation."],
-            ["Transforme le mot \"", "\" en nom commun. Donne un seul nom commun sans ponctuation."]
+            ["Transforme le mot \"", "\" en nom commun. Donne un seul nom commun sans ponctuation."],
+            ["Quelle est une lexie nominale ayant le même sens que \"", " ? Donne un seul nom commun sans ponctuation."] # Ressource
         ],
         "Syn_⊂" : [
             ["Quel est le synonyme avec un sens plus large du mot \"", "\"? Donne un seul mot sans ponctuation."],
@@ -34,45 +36,57 @@ all_lf_questions = {
             ["Quel est l'adjectif correspondant au mot \"", "\"? Donne un seul adjectif sans ponctuation."],
             ["Transforme le mot \"", "\" en adjectif. Donne un seul adjectif conjugué au masculin, et sans ponctuation."],
             ["Quel est l'adjectif formé à partir du mot \"", "\"? Donne un seul adjectif conjugué au masculin, et sans ponctuation."],
-            ["Quel est l'adjectif dérivé du mot \"", "\"? Donne un seul adjectif conjugué au masculin, et sans ponctuation."]
+            ["Quel est l'adjectif dérivé du mot \"", "\"? Donne un seul adjectif conjugué au masculin, et sans ponctuation."],
+            ["Quelle est une lexie adjectivale ayant le même sens (ou presque) que \"", " ? Donne un seul adjectif conjugué au masculin, et sans ponctuation."]
+            # Ressource
         ],
         "V_0" : [
             ["Quel est le verbe correspondant au mot \"", "\"? Donne un seul verbe sans ponctuation."],
             ["Quel est le verbe formé à partir du mot \"", "\"? Donne un seul verbe sans ponctuation."],
             ["Quel est le verbe dérivé du mot \"", "\"? Donne un seul verbe sans ponctuation."],
-            ["Transforme le mot \"", "\" en verbe. Donne un seul verbe sans ponctuation."]
+            ["Transforme le mot \"", "\" en verbe. Donne un seul verbe sans ponctuation."],
+            ["Quelle est une lexie verbale ayant le même sens que \"", " ? Donne un seul verbe sans ponctuation."]
+            # Ressource
         ],
         "Adv_0" : [
             ["Quel est l'adverbe correspondant au mot \"", "\"? Donne un seul adverbe sans ponctuation."],
             ["Quel est l'adverbe formé à partir du mot \"", "\"? Donne un seul adverbe sans ponctuation."],
             ["Quel est l'adverbe dérivé du mot \"", "\"? Donne un seul adverbe sans ponctuation."],
-            ["Transforme le mot \"", "\" en adverbe. Donne un seul adverbe sans ponctuation."]
+            ["Transforme le mot \"", "\" en adverbe. Donne un seul adverbe sans ponctuation."],
+            ["Quelle est une lexie adverbiale ayant le même sens que \"", " ? Donne un seul adverbe sans ponctuation."]
+            # Ressource
         ],
         "S_loc": [
             ["Quel est un nom qui décrit la localisation de \"", "\"? Donne un seul nom sans ponctuation."],
             ["Donne le lieu typique de \"", "\"? Donne un seul nom sans ponctuation."],
             ["Donne le lieu ou le moment typique de \"", "\"? Donne un seul nom sans ponctuation."],
-            ["À quel endroit se trouve \"", "\"? Donne un seul nom sans ponctuation."]
+            ["À quel endroit se trouve \"", "\"? Donne un seul nom sans ponctuation."],
+            ["Quelle est une lexie nominale qui désigne un circonstant de lieu typique de, ou d'un fait lié à \"", "\"? Donne un seul nom sans ponctuation"] # Ressource
         ],
         "Gener" : [
             ["Quel est un terme générique pour désigner \"", "\"? Donne un seul mot sans ponctuation."],
             ["Quel est un terme générique qui englobe le mot \"","\"? Donne un seul mot sans ponctuation."],
             ["Quel est le terme qui englobe le mot  \"", "\"? Donne un seul mot sans ponctuation."],
+            ["Quel est un hyperonyme classifiant de \"", "\" ? Donne un seul mot sans ponctuation."] # Ressource
         ],
         "Contr" : [
             ["Quel mot crée un contraste avec, mais n'est pas l'antonyme de, \"", "\" ? Donne un seul mot sans ponctuation."],
             ["Quel est l'opposé, mais pas l'antonyme de, \"", "\" ? Donne un seul mot sans ponctuation."],
-            ["Quel mot est l'opposé de \"", "\", sans être son contraire? Donne un seul mot sans ponctuation."]
+            ["Quel mot est l'opposé de \"", "\", sans être son contraire? Donne un seul mot sans ponctuation."],
+            ["Quel mot est en opposition contrastive sur le plan sémantique avec \"", " ? Donne un seul mot sans ponctuation"] # ressource
         ],
         "S_res" : [
             ["Quel est un résultat typique de l'acte associé au mot \"", "\" ? Donne un seul mot sans ponctuation"],
             ["Quel est un résultat de l'acte associé au mot \"", "\" ? Donne un seul mot sans ponctuation"],
-            ["En quoi résulte l'acte de \"", "\" ? Donne un seul mot sans ponctuation"]
+            ["En quoi résulte l'acte de \"", "\" ? Donne un seul mot sans ponctuation"],
+            ["Quelle est une lexie nominale qui désigne un circonstant de résultat typique de \"",
+             "\"? Donne un seul mot sans ponctuation"]  # Ressource
         ],
         "Sing" : [
             ["Quel est un mot désignant une unité de \"", "\" ? Donne un mot sans ponctuation"],
             ["Comment appelle-t-on une unité de \"", "\" ? Donne un mot sans ponctuation"],
             ["Comment appelle-t-on une seule partie de \"", "\" ? Donne un mot sans ponctuation"],
+            ["Donne une lexie qui désigne une unité de \"", "\" ? Donne un mot sans ponctuation"] #ressource
         ],
 
         ### FLS COMPLEXES ###
@@ -81,13 +95,15 @@ all_lf_questions = {
             ["Quel est l'adjectif correspondant à la fin de \"", "\"? Donne un seul adjectif sans ponctuation."],
             ["Quand on aboutit la chose suivante, quel est l'adjectif approprié pour le définir: :  \"", "\"? Donne un seul adjectif sans ponctuation."],
             ["Comment peut-on qualifier la chose suivante lorsqu'elle est aboutie :  \"","\"? Donne un seul adjectif sans ponctuation."],
-            ["Comment qualifie-t-on l'actant du mot \"", "\" lorsqu'il finit l'acte associé au mot donné?"]
+            ["Comment qualifie-t-on l'actant du mot \"", "\" lorsqu'il finit l'acte associé au mot donné?"],
+            ["Quel est le qualificatif adjectival pour désigner l'aboutissement du fait \"", "\"? Donne un adjectif sans ponctuation"] #ressource
         ],
         "Syn_⊃^sex" : [
             ["Quel est le mot féminin correspondant au mot \"", "\"? Donne un seul mot sans ponctuation."],
             ["Quel est le correspondant féminin du mot \"", "\"? Donne un seul mot sans ponctuation."],
             ["Quel est l'équivalent féminin du mot \"", "\"? Donne un seul mot sans ponctuation."],
             ["Conjugue le mot \"", "\" au féminin. Donne un seul mot sans ponctuation."],
+            # rien trouvé dans la ressource?
         ],
     }
 

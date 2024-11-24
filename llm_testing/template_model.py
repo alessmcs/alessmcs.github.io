@@ -585,11 +585,22 @@ def create_df_by_k_shot(df, k_shot):
     summary = summary[["relation", "no_question", f"score{k_shot}"]]
     summary = summary.loc[summary.groupby("relation")[f"score{k_shot}"].idxmax()]
     summary["question"] = summary.apply(lambda row:  format_question(all_lf_questions[row["relation"]][row["no_question"]]), axis=1)
-    summary.columns = ["relation", "meilleure_question", "score", "question"]
+    if k_shot > 0:
+        summary["exemples"] = summary.apply(lambda row: get_examples(row["relation"]), axis=1)
+        summary.columns = ["relation", "meilleure_question", "score", "question", "exemples"]
+    else:
+        summary.columns = ["relation", "meilleure_question", "score", "question"]
+
 
     print(summary)
     summary.to_csv(f"bestQuestion_{k_shot}.csv")
     return summary
+
+def get_examples(rel):
+    s = ''
+    for w in k_exemples[rel]:
+        s += w[1] + ", "
+    return s
 
 def format_question(question):
     return question[0].replace('\\', '') + "x" + question[1]

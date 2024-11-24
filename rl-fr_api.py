@@ -335,11 +335,11 @@ if __name__ == "__main__":
     # Remove examples from map
     everything_updated = filter_examples(k_exemples, everything)
 
-    for w in everything_updated["Syn_⊂"]:
-        print(w, everything_updated["Syn_⊂"][w] )
+    # for w in everything_updated["Syn_⊂"]:
+    #     print(w, everything_updated["Syn_⊂"][w] )
 
     # Create as many samples of desired size as I want
-    #create_sample_sets(70, 50, 3, everything_updated)
+    create_sample_sets(70, 30, 3, everything_updated)
 
     # todo: pertinence des parties du discours ou pas??
 

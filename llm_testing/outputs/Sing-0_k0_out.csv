@@ -1,50 +1,50 @@
-cheveu : ,cheveu  : Cheveu
-pharmacopée : ,médicament  : Dose
-vin : ,verre <bouteille  : Bouteille
-ski : ,championnat ,compétition  : Piste
-sucre : ;grain <cuillerée ,pincée ;morceau ,sucre <pain  : Glace
-tarte : ,part  : Tasse
-code : ,loi  : Code
-chéquier : ,chèque  : Bille
-rayonnage : ,rayon  : Refractaire
-football : ,match ,partie ,football <compétition ,tournoi <championnat  : Match
-mayo : ,pot  : Cuillère
-dentition : ,dent  : Dentaire
-rôti : ,tranche  : Petit
-voirie : ,voie  : chemin
-aviation : ,avion  : Avion
-marches : ,marche  : Mille
-chevelure : ,cheveu  : Cheveu
-correspondance : ,lettre  : Correspondance
-mois : ,semaine <jour  : Mois
-humanité : ,homme  : Humanité
-riz : ,grain  : Riz
+treize : ,joueur  : Treize
+glace : ;glaçon ;bloc  : Glace
+gendarmerie : ,gendarme ,gendarme ,gendarmette  : Marechal
+maïs : ,grain <boîte  : Boulette
+cheval : ,compétition  : Cheval
+tramway : ,ligne  : Rameur
+poivre : ,grain  : Moule
+raisin : ,grain  : Graine
+miel : ,pot  : Fondu
+appareillage : ,appareil  : Ordinateur
+mayonnaise : ,pot  : cuillère
+opéra : ,air  : Strophe
+papier : ,feuille  : Feuille
+outillage : ,outil  : Outre
+lessive : ,cuillère ,dose ,poignée ;dosette ,pastille <baril ,boîte  : Lavage
+sueur : ,goutte  : Humidité
+sel : ,grain  : Granulé
+champagne : ,verre  : Bouteille
+vin : ,verre <bouteille  : Verre
+billard : ,jeu ,partie  : Carre
+gâteau : ,part ,tranche  : Tranche
 sport : ,compétition ;tournoi <championnat  : Match
-crème : ,pot  : Cuillère
-racaille : ,racaille  : Misère
-gendarmerie : ,gendarme ,gendarme ,gendarmette  : Mareuil
-sable : ,grain  : Graine
-alcool : ,verre <bouteille  : Verre
-mayonnaise : ,pot  : Lait
-denture : ,dent  : Paire
-membrure : ,membre  : Étiquette
+crinière : ,cheveu  : Cheveule
+pain : ,miette <bout ,morceau ,tranche  : Larme
 rabbinat : ,rabbin  : Rabbin
-vent : ,brin  : Vent
-klaxon : ,coup  : Sonnette
-moutarde : ,pot ,verre  : Piquant
-crime : ,crime ;crime  : Compte
-tramway : ,ligne  : Métro
-beurre : ,noisette ,noix ;motte  : Tasse
-conflit : ,bataille  : guerre
-laser : ,rayon  : Lumineur
-maladie : ,crise  : Maladie
-guerre : ,bataille  : Guerre
-cheveux : ,cheveu  : Cheveux
-armement : ,arme  : Cannon
-métro : ,ligne  : Région
-bol : ,coup  : Pint
-pelage : ,poil  : Fur
-billard : ,jeu ,partie  : carrelet
-toison : ,cheveu  : Cheveu
+basket : ,match ,partie ,basket <compétition ,tournoi <championnat  : Équipe
+alcool : ,verre <bouteille  : Bouteille
+racaille : ,racaille  : Misère
 tabac : ,pied ,pot  : Cigare
-jambon : ,tranche  : Lapin
+mois : ,semaine <jour  : Mois
+crème : ,pot  : Coupe
+yaourt : ,pot ,yaourt <boîte  : Cuillère
+cheveu : ,cheveu  : Cheveux
+volley-ball : ,match ,partie ,volley-ball <compétition ,tournoi <championnat  : Raquette
+correspondance : ,lettre  : Correspondance
+savon : ;bloc ,bout ,goutte ,morceau ,pain ,savon  : Chouchou
+humanité : ,homme  : Homme
+marche : ,marche  : Passage
+conflit : ,bataille  : Guerre
+beurre : ,noisette ,noix ;motte  : kilogramme
+sable : ,grain  : Grain
+bol : ,coup  : Pint
+sauciflard : ,rondelle  : Boîte
+sucre : ;grain <cuillerée ,pincée ;morceau ,sucre <pain  : Glace
+voirie : ,voie  : Voie
+laser : ,rayon  : Diode
+moutarde : ,pot ,verre  : Pouce
+gymnastique : ,séance ;gymnastique ,épreuve <compétition <championnat  : Étude
+bière : ,bouteille ,verre ,bière ,canette ,chope ,demi <pinte  : Verre
+bouteille : ,verre  : Litre

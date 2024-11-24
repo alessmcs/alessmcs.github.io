@@ -1,50 +1,50 @@
-poire : ,poirier  : Fruit
-environnement : ,Terre  : nature
-citron : ,citronnier  : France
-bandit : ,repaire  : France
-gazon : ,pelouse  : Jardin
-moustique : ,marais ,mare ,marécage  : Insecte
+à l’eau : ,eau  : Nourriture
+prisonnier : ,prison  : Cellule
+judo : ,tapis ,tatami ;dojo ,salle  : Japon
+vache : ,étable ,vacherie  : Maison
+prune : ,prunier  : France
+emprisonner : ,prison  : Selle
+baignoire : ,salle de bain  : intérieur
+diable : ,Enfer  : Enfer
+nager : ,piscine ;cours d’eau ;étang ,lac ,mer ,océan ;piscine  : Eau
+cigare : ,bureau de tabac ,tabac ,débit de tabac  : Tabac
+voter : ,bureau de vote  : Légalité
+pomme : ,pommier  : Fruit
+sport : ,salle ;terrain ;palais des sports  : Terrain
 oiseau : ,nid  : Nature
-orange : ,oranger  : L'érable
-chien : ,niche  : Animaux
-clémentine : ,clémentinier  : Citron
-tombe : ,cimetière  : Cimetière
-abeille : ,nid ,ruche  : Insecte
-thé : ,théier  : Cafetière
-tennis : ,court ,terrain ,tennis  : Court
-plein : ,station-service  : Globe
-père : ,couvent  : Famille
-entrer : ,entrée ,entrée  : Porte
-couché : ,lit  : Coffre
+cigarette : ,bureau de tabac ,tabac ,débit de tabac  : Tabac
+environnement : ,Terre  : Terre
+fleuve : <lit  : Terre
+lointain : ,lointain  : Distance
+framboise : ,framboisier  : France
+olive : ,olivier  : Méditerranée
+vote : ,urne  : église
+chien : ,niche  :  Maison
+tabac : ,plantation ,champ ,bureau de tabac ,débit de tabac ,tabac  : Supermarché
+boxeur : ,ring  : Corps
+curé : ,cure ;paroisse  : Église
+orange : ,oranger  : Pêche
+Occidental : ,ouest  : Amérique
+rivière : <lit <piste ;champ de course ,stade  : Terre
+crime : ,lieu ,scène  : Juge
+fraise : ,fraisier  : Fruit
+clémentine : ,clémentinier  : Maroc
+gendarme : ,gendarmerie  : Police
+poire : ,poirier  : Fruit
+corail : ,mer  : Océan
+papetier : ,papeterie ,papeterie  : France
+se laver : ,salle de bain ,salle de douche ,salle d’eau  : Lavoir
+villageoise : ,village  : Paysan
+sortir : ,sortie  : sortie
 guêpe : ,nid ,guêpier  : Insecte
-sans domicile fixe : ,rue ;rue  : Campement
-se laver : ,salle de bain ,salle de douche ,salle d’eau  : le bain
-citadin : ,ville  : France
-coiffeuse : ,salon  : Salon
-boulanger : ,fournil  : Foyer
-eau : ,cours d’eau  : océan
-football : ,terrain ;stade  : stade
-emprisonné : ,prison  : Cellule
-raisin : ,vigne  : Fruit
-amande : ,amandier  : Nourriture
-mère : ,couvent  : Famille
-exemple : ,exemplier  : Bibliothèque
-ananas : ,ananas  : France
-lait : ,seins  : laitier
-karaté : ,tapis ,tatami ;dojo ,salle  : Japon
-imprimer : ,imprimerie  : Typequette
-cercueil : ,tombe ,tombeau  : Tombes
-lointain : ,lointain  : Ailleurs
-déchets : ,déchetterie  : équipement
-noisette : ,noisetier  : Noix
-gymnastique : ,salle ;gymnase ,salle ;gymnase  : école
-noix : ,noyer  : Noisette
+ananas : ,ananas  : Haïti
+tombe : ,cimetière  : Le cimetière
+plein : ,station-service  : Glace
 sandwich : ,sandwicherie  : France
-Belgique : ,en  : Europe
-coton : ,cotonnier  : Égypte
-enterrer : ,cimetière  : terre
-gendarme : ,gendarmerie  : France
-chaussures : ,boîte ;meuble  : Pied
-corbeau : ,nid ,nid  : Chauve souris
-pompier : ,caserne ,caserne  : Salle
-vache : ,étable ,vacherie  : fer
+tennis : ,court ,terrain ,tennis  : Court
+boulanger : ,fournil  : Atelier
+cercueil : ,tombe ,tombeau  : Cimetière
+coiffeur : ,salon  : Bibliothèque
+corps : ,caserne  : Cadavre
+couché : ,lit  : Nuit
+tomate : ,tomate  : France

@@ -1,0 +1,50 @@
+chèvre : ,animal ,fromage  : Classification
+déception : ,sentiment  : catégorie
+deux-roues : ,véhicule  : Animal
+pâte : ,substance  : Matériau
+TER : ,train  : Catégorie
+confirmer : ,dire  : Catégorie
+vaisselle : ,lavage  : Objets
+capitaine : ,officier  : Généralité
+steeple : ,épreuve  : Catédrale.
+poussin : ,oiseau ,oiseau  : Catégorie.
+Russie : ,pays  : Région
+souci : ,sentiment  : Émotion
+mâtin : ,animal  : valeur
+hippopotame : ,animal  : Mammifère
+petite-fille : ,parente  : Épouse
+marche : ,sport ,loisir ;sport  : Véhicule
+sardine : ,poisson  : Mollusque
+avocat : ,métier ,profession ;homme de loi  : Catégorie.
+hiver : ,saison  : température.
+fusée : ,projectile ,projectile  : Objet
+chien d’eau : ,chien  : Forme.
+fripes : ,vêtements  : Classification.
+alcool à brûler : ,alcool  : Étancheur
+cheval : ,animal ,viande ,activité  : Mammifère
+ananas : ,plante  : Plante
+religieuse : ,pâtisserie ;dessert  : Concepte.
+Europe : ,continent  : Terminologie
+caravane : ,véhicule  : Voyage
+meurtre : ,crime  : Homicide
+chef d’état : ,politique  : Gouvernement
+pompier : ,métier ,profession ,métier ,profession  : espeçe
+mardi : ,jour  : Catégorie
+rapace : ,oiseau  : Classification.
+février : ,mois  : Moisson
+appareil électroménager : ,appareil  : Appareil.
+médaille : ,bijou  : Catégorie.
+reflex : ,appareil photo  : Type
+olivier : ,arbre  : Espece
+verre : ,matériau ,récipient ,boisson  : Objet
+football canadien : ,sport  : Catégorie
+liste rouge : ,liste  : Catégorie
+patate : ,légume  : Botanique
+médecin : ,métier ,profession ,métier ,profession  : Professionnel.
+chaise musicale : ,jeu  : Objet.
+janvier : ,mois  : Moisson.
+violon : ,instrument à cordes  : Mélodie.
+colimaçon : ,animal  : espece
+jeudi : ,jour  : Jour
+bière : ,boisson ,boisson  : alcool
+limace : ,animal  : Catégorie

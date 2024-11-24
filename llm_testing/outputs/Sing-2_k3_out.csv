@@ -1,0 +1,50 @@
+treize : ,joueur  : une
+glace : ;glaçon ;bloc  : Glace
+gendarmerie : ,gendarme ,gendarme ,gendarmette  : Gendarme
+maïs : ,grain <boîte  : Céréale
+cheval : ,compétition  : Cheval
+tramway : ,ligne  : Tramway n'est pas une option mais le tramway est constitué de plusieurs parties et chacune d'elle prend un nom par exemple : "tram"
+poivre : ,grain  : Coeur
+raisin : ,grain  : Gousse
+miel : ,pot  : Goutte
+appareillage : ,appareil  : Un mot : parties
+mayonnaise : ,pot  : Morceau
+opéra : ,air  : Sous-basse
+papier : ,feuille  : Plume
+outillage : ,outil  :  instruments
+lessive : ,cuillère ,dose ,poignée ;dosette ,pastille <baril ,boîte  : Grains
+sueur : ,goutte  : Goutte
+sel : ,grain  : Grains
+champagne : ,verre  : Goblet
+vin : ,verre <bouteille  : Goutte
+billard : ,jeu ,partie  : Carreau
+gâteau : ,part ,tranche  : Slice
+sport : ,compétition ;tournoi <championnat  : Partie
+crinière : ,cheveu  : Fibre
+pain : ,miette <bout ,morceau ,tranche  : Fétueur
+rabbinat : ,rabbin  : Rabbinat
+basket : ,match ,partie ,basket <compétition ,tournoi <championnat  : Salle
+alcool : ,verre <bouteille  : Goutte
+racaille : ,racaille  : Mot
+tabac : ,pied ,pot  : Fumée
+mois : ,semaine <jour  : Mensualité
+crème : ,pot  : Petite
+yaourt : ,pot ,yaourt <boîte  : Cuillère
+cheveu : ,cheveu  : Fibrille
+volley-ball : ,match ,partie ,volley-ball <compétition ,tournoi <championnat  : Racquet
+correspondance : ,lettre  : Partie
+savon : ;bloc ,bout ,goutte ,morceau ,pain ,savon  : petit
+humanité : ,homme  : Homme
+marche : ,marche  : Molette
+conflit : ,bataille  : Combat
+beurre : ,noisette ,noix ;motte  : molette
+sable : ,grain  : Grains
+bol : ,coup  : Petit
+sauciflard : ,rondelle  : Morsure
+sucre : ;grain <cuillerée ,pincée ;morceau ,sucre <pain  : Crystalline
+voirie : ,voie  : Goutte
+laser : ,rayon  : Laser
+moutarde : ,pot ,verre  : Miette
+gymnastique : ,séance ;gymnastique ,épreuve <compétition <championnat  : Exercice
+bière : ,bouteille ,verre ,bière ,canette ,chope ,demi <pinte  : Gobelet
+bouteille : ,verre  : Corne

@@ -1,50 +1,50 @@
-poire : ,poirier  : Printemps
-environnement : ,Terre  : Écologie
-citron : ,citronnier  : Médiolan
-bandit : ,repaire  : Méditerranée
-gazon : ,pelouse  : Parrainage
-moustique : ,marais ,mare ,marécage  : Nuit
-oiseau : ,nid  : Forêt
-orange : ,oranger  : Maroc
-chien : ,niche  : Coucher
-clémentine : ,clémentinier  : Été
-tombe : ,cimetière  : Haut
-abeille : ,nid ,ruche  : Printemps
-thé : ,théier  : Paris
-tennis : ,court ,terrain ,tennis  : Cour
-plein : ,station-service  : été
-père : ,couvent  : Famille
-entrer : ,entrée ,entrée  : Porte
-couché : ,lit  : Matinée
-guêpe : ,nid ,guêpier  : Été
-sans domicile fixe : ,rue ;rue  : Rue
-se laver : ,salle de bain ,salle de douche ,salle d’eau  : Bain
-citadin : ,ville  : Paris
-coiffeuse : ,salon  : Barbierie
-boulanger : ,fournil  : Matin
-eau : ,cours d’eau  : Mer
-football : ,terrain ;stade  : Stade
-emprisonné : ,prison  : Carcé
-raisin : ,vigne  : Provence
-amande : ,amandier  : Christmas
-mère : ,couvent  : Famille
-exemple : ,exemplier  : École
-ananas : ,ananas  : Haiti
-lait : ,seins  : paysage
-karaté : ,tapis ,tatami ;dojo ,salle  : Japon
-imprimer : ,imprimerie  : Imprimeur
-cercueil : ,tombe ,tombeau  : Cimetière
-lointain : ,lointain  : Avenir
-déchets : ,déchetterie  : Trachinétie
-noisette : ,noisetier  : Hiver
-gymnastique : ,salle ;gymnase ,salle ;gymnase  : Stade
-noix : ,noyer  : Automne
-sandwich : ,sandwicherie  : Londres
-Belgique : ,en  : Bruxelles
-coton : ,cotonnier  : Inde
-enterrer : ,cimetière  : Cimetière
-gendarme : ,gendarmerie  : Paris
-chaussures : ,boîte ;meuble  : Magasin
-corbeau : ,nid ,nid  : Hiver
-pompier : ,caserne ,caserne  : Catastrophe
+à l’eau : ,eau  : Rivière
+prisonnier : ,prison  : Concentrisme
+judo : ,tapis ,tatami ;dojo ,salle  : Japan
 vache : ,étable ,vacherie  : Paysage
+prune : ,prunier  : Automne
+emprisonner : ,prison  : Cellule
+baignoire : ,salle de bain  : Matinée
+diable : ,Enfer  : Enfer
+nager : ,piscine ;cours d’eau ;étang ,lac ,mer ,océan ;piscine  : Plage
+cigare : ,bureau de tabac ,tabac ,débit de tabac  : Espagne
+voter : ,bureau de vote  : Élection
+pomme : ,pommier  : Automne
+sport : ,salle ;terrain ;palais des sports  : Stade
+oiseau : ,nid  : Paradis
+cigarette : ,bureau de tabac ,tabac ,débit de tabac  : Café
+environnement : ,Terre  : Ecosystème
+fleuve : <lit  : Nile
+lointain : ,lointain  : Demain
+framboise : ,framboisier  : été
+olive : ,olivier  : Méditerranée
+vote : ,urne  : Bibliothèque
+chien : ,niche  : Côte
+tabac : ,plantation ,champ ,bureau de tabac ,débit de tabac ,tabac  : Poulet
+boxeur : ,ring  : Ring
+curé : ,cure ;paroisse  : Cathédrale
+orange : ,oranger  : France
+Occidental : ,ouest  : Paris
+rivière : <lit <piste ;champ de course ,stade  : Rivages
+crime : ,lieu ,scène  : Pénitencier
+fraise : ,fraisier  : Été
+clémentine : ,clémentinier  : Monde méditerranéen
+gendarme : ,gendarmerie  : Paris
+poire : ,poirier  : Été
+corail : ,mer  : Réunion
+papetier : ,papeterie ,papeterie  : Chine
+se laver : ,salle de bain ,salle de douche ,salle d’eau  : Baignoire
+villageoise : ,village  : Ruralité
+sortir : ,sortie  : Soirée
+guêpe : ,nid ,guêpier  : Été
+ananas : ,ananas  : Hawaii
+tombe : ,cimetière  : Cimetière
+plein : ,station-service  : Printemps
+sandwich : ,sandwicherie  : Angleterre
+tennis : ,court ,terrain ,tennis  : Cour
+boulanger : ,fournil  : Matin
+cercueil : ,tombe ,tombeau  : Cimetière
+coiffeur : ,salon  : Salon
+corps : ,caserne  : Muscle
+couché : ,lit  : Matin
+tomate : ,tomate  : Italie

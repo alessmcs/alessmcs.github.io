@@ -1,0 +1,50 @@
+treize : ,joueur  : un
+glace : ;glaçon ;bloc  : Poudre
+gendarmerie : ,gendarme ,gendarme ,gendarmette  : Gendarme.
+maïs : ,grain <boîte  : Graine
+cheval : ,compétition  : Chevrotain
+tramway : ,ligne  : Section
+poivre : ,grain  : Graine
+raisin : ,grain  : gran.
+miel : ,pot  : Bûche
+appareillage : ,appareil  : Component
+mayonnaise : ,pot  : Cuillère
+opéra : ,air  : Acte
+papier : ,feuille  : Feuille
+outillage : ,outil  : Équipement
+lessive : ,cuillère ,dose ,poignée ;dosette ,pastille <baril ,boîte  : Grain
+sueur : ,goutte  : Fumée
+sel : ,grain  : Grains.
+champagne : ,verre  : bouteille
+vin : ,verre <bouteille  : Goblet
+billard : ,jeu ,partie  : tableau
+gâteau : ,part ,tranche  : Croûte
+sport : ,compétition ;tournoi <championnat  : Partie
+crinière : ,cheveu  : Foliol
+pain : ,miette <bout ,morceau ,tranche  : Slice
+rabbinat : ,rabbin  : Rabbin
+basket : ,match ,partie ,basket <compétition ,tournoi <championnat  : Rame
+alcool : ,verre <bouteille  : Bois
+racaille : ,racaille  : Miette
+tabac : ,pied ,pot  : Cigare
+mois : ,semaine <jour  : Mois
+crème : ,pot  : Petit
+yaourt : ,pot ,yaourt <boîte  : Créme
+cheveu : ,cheveu  : Follicule
+volley-ball : ,match ,partie ,volley-ball <compétition ,tournoi <championnat  : Racquet
+correspondance : ,lettre  : Episod
+savon : ;bloc ,bout ,goutte ,morceau ,pain ,savon  : Biche
+humanité : ,homme  : Homme
+marche : ,marche  : Seuil
+conflit : ,bataille  : Clash
+beurre : ,noisette ,noix ;motte  : Petit
+sable : ,grain  : Graine
+bol : ,coup  : Graine
+sauciflard : ,rondelle  : Petite
+sucre : ;grain <cuillerée ,pincée ;morceau ,sucre <pain  : Granule
+voirie : ,voie  : Graine
+laser : ,rayon  : Luminaire
+moutarde : ,pot ,verre  : Petit
+gymnastique : ,séance ;gymnastique ,épreuve <compétition <championnat  : Exercice
+bière : ,bouteille ,verre ,bière ,canette ,chope ,demi <pinte  : Bouteille
+bouteille : ,verre  : Bocque

@@ -1,50 +1,50 @@
-poire : ,poirier  : France
-environnement : ,Terre  : Forêt
-citron : ,citronnier  : France
-bandit : ,repaire  : Roussillon
-gazon : ,pelouse  : Pattes
-moustique : ,marais ,mare ,marécage  : Sudamerique
-oiseau : ,nid  : Colombes
-orange : ,oranger  : France
-chien : ,niche  : France
-clémentine : ,clémentinier  : Maroc
-tombe : ,cimetière  : Tombeau
-abeille : ,nid ,ruche  : Bourgogne
-thé : ,théier  : Café
-tennis : ,court ,terrain ,tennis  : Cour
-plein : ,station-service  : Plage
-père : ,couvent  : Papa
-entrer : ,entrée ,entrée  : Porte
-couché : ,lit  : France
-guêpe : ,nid ,guêpier  : Ruche
-sans domicile fixe : ,rue ;rue  : Poubelle
-se laver : ,salle de bain ,salle de douche ,salle d’eau  : Jacuzzi
-citadin : ,ville  : Paris
-coiffeuse : ,salon  : Salon
-boulanger : ,fournil  : Boulangerie
-eau : ,cours d’eau  : Lac
-football : ,terrain ;stade  : Stade
-emprisonné : ,prison  : cellule
-raisin : ,vigne  : Italie
-amande : ,amandier  : Pierre
-mère : ,couvent  : Maman
-exemple : ,exemplier  : France
-ananas : ,ananas  : Haiti
-lait : ,seins  : Vache
-karaté : ,tapis ,tatami ;dojo ,salle  : Japon
-imprimer : ,imprimerie  : Imprimante
-cercueil : ,tombe ,tombeau  : Cimetière
-lointain : ,lointain  : Mer
-déchets : ,déchetterie  : Poubelle
-noisette : ,noisetier  : France
-gymnastique : ,salle ;gymnase ,salle ;gymnase  : Salon
-noix : ,noyer  : Noisette
-sandwich : ,sandwicherie  : Ingletat
-Belgique : ,en  : Bruxelles
-coton : ,cotonnier  : Inde
-enterrer : ,cimetière  : Tombeau
-gendarme : ,gendarmerie  : France
-chaussures : ,boîte ;meuble  : Pied
-corbeau : ,nid ,nid  : Fossé
-pompier : ,caserne ,caserne  : Maison
+à l’eau : ,eau  : Thaïlande
+prisonnier : ,prison  : Cellule
+judo : ,tapis ,tatami ;dojo ,salle  : Tokyo
 vache : ,étable ,vacherie  : Paysage
+prune : ,prunier  : France
+emprisonner : ,prison  : Geôle
+baignoire : ,salle de bain  : Baignoire
+diable : ,Enfer  : Enfer
+nager : ,piscine ;cours d’eau ;étang ,lac ,mer ,océan ;piscine  : Plage
+cigare : ,bureau de tabac ,tabac ,débit de tabac  : Espagne
+voter : ,bureau de vote  : Bureau
+pomme : ,pommier  : Pérou
+sport : ,salle ;terrain ;palais des sports  : Stade
+oiseau : ,nid  : Colombier
+cigarette : ,bureau de tabac ,tabac ,débit de tabac  : France
+environnement : ,Terre  : Forêt
+fleuve : <lit  : Nile
+lointain : ,lointain  : Horizon
+framboise : ,framboisier  : Pays
+olive : ,olivier  : Grec
+vote : ,urne  : Boulot
+chien : ,niche  : France
+tabac : ,plantation ,champ ,bureau de tabac ,débit de tabac ,tabac  : Café
+boxeur : ,ring  : Ring
+curé : ,cure ;paroisse  : Église
+orange : ,oranger  : Espagne
+Occidental : ,ouest  : Amérique
+rivière : <lit <piste ;champ de course ,stade  : Nouvelle
+crime : ,lieu ,scène  : Mur
+fraise : ,fraisier  : Pommier
+clémentine : ,clémentinier  : Maroc
+gendarme : ,gendarmerie  : France
+poire : ,poirier  : Pêche
+corail : ,mer  : Australie
+papetier : ,papeterie ,papeterie  : Carton
+se laver : ,salle de bain ,salle de douche ,salle d’eau  : Baignoire
+villageoise : ,village  : Campagnard
+sortir : ,sortie  : Rendezvous
+guêpe : ,nid ,guêpier  : Été
+ananas : ,ananas  : Guyane
+tombe : ,cimetière  : Cimetière
+plein : ,station-service  : Plein
+sandwich : ,sandwicherie  : Angleterre
+tennis : ,court ,terrain ,tennis  : Cour
+boulanger : ,fournil  : Café
+cercueil : ,tombe ,tombeau  : Cimetière
+coiffeur : ,salon  : Salon
+corps : ,caserne  : Muscle
+couché : ,lit  : France
+tomate : ,tomate  : Italie

@@ -1,50 +1,50 @@
-poire : ,poirier  : Méditerranéen
+à l’eau : ,eau  : Marine
+prisonnier : ,prison  : Cellule
+judo : ,tapis ,tatami ;dojo ,salle  : Dojo
+vache : ,étable ,vacherie  : Gaulois
+prune : ,prunier  : Garden
+emprisonner : ,prison  : Geôle
+baignoire : ,salle de bain  : Salle de bain
+diable : ,Enfer  : Enfer
+nager : ,piscine ;cours d’eau ;étang ,lac ,mer ,océan ;piscine  : Eau
+cigare : ,bureau de tabac ,tabac ,débit de tabac  : Tambour
+voter : ,bureau de vote  : Électorat
+pomme : ,pommier  : Centre
+sport : ,salle ;terrain ;palais des sports  : Terrain
+oiseau : ,nid  : Territoire
+cigarette : ,bureau de tabac ,tabac ,débit de tabac  : Nouvelle york
 environnement : ,Terre  : Territoire
-citron : ,citronnier  : Sud
-bandit : ,repaire  : Territoire
-gazon : ,pelouse  : Terrain
-moustique : ,marais ,mare ,marécage  : Céphale
-oiseau : ,nid  : Terre
-orange : ,oranger  : Sud
-chien : ,niche  : Territoire
-clémentine : ,clémentinier  : Région
+fleuve : <lit  : Rive
+lointain : ,lointain  : Démonstration
+framboise : ,framboisier  : Meridionale
+olive : ,olivier  : Méditerranée
+vote : ,urne  : Élection
+chien : ,niche  : Canine
+tabac : ,plantation ,champ ,bureau de tabac ,débit de tabac ,tabac  : Coffe
+boxeur : ,ring  : Ring
+curé : ,cure ;paroisse  : Eglise
+orange : ,oranger  : Circonflexe
+Occidental : ,ouest  : Oriental
+rivière : <lit <piste ;champ de course ,stade  : Cours
+crime : ,lieu ,scène  : Territoire
+fraise : ,fraisier  : centre
+clémentine : ,clémentinier  : Mandarine
+gendarme : ,gendarmerie  : Village
+poire : ,poirier  : Méditerranéen
+corail : ,mer  : Reef
+papetier : ,papeterie ,papeterie  : Carte
+se laver : ,salle de bain ,salle de douche ,salle d’eau  : Évier
+villageoise : ,village  : Rural
+sortir : ,sortie  : Extérieur
+guêpe : ,nid ,guêpier  : Empatige
+ananas : ,ananas  : Tropique
 tombe : ,cimetière  : Cimetière
-abeille : ,nid ,ruche  : Hivernale
-thé : ,théier  : Évier
+plein : ,station-service  : Moyen
+sandwich : ,sandwicherie  : France
 tennis : ,court ,terrain ,tennis  : Cour
-plein : ,station-service  : Centre
-père : ,couvent  : Fils
-entrer : ,entrée ,entrée  : Extrême
-couché : ,lit  : Sommeil
-guêpe : ,nid ,guêpier  : Fondateur
-sans domicile fixe : ,rue ;rue  : Vagabond
-se laver : ,salle de bain ,salle de douche ,salle d’eau  : Baignoire
-citadin : ,ville  : Intra
-coiffeuse : ,salon  : Salon
-boulanger : ,fournil  : Pâtissier
-eau : ,cours d’eau  : Eaufort
-football : ,terrain ;stade  : Terrain
-emprisonné : ,prison  : Geôle
-raisin : ,vigne  : Grenat
-amande : ,amandier  : noix
-mère : ,couvent  : Maternité
-exemple : ,exemplier  : France
-ananas : ,ananas  : Tropical
-lait : ,seins  : Câvre
-karaté : ,tapis ,tatami ;dojo ,salle  : Asie
-imprimer : ,imprimerie  : Emplacement
+boulanger : ,fournil  : Rue
 cercueil : ,tombe ,tombeau  : Cimetière
-lointain : ,lointain  : Distant
-déchets : ,déchetterie  : Désert
-noisette : ,noisetier  : Bois
-gymnastique : ,salle ;gymnase ,salle ;gymnase  : Athlétisme
-noix : ,noyer  : Écorce
-sandwich : ,sandwicherie  :  France
-Belgique : ,en  : Europe
-coton : ,cotonnier  : France
-enterrer : ,cimetière  : Tombeau
-gendarme : ,gendarmerie  : Gendarmerie
-chaussures : ,boîte ;meuble  : Pieds
-corbeau : ,nid ,nid  : Arbre
-pompier : ,caserne ,caserne  : Léger
-vache : ,étable ,vacherie  : Pâturage
+coiffeur : ,salon  : Parleur
+corps : ,caserne  : Terrain
+couché : ,lit  : Sommeil
+tomate : ,tomate  : Épice

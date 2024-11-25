@@ -565,7 +565,7 @@ def create_df_by_relation(relation, df):
     df_relation = df_relation.reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
     df_relation = pd.merge(df_relation.groupby("no_question").mean(numeric_only=True).round(4), df_relation.groupby("no_question").var(numeric_only=True).round(4), how="inner", left_on="no_question", right_on="no_question", suffixes=["_mean", "_var"])
     df_relation.to_csv(f"summary_{relation}.csv")
-    print(df_relation)
+    
     return df_relation
 
 # df pour toutes les relations, pour k exemples.
@@ -581,18 +581,21 @@ def create_df_by_k_shot1(df):
     return summary
 
 def create_df_by_k_shot(df, k_shot):
-    summary = df.groupby(["relation", "no_question"]).mean().round(4).drop("no_echantillon", axis=1).reset_index()
-    summary = summary[["relation", "no_question", f"score{k_shot}"]]
-    summary = summary.loc[summary.groupby("relation")[f"score{k_shot}"].idxmax()]
+    summary = pd.merge( df.groupby(["relation", "no_question"]).mean().round(4), df.groupby(["relation", "no_question"]).var().round(4), how="inner", left_on=["relation", "no_question"], right_on=["relation", "no_question"], suffixes=["_mean", "_var"])
+    
+    summary = summary.drop(["no_echantillon_mean", "no_echantillon_var"], axis=1).reset_index()
+    summary = summary[["relation", "no_question", f"score{k_shot}_mean", f"score{k_shot}_var"]]
+    summary = summary.loc[summary.groupby("relation")[f"score{k_shot}_mean"].idxmax()]
     summary["question"] = summary.apply(lambda row:  format_question(all_lf_questions[row["relation"]][row["no_question"]]), axis=1)
+    print(summary)
     if k_shot > 0:
         summary["exemples"] = summary.apply(lambda row: get_examples(row["relation"]), axis=1)
-        summary.columns = ["relation", "meilleure_question", "score", "question", "exemples"]
+        summary.columns = ["relation", "meilleure_question", "score", "variance_score", "question", "exemples"]
     else:
-        summary.columns = ["relation", "meilleure_question", "score", "question"]
+        summary.columns = ["relation", "meilleure_question", "score", "variance_score", "question"]
 
 
-    print(summary)
+    
     summary.to_csv(f"bestQuestion_{k_shot}.csv")
     return summary
 

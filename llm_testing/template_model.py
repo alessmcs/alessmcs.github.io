@@ -602,7 +602,7 @@ def create_df_by_k_shot(df, k_shot):
 def get_examples(rel):
     s = ''
     for w in k_exemples[rel]:
-        s += w[1] + ", "
+        s += w[0] + "->" + w[1] + ", "
     return s
 
 def format_question(question):

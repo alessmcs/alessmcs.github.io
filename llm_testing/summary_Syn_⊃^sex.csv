@@ -1,5 +1,5 @@
-no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var
-0,0.3667,0.3033,0.28,0.26,0.0097,0.0022,0.0004,0.01
-1,0.3833,0.3567,0.3167,0.29,0.0074,0.003,0.0025,0.0193
-2,0.2533,0.3,0.2633,0.2367,0.0121,0.0052,0.003,0.018
-3,0.4667,0.4033,0.34,0.3433,0.0017,0.0108,0.0,0.0044
+,no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var,question
+0,0,0.3667,0.3033,0.28,0.26,0.0097,0.0022,0.0004,0.01,"Quel est le mot féminin correspondant au mot ""x""? Donne un seul mot sans ponctuation."
+1,1,0.3833,0.3567,0.3167,0.29,0.0074,0.003,0.0025,0.0193,"Quel est le correspondant féminin du mot ""x""? Donne un seul mot sans ponctuation."
+2,2,0.2533,0.3,0.2633,0.2367,0.0121,0.0052,0.003,0.018,"Quel est l'équivalent féminin du mot ""x""? Donne un seul mot sans ponctuation."
+3,3,0.4667,0.4033,0.34,0.3433,0.0017,0.0108,0.0,0.0044,"Conjugue le mot ""x"" au féminin. Donne un seul mot sans ponctuation."

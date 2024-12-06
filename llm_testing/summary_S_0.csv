@@ -1,9 +1,9 @@
-no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var
-0,0.2133,0.3467,0.3433,0.3567,0.0005,0.0105,0.0024,0.0032
-1,0.1533,0.31,0.2133,0.2167,0.0001,0.0003,0.0001,0.0032
-2,0.32,0.3767,0.2433,0.22,0.0028,0.0024,0.0034,0.0004
-3,0.3667,0.3867,0.42,0.3,0.0001,0.0025,0.0012,0.0004
-4,0.2667,0.28,0.26,0.2033,0.0005,0.0048,0.0003,0.006
-5,0.2867,0.3733,0.3067,0.3533,0.0105,0.0072,0.0022,0.0024
-6,0.2267,0.2967,0.3167,0.2433,0.0057,0.0056,0.01,0.0032
-7,0.1067,0.2333,0.2233,0.1867,0.0009,0.0037,0.0204,0.0085
+,no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var,question
+0,0,0.2133,0.3467,0.3433,0.3567,0.0005,0.0105,0.0024,0.0032,"Quel est le nom commun correspondant au verbe ou à l'adjectif ""x""? Donne un seul nom commun sans ponctuation."
+1,1,0.1533,0.31,0.2133,0.2167,0.0001,0.0003,0.0001,0.0032,"Quel est le nom commun du verbe ou l'adjectif ""x""? Donne un seul nom commun sans ponctuation."
+2,2,0.32,0.3767,0.2433,0.22,0.0028,0.0024,0.0034,0.0004,"Quel est le nom commun formé à partir du mot ""x""? Donne un seul nom commun sans ponctuation."
+3,3,0.3667,0.3867,0.42,0.3,0.0001,0.0025,0.0012,0.0004,"Quel est le nom commun formé à partir du verbe ou de l'adjectif ""x""? Donne un seul nom commun sans ponctuation."
+4,4,0.2667,0.28,0.26,0.2033,0.0005,0.0048,0.0003,0.006,"Quel est le nom commun dérivé du mot ""x""? Donne un seul nom commun sans ponctuation."
+5,5,0.2867,0.3733,0.3067,0.3533,0.0105,0.0072,0.0022,0.0024,"Quel est le nom commun dont ""x"" est la racine? Donne un seul nom commun sans ponctuation."
+6,6,0.2267,0.2967,0.3167,0.2433,0.0057,0.0056,0.01,0.0032,"Transforme le mot ""x"" en nom commun. Donne un seul nom commun sans ponctuation."
+7,7,0.1067,0.2333,0.2233,0.1867,0.0009,0.0037,0.0204,0.0085,"Quelle est une lexie nominale ayant le même sens que ""x ? Donne un seul nom commun sans ponctuation."

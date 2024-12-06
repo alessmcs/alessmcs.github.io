@@ -1,6 +1,6 @@
-no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var
-0,0.1533,0.16,0.1533,0.0467,0.0009,0.01,0.0041,0.0009
-1,0.1133,0.1667,0.1533,0.12,0.0025,0.0025,0.0041,0.0028
-2,0.0933,0.1067,0.1067,0.08,0.0001,0.0017,0.0037,0.0028
-3,0.1667,0.14,0.1133,0.1067,0.0025,0.0012,0.0069,0.0033
-4,0.12,0.14,0.1267,0.1,0.0028,0.0028,0.0021,0.0004
+,no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var,question
+0,0,0.1533,0.16,0.1533,0.0467,0.0009,0.01,0.0041,0.0009,"Quel est un nom qui décrit la localisation de ""x""? Donne un seul nom sans ponctuation."
+1,1,0.1133,0.1667,0.1533,0.12,0.0025,0.0025,0.0041,0.0028,"Donne le lieu typique de ""x""? Donne un seul nom sans ponctuation."
+2,2,0.0933,0.1067,0.1067,0.08,0.0001,0.0017,0.0037,0.0028,"Donne le lieu ou le moment typique de ""x""? Donne un seul nom sans ponctuation."
+3,3,0.1667,0.14,0.1133,0.1067,0.0025,0.0012,0.0069,0.0033,"À quel endroit se trouve ""x""? Donne un seul nom sans ponctuation."
+4,4,0.12,0.14,0.1267,0.1,0.0028,0.0028,0.0021,0.0004,"Quelle est une lexie nominale qui désigne un circonstant de lieu typique de, ou d'un fait lié à ""x""? Donne un seul nom sans ponctuation"

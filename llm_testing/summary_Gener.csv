@@ -1,5 +1,5 @@
-no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var
-0,0.08,0.0667,0.0733,0.0933,0.0,0.0005,0.0009,0.0041
-1,0.0933,0.08,0.06,0.0267,0.0005,0.0028,0.0004,0.0005
-2,0.1,0.0333,0.0533,0.0267,0.0012,0.0001,0.0005,0.0001
-3,0.2,0.1467,0.1733,0.1467,0.0016,0.0001,0.0025,0.0081
+,no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var,question
+0,0,0.08,0.0667,0.0733,0.0933,0.0,0.0005,0.0009,0.0041,"Quel est un terme générique pour désigner ""x""? Donne un seul mot sans ponctuation."
+1,1,0.0933,0.08,0.06,0.0267,0.0005,0.0028,0.0004,0.0005,"Quel est un terme générique qui englobe le mot ""x""? Donne un seul mot sans ponctuation."
+2,2,0.1,0.0333,0.0533,0.0267,0.0012,0.0001,0.0005,0.0001,"Quel est le terme qui englobe le mot  ""x""? Donne un seul mot sans ponctuation."
+3,3,0.2,0.1467,0.1733,0.1467,0.0016,0.0001,0.0025,0.0081,"Quel est un hyperonyme classifiant de ""x"" ? Donne un seul mot sans ponctuation."

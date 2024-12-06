@@ -5,6 +5,7 @@ import sys
 import ollama
 import numpy
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 # Ce sont toutes des fl paradigmatiques
@@ -518,67 +519,49 @@ def process_samples(relation, sample_size, num_of_samples):
     print(df)
     return all_fls_df
 
-# Construire les autres df
-
-# df pour une relation avec les resultats de 0-shot, 1-shot,..., 5-shot
-def create_df_by_relation1(relation, df0=None, df1=None, df2=None, df3=None, df4=None, df5=None):
-
-    dfs = []
-
-    if df0 is not  None:
-        dfs.append(df0)
-    if df1 is not None:
-        dfs.append(df1)
-    if df2 is not None:
-        dfs.append(df2)
-    if df3 is not None:
-        dfs.append(df3)
-    if df4 is not None:
-        dfs.append(df4)
-    if df5 is not None:
-        dfs.append(df5)
-
-    base = dfs[0]
-    df = base.loc[base["relation"]==relation]
-    df = df.reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
-    print(df)
-    dfs.pop(0)
-    print(dfs)
-
-    for next_df in dfs:
-        df = pd.merge(df, next_df.loc[next_df["relation"]==relation], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"]).reset_index(drop=True)
-
-    #df = pd.merge(df0.loc[df0["relation"]==relation], df1.loc[df1["relation"]==relation], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["0","1"])
-        df = df.drop(["relation", "no_echantillon"], axis=1).reset_index(drop=True)
-
-    df = pd.merge(df.groupby("no_question").var(), df.groupby("no_question").mean(), how="inner", left_on="no_question", right_on="no_question", suffixes=["_var", "_mean"]).reset_index(drop=True)
-    #df.columns=["var_0", "var_1", "mean_0", "mean_1"]
 
 
-    print(df)
 
-    return df
 
 def create_df_by_relation(relation, df):
     df_relation = df.loc[df["relation"]==relation]
 
     df_relation = df_relation.reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
     df_relation = pd.merge(df_relation.groupby("no_question").mean(numeric_only=True).round(4), df_relation.groupby("no_question").var(numeric_only=True).round(4), how="inner", left_on="no_question", right_on="no_question", suffixes=["_mean", "_var"])
+    df_relation=df_relation.reset_index()
+    df_relation["question"] = df_relation.apply(lambda row:  format_question(all_lf_questions[relation][int(row["no_question"])]), axis=1)
     df_relation.to_csv(f"summary_{relation}.csv")
+
+    #plt.rcParams.update({'figure.autolayout': True})
+    fig, ax = plt.subplots(figsize=(20,20))
+    bars = ax.barh(df_relation["question"], df_relation["score0_mean"])
+    for bar, label in zip(bars, df_relation["question"]):
+        ax.text(-300000,
+                bar.get_y()+ bar.get_height()/2,
+                label, va="center", ha="right", color="black")
+        
+    ax.set_xlabel("Scores")
+
+    ax.set_yticks([])
+    plt.tight_layout()
+    #plt.tight_layout()
+
+
+
+    #df_relation.plot(x="question", y="score0_mean", kind="barh")
+    #for i, question in enumerate(df_relation["question"]):
+    # Format the label to be split into two lines (adjust as needed)
+    #    label = f"Value: {question}More Info"
+    
+    # Place the label above each bar
+    #    plt.text(i, 10, label, ha='center', va='bottom', fontsize=10)
+
+
+    plt.savefig(f"{relation}_score.png")
     
     return df_relation
 
-# df pour toutes les relations, pour k exemples.
-def create_df_by_k_shot1(df):
-    summary = df.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1).reset_index()
-    #summary["question"] = summary[["no_question"]]
-    summary["question"] = summary.apply(lambda row:  all_lf_questions[row["relation"]][row["no_question"]], axis=1)
 
-    summary = summary.loc[summary.groupby("relation")["score"].idxmax()]
-    summary.columns = ["relation", "meilleure_question", "score", "question"]
-    print("summary")
-    print(summary)
-    return summary
 
 def create_df_by_k_shot(df, k_shot):
     summary = pd.merge( df.groupby(["relation", "no_question"]).mean().round(4), df.groupby(["relation", "no_question"]).var().round(4), how="inner", left_on=["relation", "no_question"], right_on=["relation", "no_question"], suffixes=["_mean", "_var"])
@@ -587,7 +570,7 @@ def create_df_by_k_shot(df, k_shot):
     summary = summary[["relation", "no_question", f"score{k_shot}_mean", f"score{k_shot}_var"]]
     summary = summary.loc[summary.groupby("relation")[f"score{k_shot}_mean"].idxmax()]
     summary["question"] = summary.apply(lambda row:  format_question(all_lf_questions[row["relation"]][row["no_question"]]), axis=1)
-    print(summary)
+
     if k_shot > 0:
         summary["exemples"] = summary.apply(lambda row: get_examples(row["relation"]), axis=1)
         summary.columns = ["relation", "meilleure_question", "score", "variance_score", "question", "exemples"]
@@ -598,6 +581,28 @@ def create_df_by_k_shot(df, k_shot):
     
     summary.to_csv(f"bestQuestion_{k_shot}.csv")
     return summary
+
+#create best question for all k-shot
+def create_df_best_question(df):
+    best =  pd.merge( df.groupby(["relation", "no_question"]).mean().round(4), df.groupby(["relation", "no_question"]).var().round(4), how="inner", left_on=["relation", "no_question"], right_on=["relation", "no_question"], suffixes=["_mean", "_var"])
+    best = best.drop(["no_echantillon_mean", "no_echantillon_var"], axis=1).reset_index()
+    
+    best["score_mean"] = best.apply(lambda row: numpy.mean([row["score0_mean"],row["score1_mean"], row["score3_mean"], row["score5_mean"] ]), axis=1)
+    best["variation_of_scores"] = best.apply(lambda row: max([row["score0_mean"],row["score1_mean"], row["score3_mean"], row["score5_mean"] ])- min([row["score0_mean"],row["score1_mean"], row["score3_mean"], row["score5_mean"] ]), axis=1)
+    best = best[["relation", "no_question", "score_mean", "variation_of_scores" ]]
+    best = best.loc[best.groupby("relation")["score_mean"].idxmax()]
+    best["question"] = best.apply(lambda row:  format_question(all_lf_questions[row["relation"]][row["no_question"]]), axis=1)
+    best.columns = ["relation", "meilleure_question", "score", "difference_scores", "question"]
+    print(best)
+    histo = best.plot(x = "relation", y="score", title="Scores obtenus avec les meilleures questions pour chaque relation", kind="bar")
+    
+    
+    #plt.rcParams["histo.figsize"] = (10, 5)
+    #fig = histo.get_figure()
+    plt.savefig('bestQuestionAll.pdf')
+
+    best.to_csv("bestQuestionAll.csv")
+    return best
 
 def get_examples(rel):
     s = ''
@@ -676,6 +681,8 @@ def main():
     create_df_by_k_shot(testdf2, 1)
     create_df_by_k_shot(testdf2, 3)
     create_df_by_k_shot(testdf2, 5)
+
+    create_df_best_question(testdf2)
 
 
 

@@ -1,7 +1,7 @@
-no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var
-0,0.0533,0.2,0.14,0.1333,0.0009,0.0048,0.0048,0.0005
-1,0.0333,0.28,0.0933,0.13,0.0001,0.0028,0.0009,0.0031
-2,0.0067,0.1867,0.1267,0.1133,0.0001,0.0069,0.0005,0.0033
-3,0.0133,0.22,0.0867,0.0667,0.0001,0.0012,0.0001,0.0009
-4,0.0,0.0267,0.0,0.0333,0.0,0.0001,0.0,0.0012
-5,0.1267,0.2267,0.18,0.2067,0.0009,0.0041,0.0004,0.0001
+,no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var,question
+0,0,0.0533,0.2,0.14,0.1333,0.0009,0.0048,0.0048,0.0005,"Quel est l'adjectif correspondant à l'aboutissement de ""x""? Donne un seul adjectif sans ponctuation."
+1,1,0.0333,0.28,0.0933,0.13,0.0001,0.0028,0.0009,0.0031,"Quel est l'adjectif correspondant à la fin de ""x""? Donne un seul adjectif sans ponctuation."
+2,2,0.0067,0.1867,0.1267,0.1133,0.0001,0.0069,0.0005,0.0033,"Quand on aboutit la chose suivante, quel est l'adjectif approprié pour le définir: :  ""x""? Donne un seul adjectif sans ponctuation."
+3,3,0.0133,0.22,0.0867,0.0667,0.0001,0.0012,0.0001,0.0009,"Comment peut-on qualifier la chose suivante lorsqu'elle est aboutie :  ""x""? Donne un seul adjectif sans ponctuation."
+4,4,0.0,0.0267,0.0,0.0333,0.0,0.0001,0.0,0.0012,"Comment qualifie-t-on l'actant du mot ""x"" lorsqu'il finit l'acte associé au mot donné?"
+5,5,0.1267,0.2267,0.18,0.2067,0.0009,0.0041,0.0004,0.0001,"Quel est le qualificatif adjectival pour désigner l'aboutissement du fait ""x""? Donne un adjectif sans ponctuation"

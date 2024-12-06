@@ -1,6 +1,6 @@
-no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var
-0,0.0733,0.14,0.0667,0.0467,0.0009,0.0028,0.0005,0.0005
-1,0.4267,0.4,0.3667,0.2533,0.0049,0.0012,0.0025,0.0005
-2,0.36,0.2933,0.37,0.2367,0.0084,0.0057,0.0039,0.014
-3,0.1733,0.2767,0.4733,0.3967,0.0033,0.0016,0.0033,0.0016
-4,0.1467,0.16,0.1233,0.0733,0.0001,0.0076,0.0014,0.0033
+,no_question,score0_mean,score1_mean,score3_mean,score5_mean,score0_var,score1_var,score3_var,score5_var,question
+0,0,0.0733,0.14,0.0667,0.0467,0.0009,0.0028,0.0005,0.0005,"Quel est l'adverbe correspondant au mot ""x""? Donne un seul adverbe sans ponctuation."
+1,1,0.4267,0.4,0.3667,0.2533,0.0049,0.0012,0.0025,0.0005,"Quel est l'adverbe formé à partir du mot ""x""? Donne un seul adverbe sans ponctuation."
+2,2,0.36,0.2933,0.37,0.2367,0.0084,0.0057,0.0039,0.014,"Quel est l'adverbe dérivé du mot ""x""? Donne un seul adverbe sans ponctuation."
+3,3,0.1733,0.2767,0.4733,0.3967,0.0033,0.0016,0.0033,0.0016,"Transforme le mot ""x"" en adverbe. Donne un seul adverbe sans ponctuation."
+4,4,0.1467,0.16,0.1233,0.0733,0.0001,0.0076,0.0014,0.0033,"Quelle est une lexie adverbiale ayant le même sens que ""x ? Donne un seul adverbe sans ponctuation."

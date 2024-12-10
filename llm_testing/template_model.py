@@ -1,12 +1,21 @@
 import json
+
+from matplotlib.cbook import index_of
+from matplotlib.colors import ListedColormap
+from matplotlib.table import table
+from pandas.io.sas.sas_constants import column_name_text_subheader_length
 #import requests
 from tqdm import tqdm
 import sys
 import ollama
-import numpy
+import numpy as np
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 
+# Palette pour les graphiques
+custom_palette = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"]
 
 # Ce sont toutes des fl paradigmatiques
 all_lf_questions = {
@@ -202,14 +211,6 @@ k_exemples = {
     ],
 }
 
-    # certaines fonctions lexicales sont difficiles à comprendre, on pourra demander plus de précisions au prof de linguistique.
-    # S_1, S_3, S_2^prototyp
-    # Conv
-    # Real_i
-
-
-######################### Ask questions individually ################################
-
 # SOURCE: https://github.com/ollama/ollama/blob/main/examples/python-simplegenerate/client.py
 
 # NOTE: ollama must be running for this to work, start the ollama app or run `ollama serve`
@@ -219,15 +220,6 @@ model = 'llama3.2'
 file_name, example_file, example_lines, n = '', '', '', 0
 all_fls_df = pd.DataFrame()
 fl_ranking = {}
-
-# file_name = './sample_sets/all_relations_50_ex_0.tsv'
-#
-# examples_file = open(file_name, 'r', encoding="utf-8")
-# example_lines = []
-#
-# for line in examples_file:
-#     l = line.replace('\n', '').split('\t')
-#     example_lines.append(l)
 
 # Get examples for a given relation from the chosen example file
 def get_relation_examples(rel_name):
@@ -367,17 +359,14 @@ def create_model(question, relation):
 # Rouler le modele. k_shot = number of examples we want to add to the question
 def run_model(relation, k_shot):
     questions = all_lf_questions[relation]
-    #example_sentence = questions_exemples[relation]
     examples = get_relation_examples(relation)
     scores_sublist = []
 
     # Clear score file
     open('./scores/' + relation, 'a', encoding="utf-8").close()
-    score_file = open('./scores/'+relation, 'a', encoding="utf-8")
 
     for i in range (len(questions)):
         question = questions[i]
-        #print('Question ' + str(i))
 
         # Open a file to store the outputs
         fileName = f"outputs/{relation}-{i}_k{k_shot}_out.csv"
@@ -392,11 +381,8 @@ def run_model(relation, k_shot):
             if (k_shot):
                 shots = ("Voici " + str(k_shot) + " exemples: ")
                 for j in range (k_shot):
-                    #shots += (example_sentence[0][0]+k_exemples[relation][j][0]+example_sentence[0][1]+k_exemples[relation][j][1]+example_sentence[0][2]+"\n")
-
                     shots += ("Pour \""+k_exemples[relation][j][0]+"\", la réponse est \""+k_exemples[relation][j][1]+". \n")
                 complete_question =  (str(question[0]) + source + str(question[1]) + "\n" + shots)
-                #print(complete_question)
             else :
                 complete_question =  (str(question[0]) + source + str(question[1]))
             response = ollama.chat(model='relation_general_model', messages=[
@@ -411,17 +397,11 @@ def run_model(relation, k_shot):
             # file structure: source : expected : llm result
             output_file.write(f"{source} : {expected} : {response['message']['content']}\n")
 
-            #print(complete_question)
-            #print((f"{source} : {expected} -> {response['message']['content']}"))
-
         output_file.close()
 
         score = success_rate(fileName)
         scores_sublist.append(score)
 
-        #score_file.write(f"{question[0]} : {score}\n")
-
-    #score_file.close()
     return scores_sublist
 
 # Mettre juste les sources (pour le moment) des exemples dans un txt ou les valeurs sont separees par des virgules
@@ -468,12 +448,9 @@ def process_samples(relation, sample_size, num_of_samples):
 
     chosen_relation = relation
     n = sample_size
-    #num_of_samples = num_of_samples
 
     # Clear score file
     open('./scores/' + chosen_relation, 'w', encoding="utf-8").close()
-    score_file = open('./scores/' + chosen_relation, 'a', encoding="utf-8")
-    avg_scores = []
 
     # Create list of dictionaries to transform in a Dataframe after
     list_of_dict = []
@@ -483,7 +460,7 @@ def process_samples(relation, sample_size, num_of_samples):
         scores_list = []
         file_name = f'./sample_sets/all_relations_{str(n)}_ex_{i}.tsv'
         examples_file = open(file_name, 'r', encoding="utf-8")
-        # TODO: what does this do?
+
         example_lines = []
         k_shot = [0,1,3,5]
 
@@ -507,20 +484,12 @@ def process_samples(relation, sample_size, num_of_samples):
                 dict1 = {"relation": relation, "no_question": l, "no_echantillon":i, f"score{k_shot[k]}" : round(scores_list[k][l], 2)}
                 list_of_dict.append(dict1)
 
-            #score_file.write(question[0] + 'x' + question[1] + ' | ' + str((round(somme / num_of_samples), 2)) + '\n')
-    # Add best score to the FL ranking along w its question
-    #maximum = max(avg_scores)
-    # fl_ranking[chosen_relation] = [maximum, all_lf_questions[chosen_relation][avg_scores.index(maximum)]]
-
     df = pd.DataFrame(list_of_dict)
     concatenated_df = pd.concat([all_fls_df, df])
     all_fls_df = concatenated_df
     all_fls_df.to_csv("df_complete.csv")
     print(df)
     return all_fls_df
-
-
-
 
 
 def create_df_by_relation(relation, df):
@@ -543,7 +512,7 @@ def create_df_by_relation(relation, df):
     ax.set_xlabel("Scores")
 
     ax.set_yticks([])
-    plt.tight_layout()
+    #plt.tight_layout()
     #plt.tight_layout()
 
 
@@ -587,7 +556,7 @@ def create_df_best_question(df):
     best =  pd.merge( df.groupby(["relation", "no_question"]).mean().round(4), df.groupby(["relation", "no_question"]).var().round(4), how="inner", left_on=["relation", "no_question"], right_on=["relation", "no_question"], suffixes=["_mean", "_var"])
     best = best.drop(["no_echantillon_mean", "no_echantillon_var"], axis=1).reset_index()
     
-    best["score_mean"] = best.apply(lambda row: numpy.mean([row["score0_mean"],row["score1_mean"], row["score3_mean"], row["score5_mean"] ]), axis=1)
+    best["score_mean"] = best.apply(lambda row: np.mean([row["score0_mean"],row["score1_mean"], row["score3_mean"], row["score5_mean"] ]), axis=1)
     best["variation_of_scores"] = best.apply(lambda row: max([row["score0_mean"],row["score1_mean"], row["score3_mean"], row["score5_mean"] ])- min([row["score0_mean"],row["score1_mean"], row["score3_mean"], row["score5_mean"] ]), axis=1)
     best = best[["relation", "no_question", "score_mean", "variation_of_scores" ]]
     best = best.loc[best.groupby("relation")["score_mean"].idxmax()]
@@ -595,14 +564,174 @@ def create_df_best_question(df):
     best.columns = ["relation", "meilleure_question", "score", "difference_scores", "question"]
     print(best)
     histo = best.plot(x = "relation", y="score", title="Scores obtenus avec les meilleures questions pour chaque relation", kind="bar")
-    
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+
     
     #plt.rcParams["histo.figsize"] = (10, 5)
     #fig = histo.get_figure()
-    plt.savefig('bestQuestionAll.pdf')
+    # plt.savefig('bestQuestionAll.pdf')
 
+    plt.savefig('bestQuestionAll.png')
+
+    print(best)
+
+    # make a graph showing the color of each k
     best.to_csv("bestQuestionAll.csv")
     return best
+
+
+def create_df_best_question_with_k(df):
+    global custom_palette
+
+    # get the whole df and the best score possible
+    tout =  pd.merge( df.groupby(["relation", "no_question"]).mean().round(4), df.groupby(["relation", "no_question"]).var().round(4), how="inner", left_on=["relation", "no_question"], right_on=["relation", "no_question"], suffixes=["_mean", "_var"])
+
+    results = {}
+    for idx_tuple in tout.index:
+        print(idx_tuple)
+        if idx_tuple[0] not in results:
+            results[idx_tuple[0]] = {}
+        else:
+            vals = results[idx_tuple[0]][idx_tuple[1]] = tout.loc[[idx_tuple], ["score0_mean", "score1_mean", "score3_mean", "score5_mean"]].values
+            results[idx_tuple[0]][idx_tuple[1]] = vals[0].tolist()  # Extract the inner array and convert to list
+
+    print(results)
+
+    # get all k-shot values for each best question based on average score per k
+    best_q_scores = {}
+    best_qs = []
+
+    for relation in results.keys():
+        # for each relation, first calc the average and put in a list
+        averages = {key: round(np.mean(values), 4) for key, values in results[relation].items()}
+        print([relation])
+        print(results[relation])
+        # get the biggest avg to get the best question
+        best_key = max(averages.items(), key=lambda x: x[1])[0]
+        best_q_scores[relation] = results[relation][best_key]
+        print(results[relation][best_key])
+        best_qs.append((relation,
+                        best_key,
+                        round(np.var(results[relation][best_key]), 4),
+                        (max(results[relation][best_key])),
+                        results[relation][best_key].index(max(results[relation][best_key]))))
+
+    # create the table to write in latex bc im lazy
+    table_string = ''
+    sep = ' & '
+    for r in best_qs :
+        table_string += (r[0] + sep + str(r[1]) + sep + str(r[4]) + sep + str(r[3]) + sep + str(r[2]) + "\\\\ \n")
+
+
+    # mettre dans le bon format pour faciliter la création du graphique
+    vals = {
+        '0-shot' : [],
+        '1-shot' : [],
+        '3-shot': [],
+        '5-shot' : []
+    }
+    for k in best_q_scores.keys():
+        tab = best_q_scores[k]
+        vals['0-shot'].append(tab[0])
+        vals['1-shot'].append(tab[1])
+        vals['3-shot'].append(tab[2])
+        vals['5-shot'].append(tab[3])
+
+    print(vals)
+
+    color_map = {
+        '0-shot': custom_palette[0],
+        '1-shot': custom_palette[1],
+        '3-shot': custom_palette[2],
+        '5-shot': custom_palette[3]
+    }
+
+    # make the graph
+    x = np.arange(len(best_q_scores))  # the label locations
+    width = 0.2  # the width of the bars
+    multiplier = 0
+
+    fig, ax = plt.subplots()
+
+    for k_shot, score in vals.items():
+        offset = width * multiplier
+        color = color_map.get(k_shot, 'gray')
+        rects = ax.bar(x + offset, score, width, label=k_shot, color=color)
+        multiplier += 1
+
+    ax.set_xlabel("FL", fontsize=12)
+    ax.set_ylabel("Scores", fontsize=12)
+    ax.set_title('Scores des meilleures questions pour chaque k-shot')
+    ax.set_xticks(x + width, best_q_scores.keys())
+    plt.xticks(rotation=45, ha='right')
+    ax.legend(loc='upper left', ncols=2)
+    ax.set_ylim(0, 1)
+
+    plt.tight_layout()
+    plt.savefig('bestQuestionAllKs.svg')
+    plt.savefig('bestQuestionAllKs.pdf')
+
+
+
+    # bests = {
+    #     relation: {
+    #         question: (max(scores), scores.index(max(scores)))
+    #         for question, scores in questions.items()
+    #     }
+    #     for relation, questions in results.items()
+    # }
+
+    # # pour chaque score pour la meilleure question, voir
+    # labels = list(bests.keys())
+    # values = [val[0] for val in bests.values()]
+    # colors_index = [val[1] for val in bests.values()]
+    #
+    #
+    #
+
+    # avoir seulement pour les meilleures questions
+    # # NOTE: indices seront entre 0-3 car 0 = 0-shot, 1 = 1-shot, 2 = 3-shot, 3 = 5-shot
+    # best_questions = {
+    #     relation: max(questions.values(), key=lambda x: x[0])
+    #     for relation, questions in bests.items()
+    # }
+    #
+    # # Construire le graphique:
+    # labels = list(best_questions.keys())
+    # values = [val[0] for val in best_questions.values()]
+    # colors_index = [val[1] for val in best_questions.values()]
+    #
+    # colors = [custom_palette[idx] for idx in colors_index]
+    #
+    # fig, ax = plt.subplots(figsize=(10, 6))
+    # bars = ax.bar(labels, values, color=colors)
+    #
+    # ax.set_title("Scores obtenus avec les meilleures questions pour chaque FL", fontsize=14)
+    # ax.set_xlabel("FL", fontsize=12)
+    # ax.set_ylabel("Scores", fontsize=12)
+    # plt.xticks(rotation=45, ha='right')
+    #
+    # legend_elements = [
+    #     Patch(facecolor=custom_palette[0], label='0-shot'),
+    #     Patch(facecolor=custom_palette[1], label='1-shot'),
+    #     Patch(facecolor=custom_palette[2], label='3-shot'),
+    #     Patch(facecolor=custom_palette[3], label='5-shot')
+    # ]
+    #
+    # ax.legend(handles=legend_elements, title="Nombre d'exemples")
+    #
+    # for bar, value in zip(bars, values):
+    #     height = bar.get_height()
+    #     ax.annotate(f'{height:.2f}',
+    #                 xy=(bar.get_x() + bar.get_width() / 2, height),
+    #                 xytext=(0, 3),
+    #                 textcoords="offset points",
+    #                 ha='center', va='bottom')
+    #
+    # plt.tight_layout()
+    # plt.savefig('bestQuestionAll_withk.svg')
+
 
 def get_examples(rel):
     s = ''
@@ -677,13 +806,14 @@ def main():
     for rel in all_lf_questions.keys():
         print(rel)
         create_df_by_relation(rel, df=testdf2)
-    create_df_by_k_shot(testdf2, 0)
-    create_df_by_k_shot(testdf2, 1)
-    create_df_by_k_shot(testdf2, 3)
-    create_df_by_k_shot(testdf2, 5)
+    # create_df_by_k_shot(testdf2, 0)
+    # create_df_by_k_shot(testdf2, 1)
+    # create_df_by_k_shot(testdf2, 3)
+    # create_df_by_k_shot(testdf2, 5)
 
-    create_df_best_question(testdf2)
+    # create_df_best_question(testdf2)
 
+    create_df_best_question_with_k(testdf2)
 
 
 

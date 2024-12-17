@@ -533,7 +533,7 @@ def create_df_by_relation(relation, df):
     df_relation.to_csv(f"summary_{relation}.csv")
 
     #plt.rcParams.update({'figure.autolayout': True})
-    fig, ax = plt.subplots(figsize=(20,20))
+    fig, ax = plt.subplots()
     bars = ax.barh(df_relation["question"], df_relation["score0_mean"])
     for bar, label in zip(bars, df_relation["question"]):
         ax.text(-300000,
@@ -543,7 +543,7 @@ def create_df_by_relation(relation, df):
     ax.set_xlabel("Scores")
 
     ax.set_yticks([])
-    plt.tight_layout()
+    
     #plt.tight_layout()
 
 
@@ -594,12 +594,17 @@ def create_df_best_question(df):
     best["question"] = best.apply(lambda row:  format_question(all_lf_questions[row["relation"]][row["no_question"]]), axis=1)
     best.columns = ["relation", "meilleure_question", "score", "difference_scores", "question"]
     print(best)
-    histo = best.plot(x = "relation", y="score", title="Scores obtenus avec les meilleures questions pour chaque relation", kind="bar")
+    histo = best.plot(x = "relation", y="score", title="Scores obtenus avec les meilleures questions pour chaque relation", kind="bar", xlabel="Relation", ylabel="Score")
+    for container in histo.containers:
+        histo.bar_label(container, labels=[f'{v:.2f}' for v in container.datavalues])
+    
+    histo.legend().set_visible(False)
+    plt.tight_layout()
     
     
     #plt.rcParams["histo.figsize"] = (10, 5)
     #fig = histo.get_figure()
-    plt.savefig('bestQuestionAll.pdf')
+    plt.savefig('bestQuestionAll.png')
 
     best.to_csv("bestQuestionAll.csv")
     return best

@@ -589,6 +589,7 @@ def create_df_best_question_with_k(df):
     plt.tight_layout()
     plt.savefig('results/bestQuestionAllKs.svg')
     plt.savefig('results/bestQuestionAllKs.pdf')
+    plt.savefig('results/bestQuestionAllKs.png')
 
 
 

@@ -237,59 +237,60 @@ def get_relation_examples(rel_name):
             examples.append(example_lines[i])
     return examples
 
+# Première façon de faire des requêtes au LLM: avec "post", requête par requête
 # Génère la réponse du LLM
-# def generate(prompt, context, file, source_word, expected):
-#     print(prompt)
-#
-#     r = requests.post('http://localhost:11434/api/generate',
-#                       json={
-#                           'model': model,
-#                           'prompt': "Tu es un modèle en français, ne me donne que des réponses d'un mot. " + prompt,
-#                           'context': context,
-#                       },
-#                       stream=True)
-#     r.raise_for_status()
-#
-#     # file structure: source : expected : llm result
-#     file.write(f"{source_word} : {expected} : ")
-#
-#     for i in r.iter_lines():
-#         body = json.loads(i)
-#         response_part = body.get('response', '')
-#
-#         # the response streams one token at a time, print that as we receive it
-#         #print(response_part, end='', flush=True)
-#         file.write(response_part)
-#
-#         if 'error' in body:
-#             raise Exception(body['error'])
-#
-#         if body.get('done', False):
-#             file.write('\n')
-#             return body['context']
+def generate(prompt, context, file, source_word, expected):
+     print(prompt)
 
+     r = requests.post('http://localhost:11434/api/generate',
+                       json={
+                           'model': model,
+                           'prompt': "Tu es un modèle en français, ne me donne que des réponses d'un mot. " + prompt,
+                           'context': context,
+                       },
+                       stream=True)
+     r.raise_for_status()
+
+     # file structure: source : expected : llm result
+     file.write(f"{source_word} : {expected} : ")
+
+     for i in r.iter_lines():
+         body = json.loads(i)
+         response_part = body.get('response', '')
+
+         # the response streams one token at a time, print that as we receive it
+         #print(response_part, end='', flush=True)
+         file.write(response_part)
+
+         if 'error' in body:
+             raise Exception(body['error'])
+
+         if body.get('done', False):
+             file.write('\n')
+             return body['context']
+         
 # Construit la question et le fichier de sortie
-# def process_question(relation_type: str, part1:str, part2:str, qIndex : int):
-#     # the context stores a conversation history, you can use this to make the model more context aware
-#     global context
-#
-#     # Open a file to store the outputs
-#     fileName = f"outputs/{relation_type}_{qIndex}_out.csv"
-#
-#     # Generate the prompt list to then give as arg to generate()
-#     examples = get_relation_examples(relation_type)
-#
-#     # Clear file contents
-#     open("./"+fileName, 'w', encoding="utf-8").close()
-#
-#     for e in tqdm(examples, desc="Processing examples"):
-#         source = e[0]
-#         expected = (" ").join(e[1:])
-#         question = part1 + source + part2
-#         context = generate(question, context, open(fileName, 'a', encoding="utf-8"), source, expected)
-#         sys.stdout.flush()
-#
-#     return fileName
+def process_question(relation_type: str, part1:str, part2:str, qIndex : int):
+     # the context stores a conversation history, you can use this to make the model more context aware
+     global context
+
+     # Open a file to store the outputs
+     fileName = f"outputs/{relation_type}_{qIndex}_out.csv"
+
+     # Generate the prompt list to then give as arg to generate()
+     examples = get_relation_examples(relation_type)
+
+     # Clear file contents
+     open("./"+fileName, 'w', encoding="utf-8").close()
+
+     for e in tqdm(examples, desc="Processing examples"):
+         source = e[0]
+         expected = (" ").join(e[1:])
+         question = part1 + source + part2
+         context = generate(question, context, open(fileName, 'a', encoding="utf-8"), source, expected)
+         sys.stdout.flush()
+
+     return fileName
 
 # calcule le success rate une fois que le fichier de sortie est complet
 def success_rate(filename):
@@ -323,22 +324,7 @@ def success_rate(filename):
     success_rate = nb_success/total
     return success_rate
 
-# lf sera en fait une liste de questions pour chaque FL, afin de tester les différents types de verbalisation
-# def run_model_for(lf: str, lf_questions : list):
-#     # open the SR file (empty)
-#     sr_filename = f"./results/sr_{lf}"
-#     open(sr_filename, 'w', encoding="utf-8").close()
-#     sr_file = open(sr_filename, 'a', encoding="utf-8")
-#
-#     # q est séparée en 2 parties, "quel est xxx" et "donne xxx"
-#     for q in lf_questions:
-#         # for each question, run the model & add SR to the SR file
-#         fl_file = process_question(lf, q[0], q[1], lf_questions.index(q))
-#         sr_file.write(
-#             str(lf_questions.index(q)) + " " +
-#             str(q[0]) + str(q[1]) + ", sr = " +
-#             str(success_rate(fl_file)) + "\n"
-#         )
+
 
 
 #################### Créer un modèle et le rouler pour des mots ###########################
@@ -404,42 +390,7 @@ def run_model(relation, k_shot):
 
     return scores_sublist
 
-# Mettre juste les sources (pour le moment) des exemples dans un txt ou les valeurs sont separees par des virgules
-# Pour les donner à chainforge
-# def examples_in_list(examples):
-#     f = open("examples.txt", "a")
-#     liste = []
-#     for w in examples:
-#         f.write(w[0] + ',')
-#         liste.append(w[0])
-#     f.close()
-#     return liste
 
-# combiner les prompts en un gros prompt pour simuler le traitement en batch et eviter de re-prompt a chaque fois
-# def combined_prompts(question, words):
-#     global context
-#
-#     questions = ""
-#     questions_list = []
-#     #print(words)
-#     for w in words:
-#         questions += (str(question[0]) + w[0] + str(question[1])) + '\n'
-#         questions_list.append((str(question[0]) + w[0] + str(question[1])))
-#
-#     # Open a file to store the outputs
-#     fileName = 'test.txt'
-#
-#     # Generate the prompt list to then give as arg to generate()
-#     # Clear file contents
-#     open("./" + fileName, 'w', encoding="utf-8").close()
-#
-#     print(questions)
-#
-#     #context = generate(questions, context, open(fileName, 'a', encoding="utf-8"), '', '')
-#
-#     sys.stdout.flush()
-#
-#     return questions_list
 
 # Process all the samples for a given relation
 def process_samples(relation, sample_size, num_of_samples):
@@ -476,10 +427,6 @@ def process_samples(relation, sample_size, num_of_samples):
 
         # once all samples are done being evaluated, average all of them & write to file
             for l in range(len(scores_list[0])):  #nb de questions
-                #somme = 0
-                #for j in range(num_of_samples):
-                    #somme += scores_list[j][l]
-                    #avg_scores.append((round(somme / num_of_samples, 2)))
 
                 dict1 = {"relation": relation, "no_question": l, "no_echantillon":i, f"score{k_shot[k]}" : round(scores_list[k][l], 2)}
                 list_of_dict.append(dict1)
@@ -487,11 +434,11 @@ def process_samples(relation, sample_size, num_of_samples):
     df = pd.DataFrame(list_of_dict)
     concatenated_df = pd.concat([all_fls_df, df])
     all_fls_df = concatenated_df
-    all_fls_df.to_csv("df_complete.csv")
+    all_fls_df.to_csv("results/df_complete.csv")
     print(df)
     return all_fls_df
 
-
+# Create dataframe with all the information for one relation
 def create_df_by_relation(relation, df):
     df_relation = df.loc[df["relation"]==relation]
 
@@ -499,39 +446,13 @@ def create_df_by_relation(relation, df):
     df_relation = pd.merge(df_relation.groupby("no_question").mean(numeric_only=True).round(4), df_relation.groupby("no_question").var(numeric_only=True).round(4), how="inner", left_on="no_question", right_on="no_question", suffixes=["_mean", "_var"])
     df_relation=df_relation.reset_index()
     df_relation["question"] = df_relation.apply(lambda row:  format_question(all_lf_questions[relation][int(row["no_question"])]), axis=1)
-    df_relation.to_csv(f"summary_{relation}.csv")
+    df_relation.to_csv(f"results/summary_{relation}.csv")
 
-    #plt.rcParams.update({'figure.autolayout': True})
-    fig, ax = plt.subplots(figsize=(20,20))
-    bars = ax.barh(df_relation["question"], df_relation["score0_mean"])
-    for bar, label in zip(bars, df_relation["question"]):
-        ax.text(-300000,
-                bar.get_y()+ bar.get_height()/2,
-                label, va="center", ha="right", color="black")
-        
-    ax.set_xlabel("Scores")
-
-    ax.set_yticks([])
-    #plt.tight_layout()
-    #plt.tight_layout()
-
-
-
-    #df_relation.plot(x="question", y="score0_mean", kind="barh")
-    #for i, question in enumerate(df_relation["question"]):
-    # Format the label to be split into two lines (adjust as needed)
-    #    label = f"Value: {question}More Info"
-    
-    # Place the label above each bar
-    #    plt.text(i, 10, label, ha='center', va='bottom', fontsize=10)
-
-
-    plt.savefig(f"{relation}_score.png")
     
     return df_relation
 
 
-
+# Create dataframe with all the information for a given k-shot
 def create_df_by_k_shot(df, k_shot):
     summary = pd.merge( df.groupby(["relation", "no_question"]).mean().round(4), df.groupby(["relation", "no_question"]).var().round(4), how="inner", left_on=["relation", "no_question"], right_on=["relation", "no_question"], suffixes=["_mean", "_var"])
     
@@ -548,10 +469,10 @@ def create_df_by_k_shot(df, k_shot):
 
 
     
-    summary.to_csv(f"bestQuestion_{k_shot}.csv")
+    summary.to_csv(f"results/bestQuestion_{k_shot}.csv")
     return summary
 
-#create best question for all k-shot
+#create a dataframe listing the best question for each relations, the score is a mean for all k-shot
 def create_df_best_question(df):
     best =  pd.merge( df.groupby(["relation", "no_question"]).mean().round(4), df.groupby(["relation", "no_question"]).var().round(4), how="inner", left_on=["relation", "no_question"], right_on=["relation", "no_question"], suffixes=["_mean", "_var"])
     best = best.drop(["no_echantillon_mean", "no_echantillon_var"], axis=1).reset_index()
@@ -567,20 +488,17 @@ def create_df_best_question(df):
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
 
-    
-    #plt.rcParams["histo.figsize"] = (10, 5)
-    #fig = histo.get_figure()
-    # plt.savefig('bestQuestionAll.pdf')
 
-    plt.savefig('bestQuestionAll.png')
+
+    plt.savefig('results/bestQuestionAll.png')
 
     print(best)
 
     # make a graph showing the color of each k
-    best.to_csv("bestQuestionAll.csv")
+    best.to_csv("results/bestQuestionAll.csv")
     return best
 
-
+# Create dataframe and figure for the best question for each relations, showing score for different k 
 def create_df_best_question_with_k(df):
     global custom_palette
 
@@ -669,8 +587,8 @@ def create_df_best_question_with_k(df):
     ax.set_ylim(0, 1)
 
     plt.tight_layout()
-    plt.savefig('bestQuestionAllKs.svg')
-    plt.savefig('bestQuestionAllKs.pdf')
+    plt.savefig('results/bestQuestionAllKs.svg')
+    plt.savefig('results/bestQuestionAllKs.pdf')
 
 
 
@@ -733,107 +651,29 @@ def create_df_best_question_with_k(df):
     # plt.savefig('bestQuestionAll_withk.svg')
 
 
+# Format examples in a more readable way
 def get_examples(rel):
     s = ''
     for w in k_exemples[rel]:
         s += w[0] + "->" + w[1] + ", "
     return s
 
+# Format questions in a more readable way
 def format_question(question):
     return question[0].replace('\\', '') + "x" + question[1]
 
 def main():
 
-    # dict0 = {"relation": "Anti", "no_question": 0, "no_echantillon":0, "score": 0.51}
-    # dict1 = {"relation": "Anti", "no_question": 0, "no_echantillon":1, "score": 0.54}
-    # dict2 = {"relation": "Anti", "no_question": 0, "no_echantillon":2, "score": 0.43}
-    # dict3 = {"relation": "Anti", "no_question": 1, "no_echantillon":0, "score": 0.10}
-    # dict4 = {"relation": "Anti", "no_question": 1, "no_echantillon":1, "score": 0.11}
-    # dict5 = {"relation": "Anti", "no_question": 1, "no_echantillon":2, "score": 0.16}
-    # dict6 = {"relation": "V_0", "no_question": 0, "no_echantillon":0, "score": 0.26}
-    # dict7 = {"relation": "V_0", "no_question": 1, "no_echantillon":0, "score": 0.55}
-    # df_0_shot = [dict0, dict1, dict2, dict3, dict4, dict5, dict6, dict7]
-
-    # df0 = pd.DataFrame(df_0_shot)
-    # var_test = 0
-    # #print(df0)
-    #
-    # dict1 = {"relation": "Anti", "no_question": 0, "no_echantillon":1, f"score{var_test}": 0.51}
-    # dict11 = {"relation": "Anti", "no_question": 0, "no_echantillon":1, "score1": 0.67}
-    #
-    # dict2 = {"relation": "Anti", "no_question": 0, "no_echantillon":2, "score0": 0.54, "score1": 0.50}
-    # dict3 = {"relation": "Anti", "no_question": 1, "no_echantillon":0, "score0": 0.43, "score1": 0.20}
-    # dict4 = {"relation": "Anti", "no_question": 1, "no_echantillon":1, "score0":0.10,  "score1": 0.45}
-    # dict5 = {"relation": "Anti", "no_question": 1, "no_echantillon":2, "score0": 0.11,  "score1": 0.34}
-    # dict6 = {"relation": "V_0", "no_question": 0, "no_echantillon":0, "score0":0.16, "score1": 0.56}
-    # dict7 = {"relation": "V_0", "no_question": 1, "no_echantillon":0, "score0":0.26, "score1": 0.67}
-    # df_1_shot = [dict1, dict11,  dict2, dict3, dict4, dict5, dict6, dict7]
-
-
-    # dfall = pd.DataFrame(df_1_shot)
-    # #print(dfall)
-    #
-    # df_anti0 = df0.loc[df0["relation"]=="Anti"].drop(["relation", "no_echantillon"], axis=1).reset_index(drop=True)
-    #print("df")
-    #print(df_anti0)
-
-    # df_anti_all = dfall.loc[dfall["relation"]=="Anti"]
-    # #print(df_anti_all)
-    # df_anti_all = df_anti_all.reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
-    #df_anti = pd.merge(df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"], how="inner", left_on=["relation", "no_question", "no_echantillon"], right_on=["relation", "no_question", "no_echantillon"], suffixes=["0","1"]).reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
-
-    #df_anti = pd.concat([df0.loc[df0["relation"]=="Anti"], df1.loc[df1["relation"]=="Anti"]], axis=1, join="inner").drop_duplicates().reset_index(drop=True).drop(["relation", "no_echantillon"], axis=1)
-    #df_anti.drop(["relation", "no_echantillon"], axis=1)
-
-    #print(df_anti)
-
-    # df_anti_all = pd.merge(df_anti_all.groupby("no_question").mean(numeric_only=True), df_anti_all.groupby("no_question").var(numeric_only=True), how="inner", left_on="no_question", right_on="no_question", suffixes=["_mean", "_var"])
-
-
-    #print(df_anti_all)
-
-    # k-shot
-    # summary0 = dfall.groupby(["relation", "no_question"]).mean().drop("no_echantillon", axis=1).reset_index()
-    # summary0 = summary0[["relation", "no_question", "score0"]]
-    # #print(summary0)
-    # summary0 = summary0.loc[summary0.groupby("relation")["score0"].idxmax()]
-    # print("summary0")
-    # #print(summary0)
-    #
-    # # changer pour df_complete.csv quand il sera généré
-    testdf = pd.read_csv("df_complete.csv", index_col=0)
-    testdf2 = testdf.round(2)
+    df_complete = pd.read_csv("results/df_complete.csv", index_col=0)
+    df_complete_rounded = df_complete.round(2)
     for rel in all_lf_questions.keys():
         print(rel)
-        create_df_by_relation(rel, df=testdf2)
-    # create_df_by_k_shot(testdf2, 0)
-    # create_df_by_k_shot(testdf2, 1)
-    # create_df_by_k_shot(testdf2, 3)
-    # create_df_by_k_shot(testdf2, 5)
+        create_df_by_relation(rel, df=df_complete_rounded)
 
-    # create_df_best_question(testdf2)
-
-    create_df_best_question_with_k(testdf2)
+    create_df_best_question_with_k(df_complete_rounded)
 
 
 
-    # for k in [0,1,3,5]:
-    #     process_samples('Anti', 30, 2, k)
-
-    # process_samples('Anti', 30, 2)ds
-
-    # for rel in all_lf_questions.keys():
-    #     print(rel)
-    #     process_samples(rel, 50, 3)
-
-    # process_samples("A_2Perf", 50, 3, 0)
-
-    # todo: à ameliorer (affichage, lecture du map)
-    # open('./scores/fl_ranking', 'w', encoding="utf-8").close()
-    # ranking_file = open('./scores/fl_ranking', 'a', encoding="utf-8")
-    # fl_ranking_sorted = dict(sorted(fl_ranking.items(), key=lambda item: item[1], reverse=True))
-    # for fl in fl_ranking_sorted.keys():
-    #     ranking_file.write(str(fl) + '\n' + str(fl_ranking_sorted[fl][0]) + '|' + str(fl_ranking_sorted[fl][1][0]) + '\n')
 
 
 if __name__ == "__main__":

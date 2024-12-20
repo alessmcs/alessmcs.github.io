@@ -26,7 +26,8 @@ Ici, $A_1$ est la FL pour obtenir le qualificatif adjectival typique $A_i$ du pr
 
 
 ## Résultats
-![alt text](llm_testing/results/bestQuestionAllKs.png)
+![alt text](llm_testing/results/bestQuestionAllKs.png)  
+
 Les k-shots représentent le nombre d'exemples ajoutés à la question donnée au modèle de langage. Par exemple, une question avec 3 exemples pourrait être: 
 
     Quel est l'adjectif correspondant au mot [x]? Donne un seul adjectif sans ponctuation. 

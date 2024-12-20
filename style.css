@@ -22,7 +22,7 @@ body {
 
 /* En-tête */ 
 
-header{
+#header_nav{
     position: sticky;
     top: 0;
 }
@@ -62,4 +62,15 @@ header{
 
 #idees_verbalisation{
   line-height: 1.5;
+}
+
+td{
+    border-bottom: 1px solid
+}
+
+.partie{display: block;}
+.partie.hidden {display: none;}
+
+#header_nav .active a{
+    color: #4357AD;
 }

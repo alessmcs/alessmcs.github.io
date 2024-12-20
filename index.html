@@ -4,7 +4,7 @@
     <head>
         <title>Projet IFT3150</title>
         <link rel="stylesheet" href="style.css">
-
+        <script src="comportement.js"></script>
         <!-- Bootstrap (en commentaire for now mais si on en a besoin)-->
     <!--
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -24,18 +24,17 @@
             <p>Dans le cadre du cours IFT3150 - Prof. Philippe Langlais (A24)</p>
         </div>
         <div id="header_nav">
-            <h3><a href="./index.html#enonce_projet">Énoncé du projet</a></h3>
-            <h3><a href="./index.html#description">Description détaillée</a></h3>
-            <h3><a href="./index.html#plan_avancement">Plan</a></h3>
-            <h3><a href="./index.html#rapports_avancement">Rapports d'avancement</a></h3>
+            <h3 class="navhead" id="enonce_projet"><a href="#enonce_projet">Énoncé du projet</a></h3>
+            <h3 class="navhead" id="description"><a href="#description">Description détaillée</a></h3>
+            <h3 class="navhead" id="plan_avancement"><a href="#plan_avancement">Plan</a></h3>
+            <h3 class="navhead" id="rapports_avancement"><a href="#rapports_avancement">Rapports d'avancement</a></h3>
             <h3><a href="todo.html" id="todo-onglet">TODO</a></h3>
         </div>
     </header>
     
     <div id="contents">
     
-        <section id="#enonce_projet">
-            <h2>Énoncé du projet</h2>
+        <section id="#enonce_projet" class="partie">
                 <p>Nous utilisons la ressource du Réseau lexical français (RL-fr) pour en extraire des exemples de fonctions lexicales.
                     Une fonction lexicale retourne un ensemble de mots qui une relation précisée par la fonction avec le mot en entrée.
                     Ces exemples seront de la forme "mot en input" -fonction-> "mot en output". Nous allons ensuite sélectionner certaines
@@ -47,13 +46,87 @@
                 </p>
         </section>
     
-        <section id="#description">
+        <section id="#description" class="partie hidden">
+            <h2>Titre</h2>
+            La théorie des fonctions lexicales appliquée pour tester des grands modèles de
+            langage: une approche par verbalisation
+
+            <h2>Spécification fonctionnelle</h2>
+            Dans ce projet, on s'attend à augmenter un API existant permettant de traiter les données du RL-fr et les mettre dans
+            un format propre à notre tâche.
+            On doit aussi développer une façon de faire rouler un modèle de langage sur nos ordinateurs, puis d'écrire
+            un programme qui peut l'évaluer et nous afficher des résultats de la façon la plus automatique possible.
+
+            <h2>Environnement et contraintes techniques</h2>
+            Tout d'abord, nous travaillons sur deux ordinateurs séparés, alors il faut prendre en compte les limitations
+            du matériel des deux machines quand ça concerne le roulement du modèle de langage. Nous avons donc gardé
+            les dépendances à un minimum.
+            Le code du projet est écrit en Python et utilisera simplement les librairies Pandas, Ollama, NumPy et Matplotlib.
+            Pour obtenir le modèle et le faire rouler, nous avons utilisé le framework Ollama.
+            Établir des conventions de nommage des fichiers pour gérer et traiter plus facilement le contenu avec
+            lequel on travaille.
+
+            <h2>Architecture logicielle</h2>
+            <ul>
+                <li>rl-fr_api.py : Un API, créé en ajoutant nos fonctions au code existant d'Alexander Petrov, pour
+                lire les données du RL-fr et construire des échantillons qui fonctionnent pour notre tâche.</li>
+                <li>Les exemples pour chaque FL seront dans un fichier .csv</li>
+                <li>Un fichier .txt qui contient le "template" de llama3.2 qu'on a écrit</li>
+                <li>template_model.py : Un script contenant toutes les fonctions nécessaires pour rouler et évaluer le modèle,
+                ainsi que générer les diverses vues qui nous ont servi à l'interprétation des résultats.</li>
+                <li>Les sorties du modèle (pour chaque FL, k-shot, # d'échantillon) seront inscrites dans des fichiers .csv.
+                On pourra ainsi effectuer des opérations dessus pour faire l'évaluation.</li>
+                <li>Les résultats des évaluations seront également affichées dans des .csv, qui est un format simple
+                pour générer les tableaux et visualisations à la fin</li>
+            </ul>
+
+            <h2>Modules principaux de travail</h2>
+            <h3>rl-fr_api.py</h3>
+                <ul>
+                    <li>Extraire les lexies de chaque nœud du RL-fr</li>
+                    <li>Obtenir tous les exemples pour chaque mot-source possible, pour chaque FL</li>
+                    <li>Séparer les FLs en paradigmatiques et syntagmatiques</li>
+                    <li>Nettoyer les données pour ne pas contenir des chiffres</li>
+                    <li>Générer plusieurs échantillons aléatoires pour chaque FL ayant un nombre suffisant
+                    d'exemples</li>
+                </ul>
+            <h3>template_model.py</h3>
+                <ul>
+                    <li>Contient les listes de questions et d'exemples (à donner pour chaque k-shot), pour chaque
+                    FL</li>
+                    <li>Pipeline des requêtes: pour une FL donnée, itérer à travers tous les exemples d'un échantillon
+                    les noter dans un .csv, calculer le score entre la sortie donnée et celle attendue. Répéter pour chaque
+                        question de chaque FL, à chaque k-shot</li>
+                    <li>Fournir des exemples au modèle selon le k choisi</li>
+                    <li>Compiler les scores de chaque échantillon en faisant leur moyenne, les mettre dans des fichiers .csv</li>
+                    <li>Construire les visualisations nécessaires</li>
+                </ul>
         </section>
     
-        <section id="#plan_avancement">
+        <section id="#plan_avancement" class="partie hidden">
+            <table>
+                <tr>
+                    <td>Date de début</td>
+                    <td>6 septembre 2024</td>
+                </tr>
+                <tr>
+                    <td>Date de fin</td>
+                    <td>20 décembre 2024</td>
+                </tr>
+                <tr>
+                    <td>Dates prévues pour les modules</td>
+                    <td>
+                        <ul>
+                            <li>API : </li>
+                            <li>Développement du modèle: </li>
+                            <li>Obtention des résultats</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
         </section>
     
-        <section id="#rapports_avancement">
+        <section id="#rapports_avancement" class="partie hidden">
             <h2>Rapports d'avancement</h2>
             <h3>S1 - 02/09 - 08/09</h3>
             <ul>
@@ -74,15 +147,23 @@
                 <li>Nous avons donc commencé à travailler sur l'API d'Alexander pour l'adapter à notre tâche, afin d'obtenir un
                     fichier .txt compréhensif contnenant des exemples</li>
             </ul>
+
             <h3>S4 - 23/09 - 29/09</h3>
+            <ul>
                 <li>Nous avons obtenu le fichier .txt voulu en modifiant les fonctions write_to_file(), get_endpoints() et
-                    get_relation_name.</li>
+                    get_relation_name() du API qu'on nous a fourni. On peut désormais transformer ces données dans un format
+                    qui fonctionne avec notre tâche.
+                </li>
+
+            </ul>
+
             <h3>S5 - 30/09 - 6/10</h3>
                 <ul>
                     <li>Nous avons obtenu un fichier .tsv des exemples afin de pouvoir les traiter facilement. Nous avons 
                         produit un fichier texte d'exemples aléatoires pour les fonctions lexicales les plus fréquentes.
                     </li>
                 </ul>
+
             <h3>S6 - 07/10 - 13/10</h3>
                 <ul>
                     <li>Grâce aux fichiers d'exemples aléatoires, nous pouvons maintenant entamer les tests avec les modèles

@@ -4,7 +4,6 @@ from matplotlib.cbook import index_of
 from matplotlib.colors import ListedColormap
 from matplotlib.table import table
 from pandas.io.sas.sas_constants import column_name_text_subheader_length
-#import requests
 from tqdm import tqdm
 import sys
 import ollama
@@ -325,8 +324,6 @@ def success_rate(filename):
     return success_rate
 
 
-
-
 #################### Créer un modèle et le rouler pour des mots ###########################
 
 # Créer le modèle. Non utile apres l'avoir cree une premiere fois
@@ -541,7 +538,6 @@ def create_df_best_question_with_k(df):
     for r in best_qs :
         table_string += (r[0] + sep + str(r[1]) + sep + str(r[4]) + sep + str(r[3]) + sep + str(r[2]) + "\\\\ \n")
 
-
     # mettre dans le bon format pour faciliter la création du graphique
     vals = {
         '0-shot' : [],
@@ -590,67 +586,6 @@ def create_df_best_question_with_k(df):
     plt.savefig('results/bestQuestionAllKs.svg')
     plt.savefig('results/bestQuestionAllKs.pdf')
     plt.savefig('results/bestQuestionAllKs.png')
-
-
-
-    # bests = {
-    #     relation: {
-    #         question: (max(scores), scores.index(max(scores)))
-    #         for question, scores in questions.items()
-    #     }
-    #     for relation, questions in results.items()
-    # }
-
-    # # pour chaque score pour la meilleure question, voir
-    # labels = list(bests.keys())
-    # values = [val[0] for val in bests.values()]
-    # colors_index = [val[1] for val in bests.values()]
-    #
-    #
-    #
-
-    # avoir seulement pour les meilleures questions
-    # # NOTE: indices seront entre 0-3 car 0 = 0-shot, 1 = 1-shot, 2 = 3-shot, 3 = 5-shot
-    # best_questions = {
-    #     relation: max(questions.values(), key=lambda x: x[0])
-    #     for relation, questions in bests.items()
-    # }
-    #
-    # # Construire le graphique:
-    # labels = list(best_questions.keys())
-    # values = [val[0] for val in best_questions.values()]
-    # colors_index = [val[1] for val in best_questions.values()]
-    #
-    # colors = [custom_palette[idx] for idx in colors_index]
-    #
-    # fig, ax = plt.subplots(figsize=(10, 6))
-    # bars = ax.bar(labels, values, color=colors)
-    #
-    # ax.set_title("Scores obtenus avec les meilleures questions pour chaque FL", fontsize=14)
-    # ax.set_xlabel("FL", fontsize=12)
-    # ax.set_ylabel("Scores", fontsize=12)
-    # plt.xticks(rotation=45, ha='right')
-    #
-    # legend_elements = [
-    #     Patch(facecolor=custom_palette[0], label='0-shot'),
-    #     Patch(facecolor=custom_palette[1], label='1-shot'),
-    #     Patch(facecolor=custom_palette[2], label='3-shot'),
-    #     Patch(facecolor=custom_palette[3], label='5-shot')
-    # ]
-    #
-    # ax.legend(handles=legend_elements, title="Nombre d'exemples")
-    #
-    # for bar, value in zip(bars, values):
-    #     height = bar.get_height()
-    #     ax.annotate(f'{height:.2f}',
-    #                 xy=(bar.get_x() + bar.get_width() / 2, height),
-    #                 xytext=(0, 3),
-    #                 textcoords="offset points",
-    #                 ha='center', va='bottom')
-    #
-    # plt.tight_layout()
-    # plt.savefig('bestQuestionAll_withk.svg')
-
 
 # Format examples in a more readable way
 def get_examples(rel):

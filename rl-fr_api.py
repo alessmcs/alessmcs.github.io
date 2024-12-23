@@ -341,7 +341,5 @@ if __name__ == "__main__":
     # Create as many samples of desired size as I want
     create_sample_sets(70, 30, 3, everything_updated)
 
-    # todo: pertinence des parties du discours ou pas??
-
 
 

@@ -20,21 +20,36 @@ body {
     margin: 0 2em;
 }
 
-/* En-tête */ 
+/* En-tête */
 
-#header_nav{
+header {
     position: sticky;
     top: 0;
+}
+
+#project_title{
+    font-size: 130%;
+    font-weight: bolder;
 }
 
 #header_top {
     background-color: var(--rouge-indien);
     padding: 1em 1rem;
+    height: auto;
+    transition: 0.5s ease;
 }
 
-#header_top h1, #header_top p{
+#header_top #project_title, #header_top div p{
     text-align: center;
     color: var(--off-white);
+    transition: 0.5s ease;
+}
+
+#project_info {
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    overflow: hidden;
+    opacity: 1;
+    max-height: 1000px;
 }
 
 #header_nav {
@@ -63,14 +78,41 @@ body {
 #idees_verbalisation{
   line-height: 1.5;
 }
+table{
+      margin-left: auto;
+  margin-right: auto;
+}
+
+table, th, td{
+    margin-top: 5%;
+    border: 1px solid;
+    border-collapse: collapse;
+}
 
 td{
-    border-bottom: 1px solid
+    padding: 5%
 }
 
 .partie{display: block;}
-.partie.hidden {display: none;}
 
-#header_nav .active a{
+.hidden, .partie.hidden {
+    display: none;
+}
+
+#lang_choice_abstract h3{
+    padding: 0.75em;
+}
+
+#lang_choice_abstract h3#fr.active, #lang_choice_abstract h3#eng.active {
+    border: var(--verdigris) solid 2px;
+}
+
+#header_nav .active{
     color: #4357AD;
+}
+
+#lang_choice_abstract {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

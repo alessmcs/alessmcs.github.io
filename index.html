@@ -18,38 +18,41 @@
 
     <header>
         <div id="header_top">
-            <h1>La théorie des fonctions lexicales appliquée pour tester des grands modèles de langages</h1>
-            <p>Viviane Binet, Alessandra Mancas</p>
-            <p>(20244728), (20249098)</p>
-            <p>Dans le cadre du cours IFT3150 - Prof. Philippe Langlais (A24)</p>
+            <p id="project_title">La théorie des fonctions lexicales appliquée pour tester des grands modèles de langages</p>
+            <div id ="project_info">
+                <p>Viviane Binet, Alessandra Mancas</p>
+                <p>(20244728), (20249098)</p>
+                <p>Dans le cadre du cours IFT3150 - Prof. Philippe Langlais (A24)</p>
+            </div>
         </div>
-        <div id="header_nav">
-            <h3 class="navhead" id="enonce_projet"><a href="#enonce_projet">Énoncé du projet</a></h3>
-            <h3 class="navhead" id="description"><a href="#description">Description détaillée</a></h3>
-            <h3 class="navhead" id="plan_avancement"><a href="#plan_avancement">Plan</a></h3>
-            <h3 class="navhead" id="rapports_avancement"><a href="#rapports_avancement">Rapports d'avancement</a></h3>
-            <h3><a href="todo.html" id="todo-onglet">TODO</a></h3>
+        <div id="header_nav" style="display:flex">
+            <h3 class="navhead active" id="enonce_projet" onclick="show_section(this.id)">Énoncé du projet</h3>
+            <h3 class="navhead" id="description" onclick="show_section(this.id)">Description détaillée</h3>
+            <h3 class="navhead" id="plan_avancement" onclick="show_section(this.id)">Plan</h3>
+            <h3 class="navhead" id="rapports_avancement" onclick="show_section(this.id)">Rapports d'avancement</h3>
+<!--            <h3><a href="todo.html" id="todo-onglet">TODO</a></h3>-->
+            <h3 class="navhead" id="rapport" onclick="show_section(this.id)">Rapport final</h3>
         </div>
     </header>
-    
-    <div id="contents">
-    
-        <section id="#enonce_projet" class="partie">
+
+    <div id="contents" style="overflow-y:scroll;">
+
+        <div id="#enonce_projet" class="partie">
                 <p>Nous utilisons la ressource du Réseau lexical français (RL-fr) pour en extraire des exemples de fonctions lexicales.
                     Une fonction lexicale retourne un ensemble de mots qui une relation précisée par la fonction avec le mot en entrée.
                     Ces exemples seront de la forme "mot en input" -fonction-> "mot en output". Nous allons ensuite sélectionner certaines
                     fonctions lexicales et les verbaliser pour tester des modèles de langage.  Nous allons donner en entrée aux modèles des
-                    phrases du genre "quel est le mot pour désigner le chef d'un navire", qui teste la fonction lexicale <i>chef de()</i>. 
+                    phrases du genre "quel est le mot pour désigner le chef d'un navire", qui teste la fonction lexicale <i>chef de()</i>.
                     Nous allons pouvoir comparer les performances des modèles de langage sur les différentes fonctions.
                     <a href= "https://www.ortolang.fr/market/lexicons/lexical-system-fr/v3.1">Réseau lexical du français RL-fr</a>
-
                 </p>
-                <p>
+
+            <p>
                     <a href="https://github.com/alessmcs/alessmcs.github.io"> Lien du projet GitHub</a>
                 </p>
-        </section>
-    
-        <section id="#description" class="partie hidden">
+        </div>
+
+        <div id="#description" class="partie hidden">
             <h2>Titre</h2>
             La théorie des fonctions lexicales appliquée pour tester des grands modèles de
             langage: une approche par verbalisation
@@ -104,10 +107,10 @@
                     <li>Compiler les scores de chaque échantillon en faisant leur moyenne, les mettre dans des fichiers .csv</li>
                     <li>Construire les visualisations nécessaires</li>
                 </ul>
-        </section>
-    
-        <section id="#plan_avancement" class="partie hidden">
-            <table>
+        </div>
+
+        <div id="#plan_avancement" class="partie hidden">
+            <table >
                 <tr>
                     <td>Date de début</td>
                     <td>6 septembre 2024</td>
@@ -120,16 +123,17 @@
                     <td>Dates prévues pour les modules</td>
                     <td>
                         <ul>
-                            <li>API : </li>
-                            <li>Développement du modèle: </li>
-                            <li>Obtention des résultats</li>
+                            <li>API : 18 octobre</li>
+                            <li>Développement du modèle: 15 novembre</li>
+                            <li>Obtention des résultats bruts: 10 décembre</li>
+                            <li>Raffinement des résultats + rapport: 20 décembre</li>
                         </ul>
                     </td>
                 </tr>
             </table>
-        </section>
-    
-        <section id="#rapports_avancement" class="partie hidden">
+        </div>
+
+        <div id="#rapports_avancement" class="partie hidden">
             <h2>Rapports d'avancement</h2>
             <h3>S1 - 02/09 - 08/09</h3>
             <ul>
@@ -162,7 +166,7 @@
 
             <h3>S5 - 30/09 - 6/10</h3>
                 <ul>
-                    <li>Nous avons obtenu un fichier .tsv des exemples afin de pouvoir les traiter facilement. Nous avons 
+                    <li>Nous avons obtenu un fichier .tsv des exemples afin de pouvoir les traiter facilement. Nous avons
                         produit un fichier texte d'exemples aléatoires pour les fonctions lexicales les plus fréquentes.
                     </li>
                 </ul>
@@ -247,8 +251,8 @@
                         on peut quand même voir facilement quelles questions fonctionnent mieux.
                     </li>
                     <li>
-                        Retrait des mots qui contiennent des chiffres ou d'autres caractères non alphabétiques des mots posés au 
-                        modèle. 
+                        Retrait des mots qui contiennent des chiffres ou d'autres caractères non alphabétiques des mots posés au
+                        modèle.
                     </li>
 
                 </ul>
@@ -256,12 +260,12 @@
                 <h3> S11 - 11/11 - 17/11</h3>
                 <ul>
                     <li>
-                        Ajout d'exemples provenant de la ressource aux questions pour voir si on obtient des meilleurs scores. On veut 
-                        retirer les mots en exemple des mots demandés au modèle pour ne pas gonfler artificiellement les scores. 
+                        Ajout d'exemples provenant de la ressource aux questions pour voir si on obtient des meilleurs scores. On veut
+                        retirer les mots en exemple des mots demandés au modèle pour ne pas gonfler artificiellement les scores.
                     </li>
                     <li>
-                        Méthode pour mettre toute l'information générée par les tests (les scores) dans un Dataframe, et ensuite pouvoir 
-                        extraire ces informations pour présenter des statistiques pour voir quelles questions sont les meilleures, et si 
+                        Méthode pour mettre toute l'information générée par les tests (les scores) dans un Dataframe, et ensuite pouvoir
+                        extraire ces informations pour présenter des statistiques pour voir quelles questions sont les meilleures, et si
                         le score augmente avec le nombre d'exemples donnés.
                     </li>
                 </ul>
@@ -301,8 +305,29 @@
                     <li>Au cœur de la fin de session, suite et fin de la rédaction du rapport, nettoyage du code source.</li>
                 </ul>
 
-        </section>
-    
+        </div>
+
+        <div id="#rapport" class="partie hidden">
+            <h2>Résumé du rapport</h2>
+            <div id="lang_choice_abstract">
+                <h3 id="fr" onclick="show_abstract(this.id)" class="active">En français</h3>
+                <h3 id="eng" onclick="show_abstract(this.id)" class="">En anglais</h3>
+            </div>
+            <div class="" id="abstract_fr">
+                <p>
+                    Notre recherche s’inscrit dans le domaine du traitement du langage naturel axée sur la théorie Sens-Texte. Nous observons, notamment, les fonctions lexicales  telles que décrites par Igor Mel’čuk et Alain Polguère pour se demander: pouvons-nous verbaliser les fonctions lexicales, de sorte qu’elles soient compréhensibles par un modèle de langage? Pour y répondre, nous avons tenté de verbaliser treize fonctions lexicales. Notre jeu de données provient du Réseau Lexical du Français (RL-fr), une ressource (non-exhaustive) qui fournit une représentation de la langue française sous forme d’un graphe. Les noeuds (les lexies) sont reliés, entre autres, par les fonctions lexicales. Nous avons généré plusieurs échantillons aléatoires correspondant aux fonctions lexicales de notre choix. Sur ces derniers, nous avons évalué les performances du modèle de langage llama3.2 en utilisant une perte 0-1 pour calculer les scores. On a créé une série de questions correspondant à chaque FL, ainsi qu’un ensemble d’exemples pour poser les questions en k-shots, puis nous avons comparé les réponses du modèle à ceux-ci avec ceux “attendus” du RL-fr. À la fin de ce projet, nous concluons que même si le modèle n’a pas de très bonnes performances objectives, llama3.2 semble comprendre, plus ou moins, les relations entre lexies telles qu’énoncées par les FLs.
+                </p>
+            </div>
+            <div class="hidden" id="abstract_eng">
+                <p>
+                    This research is part of the field of natural language processing focusing on Meaning-Text theory. We look at lexical functions as they are described by linguists Igor Mel’čuk et Alain Polguère to ask ourselves: can we verbalize lexical functions, such that they are comprehensible by a large language model? To answer it, we attempted to verbalize thirteen lexical functions. Out dataset come from the Réseau Lexical du Français (RL-fr), a (non-exhaustive) resource providing a graph representation of the french language. The nodes (lexies) are related, among other methods, by the aforementioned lexical functions. We then generated multiple random sample sets for each of our chosen lexical functions, over which we evaluated the performance of llama3.2 with a simple 0-1 loss. To do so, we created a series of questions per lexical function, as well as a small example set to prompt it in k-shots, and we compared the model’s outputs to our “expected” ones, based on the Rl-fr. In the end, we conclude that albeit the model does not have very good objective performances, llama3.2 seems so understand, more or less, the links between lexies as they’re stated by the lexical functions.
+                </p>
+            </div>
+
+            <h2>Le pdf du rapport est disponible <a href="./rapport.pdf" target="blank">ici</a>
+</h2>
+        </div>
+
     </div>
 </body>
 </html>
